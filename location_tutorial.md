@@ -117,6 +117,7 @@ After the installations of modules, the updated package.json is given below:
 <p align="center">
   <img src="https://github.com/Kardelennkayaa/display_location/blob/master/location_images/update_package_img.jpg" alt="Sublime's custom image"/>
 </p>
+
 ## Android Studio
 
  
