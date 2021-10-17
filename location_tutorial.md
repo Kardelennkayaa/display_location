@@ -29,7 +29,7 @@ Finally the app is created.
 3. Created Heroku App can be found from as follows :
 - (C:\Users\kfyka\OneDrive\Masaüstü\location_images\dashboard_img.png "Dashboard")
 4. Click on the "Resources" tab
-![Resources](location_images\dashboard_imgimg.png)
+![Resources](location_images/dashboard_imgimg.png)
 5. For Heroku Postgres, write it that under the add-ons button and click it. After that click the "Submit Order Form" for completing the Heroku Postgres.
 6. For accessing the database credentials, click the "Data" button and informations about database are available under the "Settings"
 ![Database Credentials](location_images\credentials_img.png)
