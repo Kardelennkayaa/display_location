@@ -39,14 +39,21 @@ Finally the app is created.
 
 To connect Heroku database, the pgAdmin 4 is used. Steps are given below:
 1. Create the server while right clicking on Servers.
+
 2. After that given database credentials should be presented as given follows:
 ![General](https://github.com/Kardelennkayaa/display_location/blob/master/location_images/general_img.jpg)
 
+
 Under the connection tool, the informations about Heroku database should be provided to relating blank. Click the "Save Password" button, if you do not want to enter password again and again.
+
 ![Connection](https://github.com/Kardelennkayaa/display_location/blob/master/location_images/connection_img.jpg)
+
+
 
 The DB restriction that under the Advanced tool, should be filled Heroku database name.
 ![Advanced](https://github.com/Kardelennkayaa/display_location/blob/master/location_images/advanced_img.jpg)
+
+
 
 ###### Create Table
 To create table, the table name should be defined. Under the Columns tool, the columns name and their data types should be provided like below:
