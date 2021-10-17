@@ -41,8 +41,10 @@ To connect Heroku database, the pgAdmin 4 is used. Steps are given below:
 1. Create the server while right clicking on Servers.
 2. After that given database credentials should be presented as given follows:
 ![General](https://github.com/Kardelennkayaa/display_location/blob/master/location_images/general_img.jpg)
+
 Under the connection tool, the informations about Heroku database should be provided to relating blank. Click the "Save Password" button, if you do not want to enter password again and again.
 ![Connection](https://github.com/Kardelennkayaa/display_location/blob/master/location_images/connection_img.jpg)
+
 The DB restriction that under the Advanced tool, should be filled Heroku database name.
 ![Advanced](https://github.com/Kardelennkayaa/display_location/blob/master/location_images/advanced_img.jpg)
 
@@ -57,7 +59,7 @@ Then open the folder on Visual Studio Code. For installing the Node JS, open the
 - Firstly, write the **npm init** on the terminal. For creating package.json, the questions will asked. Press enter button for all of the questions. At the end of the questions, the package.json is created with metadata.
 The package.json is given as:
 
-![Package](https://github.com/Kardelennkayaa/display_location/blob/master/location_images/package_img.png)
+![Package](https://github.com/Kardelennkayaa/display_location/blob/master/location_images/package_img.jpg)
 - Requirement installations of JavaScript packages:
 1. Express Module
 The Express module provides easy and fast development of web applications.Also it delivered the management of web requests with the route method it offers.
