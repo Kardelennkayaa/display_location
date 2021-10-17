@@ -27,7 +27,10 @@ The requirement informations should be entered to sign up. When the account is c
 - The region option can be choosen as you want (United States or Europe).
 Finally the app is created. 
 3. Created Heroku App can be found from as follows :
-![Dashboard](https://github.com/Kardelennkayaa/display_location/blob/master/location_images/dashboard_img.png)
+<p align="center">
+  <img src="https://github.com/Kardelennkayaa/display_location/blob/master/location_images/dashboard_img.png" alt="Sublime's custom image"/>
+</p>
+
 4. Click on the "Resources" tab.
 ![Resources](https://github.com/Kardelennkayaa/display_location/blob/master/location_images/dashboard_img.png)
 5. For Heroku Postgres, write it that under the add-ons button and click it. After that click the "Submit Order Form" for completing the Heroku Postgres.
