@@ -14,7 +14,7 @@ Visual Studio Code supports to use the multiple languages in one interface. The 
 Node.js is an open source server environment that using the JavaScript on the server. For downloading, [Download Node JS](https://nodejs.org/en/download/).
 ###### Git
 To manage source code the Git is used that is an Open Source Distributed Version Control System. It can be downloaded from [here](https://git-scm.com/downloads/)
-###### Android Studio
+
 
 ## Web Interface
 ###### Opening a Heroku Account
@@ -67,7 +67,7 @@ Bluebird is a fully featured library with focus on innovative features and perfo
 Pg-promise is a PostgreSQL interface for NodeJS.For installing the module; write **npm install pg-promise --save** on terminal and press enter.
 After the installations of modules, the updated package.json is given below:
 ![Update_package](location_images\update_package_img.png)
-
+###### Android Studio
 
  
 
