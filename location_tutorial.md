@@ -97,13 +97,20 @@ The package.json is given as:
 
 - Requirement installations of JavaScript packages:
 1. Express Module
+
 The Express module provides easy and fast development of web applications.Also it delivered the management of web requests with the route method it offers.
 To install Express module; write **npm install express --save** on terminal and press enter.
+
 2. File System Module
+
 The File System Module is a module that contains functions that allow you to perform all file reading, writing, and permission operations.For installing the module; write **npm install express --save** on terminal and press enter.
+
 3. Bluebird Module
+
 Bluebird is a fully featured library with focus on innovative features and performance.For installing the module; write **npm install bluebird --save** on terminal and press enter.
+
 4. Pg-Promise Module
+
 Pg-promise is a PostgreSQL interface for NodeJS.For installing the module; write **npm install pg-promise --save** on terminal and press enter.
 After the installations of modules, the updated package.json is given below:
 
