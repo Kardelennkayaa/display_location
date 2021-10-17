@@ -5,7 +5,7 @@ Purpose of this project, displaying locations from getting database via web inte
 These are saved with attributes that location name, recorder, minibus name, registered date and, their geometry. Location's geometry has latitude and longitude values with respect to projection which EPSG4326 and defined on WGS84 ellipsoid.
 Getting points are recorded to PostgreSQL database. To visualize points on database, the Heroku platform is used. For this aim, PostGIS is Heroku service that provides developers to build, run, and operate applications entirely in the cloud.
 ## Installation Requirements
-###### PostgreSQL
+### PostgreSQL
 For recording points, the PostgreSQL should be used. To download PostgreSQL, the link is given as [PostgreSQL download link](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads).
 To installing PostgreSQL, following link is given [Install PostgreSQL](https://www.postgresqltutorial.com/install-postgresql/)
 ###### Visual Studio Code
