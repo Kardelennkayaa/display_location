@@ -31,6 +31,7 @@ Finally the app is created.
 4. Click on the "Resources" tab
 ![Resources](location_images\dashboard_imgimg.png)
 5. For Heroku Postgres, write it that under the add-ons button and click it. After that click the "Submit Order Form" for completing the Heroku Postgres.
+![Add-ons](https://github.com/Kardelennkayaa/display_location/blob/master/location_images/add_ons_img.png)
 6. For accessing the database credentials, click the "Data" button and informations about database are available under the "Settings"
 ![Database Credentials](location_images\credentials_img.png)
 
