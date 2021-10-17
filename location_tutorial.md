@@ -8,16 +8,16 @@ Getting points are recorded to PostgreSQL database. To visualize points on datab
 ### PostgreSQL
 For recording points, the PostgreSQL should be used. To download PostgreSQL, the link is given as [PostgreSQL download link](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads).
 To installing PostgreSQL, following link is given [Install PostgreSQL](https://www.postgresqltutorial.com/install-postgresql/)
-###### Visual Studio Code
+### Visual Studio Code
 Visual Studio Code supports to use the multiple languages in one interface. The VSC is utilized for writing, running and debugging code.  To download Visual Studio Code, the link is given [Download Visual Studio Code](https://code.visualstudio.com/Download)
-###### Node JS
+### Node JS
 Node.js is an open source server environment that using the JavaScript on the server. For downloading, [Download Node JS](https://nodejs.org/en/download/).
-###### Git
+### Git
 To manage source code the Git is used that is an Open Source Distributed Version Control System. It can be downloaded from [here](https://git-scm.com/downloads/)
 
 
 ## Web Interface
-###### Opening a Heroku Account
+### Opening a Heroku Account
 
 To create a Heroku account, the following link can be [used](https://signup.heroku.com/login?redirect-url=https%3A%2F%2Fid.heroku.com%2Foauth%2Fauthorize%3Fclient_id%3Dd2ef2b24-e72c-4adf-8506-28db2218547d%26response_type%3Dcode%26scope%3Dglobal%252Cplatform%26state%3DSFMyNTY.g3QAAAACZAAEZGF0YW0AAAAxaHR0cHM6Ly9kYXNoYm9hcmQuaGVyb2t1LmNvbS9hdXRoL2hlcm9rdS9jYWxsYmFja2QABnNpZ25lZG4GANL7onluAQ.eDiBIjGpk8wBx82K2Ej2tBwAitNPBGNQoMMDLoySy78).
 The requirement informations should be entered to sign up. When the account is created, an email is sent to verify the account. After that the Heroku App must be generated with Postgres database. For this purpose, stages are given below:
@@ -48,7 +48,7 @@ Finally the app is created.
 </p>
 
 
-###### Connection Heroku Database and Postgres
+### Connection Heroku Database and Postgres
 
 To connect Heroku database, the pgAdmin 4 is used. Steps are given below:
 1. Create the server while right clicking on Servers.
@@ -77,14 +77,14 @@ The DB restriction that under the Advanced tool, should be filled Heroku databas
 
 
 
-###### Create Table
+### Create Table
 To create table, the table name should be defined. Under the Columns tool, the columns name and their data types should be provided like below:
 
 <p align="center">
   <img src="https://github.com/Kardelennkayaa/display_location/blob/master/location_images/table_img.jpg" alt="Sublime's custom image"/>
 </p>
 
-###### Visual Studio Code
+### Visual Studio Code
 For opening the folder, first of all the empty folder should be created on the computer.
 Then open the folder on Visual Studio Code. For installing the Node JS, open the new terminal.
 - Firstly, write the **npm init** on the terminal. For creating package.json, the questions will asked. Press enter button for all of the questions. At the end of the questions, the package.json is created with metadata.
@@ -110,7 +110,7 @@ After the installations of modules, the updated package.json is given below:
 <p align="center">
   <img src="https://github.com/Kardelennkayaa/display_location/blob/master/location_images/update_package_img.jpg" alt="Sublime's custom image"/>
 </p>
-###### Android Studio
+## Android Studio
 
  
 
