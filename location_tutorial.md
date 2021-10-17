@@ -44,7 +44,10 @@ To connect Heroku database, the pgAdmin 4 is used. Steps are given below:
 1. Create the server while right clicking on Servers.
 
 2. After that given database credentials should be presented as given follows:
-![General](https://github.com/Kardelennkayaa/display_location/blob/master/location_images/general_img.jpg)
+<p align="center">
+  <img src="https://github.com/Kardelennkayaa/display_location/blob/master/location_images/general_img.jpg" alt="Sublime's custom image"/>
+</p>
+
 
 
 Under the connection tool, the informations about Heroku database should be provided to relating blank. Click the "Save Password" button, if you do not want to enter password again and again.
