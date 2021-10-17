@@ -40,14 +40,18 @@ Finally the app is created.
 To connect Heroku database, the pgAdmin 4 is used. Steps are given below:
 1. Create the server while right clicking on Servers.
 2. After that given database credentials should be presented as given follows:
+
 ![General](https://github.com/Kardelennkayaa/display_location/blob/master/location_images/general_img.png)
 Under the connection tool, the informations about Heroku database should be provided to relating blank. Click the "Save Password" button, if you do not want to enter password again and again.
+
 ![Connection](https://github.com/Kardelennkayaa/display_location/blob/master/location_images/connection_img.png)
 The DB restriction that under the Advanced tool, should be filled Heroku database name.
+
 ![Advanced](https://github.com/Kardelennkayaa/display_location/blob/master/location_images/advanced_img.png)
 
 ###### Create Table
 To create table, the table name should be defined. Under the Columns tool, the columns name and their data types should be provided like below:
+
 ![Table](https://github.com/Kardelennkayaa/display_location/blob/master/location_images/table_img.png)
 
 ###### Visual Studio Code
@@ -55,6 +59,7 @@ For opening the folder, first of all the empty folder should be created on the c
 Then open the folder on Visual Studio Code. For installing the Node JS, open the new terminal.
 - Firstly, write the **npm init** on the terminal. For creating package.json, the questions will asked. Press enter button for all of the questions. At the end of the questions, the package.json is created with metadata.
 The package.json is given as:
+
 ![Package](https://github.com/Kardelennkayaa/display_location/blob/master/location_images/package_img.png)
 - Requirement installations of JavaScript packages:
 1. Express Module
@@ -67,6 +72,7 @@ Bluebird is a fully featured library with focus on innovative features and perfo
 4. Pg-Promise Module
 Pg-promise is a PostgreSQL interface for NodeJS.For installing the module; write **npm install pg-promise --save** on terminal and press enter.
 After the installations of modules, the updated package.json is given below:
+
 ![Update_package](https://github.com/Kardelennkayaa/display_location/blob/master/location_images/update_package_img.png)
 ###### Android Studio
 
