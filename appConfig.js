@@ -41,7 +41,7 @@ var developmentDatabase = {
     }
     module.exports = {
     hostname: "http://localhost",
-    port: 5656,
+    port: 5432,
     database: {
     postgres: developmentDatabase.postgres
     }
