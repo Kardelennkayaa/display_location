@@ -34,7 +34,7 @@ Finally the app is created.
 4. Click on the "Resources" tab.
 
 <p align="center">
-  <img src="https://github.com/Kardelennkayaa/display_location/blob/master/location_images/dashboard_img.png" alt="Sublime's custom image"/>
+  <img src="https://github.com/Kardelennkayaa/display_location/blob/master/location_images/resources_img.png" alt="Sublime's custom image"/>
 </p>
 
 5. For Heroku Postgres, write it that under the add-ons button and click it. After that click the "Submit Order Form" for completing the Heroku Postgres.
