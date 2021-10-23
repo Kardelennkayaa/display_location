@@ -10,35 +10,35 @@ Yapılan bu projede geliştirilen uygulama git servisinde mevcut olup Heroku App
 
 ## Kullanılacak Uygulamalar
 
-###### PostgreSQL
+### PostgreSQL
 
 Android Studio ile alınan konum verilerinin tutulacağı uygulama olarak PostgreSQL veritabanı kullanılır. PostgreSQL yüklemek için link takip edilebilir: [PostgreSQL download link](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads).
 PostgreSQL kurulumu için verilen sayfadan ilerlenebilir:  [Install PostgreSQL](https://www.postgresqltutorial.com/install-postgresql/)
 
 
-###### Visual Studio Code
+### Visual Studio Code
 
 Farklı dillerde kod düzenlemelerini, tek bir arayüzde düzenleme işlemleri için Visual Studio Code tercih edilen bir uygulamadır. Ayrıca kod geliştirmek, yazılan kodu çalıştırmak ve hata ayıklama (debug) işlevlerinin sağlanabilirliği açısından oldukça elverişli bir uygulamadır. Visual Studio Code uygulaması verilen link aracılığı ile indirilebilir: [Download Visual Studio Code](https://code.visualstudio.com/Download)
 
 
-###### Node JS
+### Node JS
 
 Node.js, web tarayıcılarına ihtiyaç duyulmadan asenkron olarak çalışabilen, açık kaynaklı bir platformdur. Node JS ortamının tercih edilme sebeplerinden biri de JavaScript server side uygulamaların yazımına olanak sağlamasıdır. Node JS indirmek için bağlantı verilmiştir: [Download Node JS](https://nodejs.org/en/download/).
 
 
-###### Git
+### Git
 
 Bir versiyon kontrol sistemi olan Git; geliştirilen bir proje üzerinde yapılan değişikliklerin düzenlenmesini, kaydedilmesini ve bu işlemleri internet üzerinde bir depoda (repository) tutulmasını gerçekleştirebilen bir sistemdir. Geliştirilen proje üzerinde yapılan düzenlemelerin takip edilerek, geriye dönüşün kolay olmasını sağlamasının yanı sıra birden çok geliştiricinin birlikte çalışmasına da imkan veren bir sistem olduğu için kullanılır. Verilen link takip edilerek indirilebilir: [here](https://git-scm.com/downloads/)
 
 
-###### Android Studio
+
 
 
 ## WEB Arayüzü
 
 Web arayüzü oluşturmak için yapılması gereken adımlar sırası ile şu şekildedir:
 
-###### Heroku hesabı oluşturmak:
+### Heroku hesabı oluşturmak:
 
 Heroku hesabı verilen link ile gerçekleştirilebilir: [Heroku sign up](https://signup.heroku.com/login?redirect-url=https%3A%2F%2Fid.heroku.com%2Foauth%2Fauthorize%3Fclient_id%3Dd2ef2b24-e72c-4adf-8506-28db2218547d%26response_type%3Dcode%26scope%3Dglobal%252Cplatform%26state%3DSFMyNTY.g3QAAAACZAAEZGF0YW0AAAAxaHR0cHM6Ly9kYXNoYm9hcmQuaGVyb2t1LmNvbS9hdXRoL2hlcm9rdS9jYWxsYmFja2QABnNpZ25lZG4GANL7onluAQ.eDiBIjGpk8wBx82K2Ej2tBwAitNPBGNQoMMDLoySy78)
 
@@ -75,7 +75,7 @@ Sign up sayfasında istenen bilgiler girildikten sonra vermiş olduğunuz email 
 </p>
 
 
-###### Heroku-PostgreSQL Bağlantısı:
+### Heroku-PostgreSQL Bağlantısı:
 
 Heroku-PostgreSQL bağlantısı oluşturmak için, PostgreSQL veritabanlarını yönetmek amacıyla pgAdmin4 uygulaması tercih edilmiştir. Bağlantı için yapılması gereken adımlar şu şekilde özetlenibilir:
 
@@ -98,7 +98,7 @@ Heroku-PostgreSQL bağlantısı oluşturmak için, PostgreSQL veritabanlarını 
   <img src="https://github.com/Kardelennkayaa/display_location/blob/master/location_images/advanced_img.jpg" alt="Sublime's custom image"/>
 </p>
 
-###### Tablo Oluşturmak:
+### Tablo Oluşturmak:
 
 Oluşturulan veritabanında verilerin kaydedileceği bir tablo, "Schemas" başlığı altındaki "Tables" seçeneğinden "Create" işaretlenerek oluşturulabilir. Verilerin öznitelik bilgilerinin kaydı için "Column" ve "Data Type" seçenekleri şu şekilde girilebilir:
 
@@ -106,7 +106,7 @@ Oluşturulan veritabanında verilerin kaydedileceği bir tablo, "Schemas" başl�
   <img src="https://github.com/Kardelennkayaa/display_location/blob/master/location_images/table_img.jpg" alt="Sublime's custom image"/>
 </p>
 
-###### Visual Studio Code 
+### Visual Studio Code 
 
 Geliştirilecek web arayüzü için gerekli olan kodlar Visual Studio Code uygulaması kullanılarak düzenlenir. VSC ile yeni bir proje yaratmak için öncelikle, bilgisayarınızda yeni bir boş klasör oluşturmanız gerekir. Sonrasında ise oluşturulan klasör VSC ile açılır.
 Node JS kurulumu için VSC'de "Terminal" bölmesi altından yeni bir terminal açılır.
@@ -119,7 +119,7 @@ Oluşturulan **package.json** aşağıda verilen görsel gibi olmalıdır:
 </p>
 
 
-###### JavaScript kodu için gerekli kurulumlar:
+### JavaScript kodu için gerekli kurulumlar:
 
 1. Express JS Modulü
 
@@ -144,5 +144,5 @@ Gerekli modüllerün kurulumundan sonra **package.json** dosyası aşağıdaki g
   <img src="https://github.com/Kardelennkayaa/display_location/blob/master/location_images/update_package_img.jpg" alt="Sublime's custom image"/>
 </p>
 
-
+### **Android Studio**
 
