@@ -12,7 +12,7 @@ Yapılan bu projede geliştirilen uygulama git servisinde mevcut olup Heroku App
 
 ### PostgreSQL
 
-Android Studio ile alınan konum verilerinin tutulacağı uygulama olarak PostgreSQL veritabanı kullanılır. PostgreSQL yüklemek için link takip edilebilir: [PostgreSQL download link](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads).
+Android Studio ile alınan konum verilerinin tutulacağı uygulama olarak PostgreSQL veritabanı kullanılır. PostgreSQL yüklemek için link takip edilebilir: (https://www.enterprisedb.com/downloads/postgres-postgresql-downloads).
 PostgreSQL kurulumu için verilen sayfadan ilerlenebilir:  [Install PostgreSQL](https://www.postgresqltutorial.com/install-postgresql/)
 
 
