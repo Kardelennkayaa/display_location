@@ -44,31 +44,31 @@ Heroku hesabı verilen link ile gerçekleştirilebilir: [Heroku sign up](https:/
 
 Sign up sayfasında istenen bilgiler girildikten sonra vermiş olduğunuz email hesabınıza bir onaylama maili gelecektir. Gelen maildeki link takip edilerek giriş yapıldıktan sonra Postgres veritabanı ile ilişkilendirilen bir Heroku App oluşturulması gerekmektedir. Bu işlem için gerekli adımlar aşağıda verilmiştir:
 
-1. Oluşturulan Heroku hesabına giriş yapıldıktan sonra, "New" butonuna basılır ve ardından "Create New App" opsiyonu seçilir.
+**1.** Oluşturulan Heroku hesabına giriş yapıldıktan sonra, "New" butonuna basılır ve ardından "Create New App" opsiyonu seçilir.
 
-2. "Create New App" seçildikten sonra kullanıcıdan bazı bilgiler istenir. Bu bilgiler şu şekilde doldurulmalıdır:
+**2.** "Create New App" seçildikten sonra kullanıcıdan bazı bilgiler istenir. Bu bilgiler şu şekilde doldurulmalıdır:
 - App ismi özgün (unique) olacak şekilde verilmelidir.
 - "United States" veya "Europe" olarak verilen bölge seçenekleri tercihe bağlı olarak seçilebilir.
 
-3. Kurulum için gerekli olan bu bilgiler girildikten sonra Heroku App oluşturulmuş olur. Oluşturulan Heroku App verilen görseldeki gibi bulunabilir:
+**3.** Kurulum için gerekli olan bu bilgiler girildikten sonra Heroku App oluşturulmuş olur. Oluşturulan Heroku App verilen görseldeki gibi bulunabilir:
 
 <p align="center">
   <img src="https://github.com/Kardelennkayaa/display_location/blob/master/location_images/dashboard_img.png" alt="Sublime's custom image"/>
 </p>
 
-4. Heroku ile PostgreSQL veritabanı oluşturmak için ilk olarak "Resources" butonu seçilir.
+**4.** Heroku ile PostgreSQL veritabanı oluşturmak için ilk olarak "Resources" butonu seçilir.
 
 <p align="center">
   <img src="https://github.com/Kardelennkayaa/display_location/blob/master/location_images/resources_img.png" alt="Sublime's custom image"/>
 </p>
 
-5. "Add-ons"  bölümüne "Heroku Postgres" yazılır. Sonrasında ise bağlantıyı tamamlamak için "Submit Order Form" işaretlenir.
+**5.** "Add-ons"  bölümüne "Heroku Postgres" yazılır. Sonrasında ise bağlantıyı tamamlamak için "Submit Order Form" işaretlenir.
 
 <p align="center">
   <img src="https://github.com/Kardelennkayaa/display_location/blob/master/location_images/add_ons_img.png" alt="Sublime's custom image"/>
 </p>
 
-6. Oluşturulan PostgreSQL veritabanı bilgilerine ulaşmak için, "Data" butonuna basılır. Sonrasında ise "Settings" bölmesinde yer alan "Database Credentials"  başlığı altında ilgili veritabanı ile ilgili bilgilere ulaşılabilir.
+**6.** Oluşturulan PostgreSQL veritabanı bilgilerine ulaşmak için, "Data" butonuna basılır. Sonrasında ise "Settings" bölmesinde yer alan "Database Credentials"  başlığı altında ilgili veritabanı ile ilgili bilgilere ulaşılabilir.
 
 <p align="center">
   <img src="https://github.com/Kardelennkayaa/display_location/blob/master/location_images/credentials_img.png" alt="Sublime's custom image"/>
@@ -79,8 +79,8 @@ Sign up sayfasında istenen bilgiler girildikten sonra vermiş olduğunuz email 
 
 Heroku-PostgreSQL bağlantısı oluşturmak için, PostgreSQL veritabanlarını yönetmek amacıyla pgAdmin4 uygulaması tercih edilmiştir. Bağlantı için yapılması gereken adımlar şu şekilde özetlenibilir:
 
-1. "Servers" başlığına sağ tık yapılarak yeni bir server oluşturulur.
-2. Server oluşturmak için gelen arayüz aşağıdaki gibidir:
+**1.** "Servers" başlığına sağ tık yapılarak yeni bir server oluşturulur.
+**2.** Server oluşturmak için gelen arayüz aşağıdaki gibidir:
 
 <p align="center">
   <img src="https://github.com/Kardelennkayaa/display_location/blob/master/location_images/general_img.jpg" alt="Sublime's custom image"/>
@@ -121,20 +121,20 @@ Oluşturulan **package.json** aşağıda verilen görsel gibi olmalıdır:
 
 ### JavaScript kodu için gerekli kurulumlar:
 
-1. Express JS Modulü
+**1. Express JS Modulü**
 
 Express modülü, web siteleri geliştiirlirken uygulanabilirlik açısından kolaylık ve hızlılık sağlaması için tercih edilen bir sunucu temelidir. İçerdiği HTTP yardımcı araçları ve katmanları, güçlü bir uygulama kurmak açısından önem teşkil eder.
 Bu modül ile istek (request) ve yanıtlar (response) yönetilir. Express JS modülü kurmak için; terminale **npm install express --save** komutu yazılır ve ardından enter tuşuna basılır.
 
-2. File System Modülü
+**2. File System Modülü**
 
 File System modülü (FS Modülü); tüm dosya okuma, yazma, izin verme gibi işlemleri gerçekleştirmeye yarayan fonksiyonları içeren bir modüldür. FS modülünün kurulumu için terminale **npm install express --save** komutunun yazılması gerekir.
 
-3. Bluebird Modülü
+**3. Bluebird Modülü**
 
 Bluebird, yenilikçi özelliklere ve performansa odaklanan tam donanımlı bir kütüphanedir. Bu modülün kurulumu için terminalde **npm install bluebird --save** komutunun çalıştırılması gereklidir.
 
-4. Pg-Promise Modulü
+**4. Pg-Promise Modulü**
 
 Pg-Promise, Node JS için bir PostgreSQL arayüzüdür. Kurulum için terminalde **npm install pg-promise --save** komutunun çalıştırılmalıdır.
 
