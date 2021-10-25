@@ -2,9 +2,9 @@ var developmentDatabase = {
     postgres: {
     host: 'ec2-63-33-239-176.eu-west-1.compute.amazonaws.com',
     port: 5432,
-    database: 'dc8e8es3dfs8tj',
-    user: 'wnoomsxmhltgdl',
-    password: '444c9828fb61d52829262ee9d02ac48501f5c1b84d7884d31b973660ae8e5025'
+    database: 'dfj8696f74pajm',
+    user: 'ggrrndzctwuxta',
+    password: '1872a3341f8d85c00db80493e8fc8508874ae0f64656b109dca53a671d1786ed'
     }
     }
     
