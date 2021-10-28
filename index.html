@@ -28,6 +28,7 @@
             
             var point;
             var length=data.length;
+            var vectorLayer = new OpenLayers.Layer.Vector();
             //TODO - data haritaya ekleme işlemi
             for (point = 0; point < data.length; point++) {
             var rec=data[point].recorder;
@@ -53,7 +54,6 @@
             {description:'Latitude:'+lat+'<br>Longitude:'+lon+'<br>Recorder:'+rec+'<br>Recorder Gender:'+gen+'<br>Transit Type:'+tra}
             );
             
-            var vectorLayer = new OpenLayers.Layer.Vector();
             vectorLayer.addFeatures(feature);
             map.addLayer(vectorLayer);
                 
@@ -70,7 +70,7 @@
                   true,
                   function() { controls['selector'].unselectAll(); }
               );
-              //feature.popup.closeOnMove = true;
+             
               map.addPopup(feature.popup);
             }
 
