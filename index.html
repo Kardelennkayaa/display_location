@@ -53,9 +53,8 @@
             {description:'Latitude:'+lat+'<br>Longitude:'+lon+'<br>Recorder:'+rec+'<br>Recorder Gender:'+gen+'<br>Transit Type:'+tra}
             );
             
-            var sourcePoints = new OpenLayers.Source.Vector();
             var vectorLayer = new OpenLayers.Layer.Vector({
-                source: sourcePoints,
+                source: feature,
                 style: function(feature) {
                    if (feature.attributes.description.tra == 'Dolmus'){
                         return new OpenLayers.Style({
