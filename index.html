@@ -53,6 +53,7 @@
             {description:'Latitude:'+lat+'<br>Longitude:'+lon+'<br>Recorder:'+rec+'<br>Recorder Gender:'+gen+'<br>Transit Type:'+tra}
             );
             
+            var sourcePoints = new Openlayers.Source.Vector({features: [feature]});
             var vectorLayer = new OpenLayers.Layer.Vector({
                 source: sourcePoints,
                 style: function(feature) {
