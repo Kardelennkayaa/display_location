@@ -45,9 +45,9 @@
             var markers = new OpenLayers.Layer.Markers( "Markers" );
             var marker_colour;
         if (tra=='Dolmus') {
-            marker_colour = 'https://www.pixsy.com/wp-content/uploads/2021/04/ben-sweet-2LowviVHZ-E-unsplash-1.jpeg';
-        } else if(tra=='Bus'){ marker_colour='https://github.com/Kardelennkayaa/display_location/blob/master/location_images/red_marker.png'}
-        else{marker_colour = "https://github.com/Kardelennkayaa/display_location/blob/master/location_images/gray_marker.png"}
+            marker_colour = 'https://www.iconsdb.com/icons/preview/red/marker-xxl.png';
+        } else if(tra=='Bus'){ marker_colour='https://www.iconsdb.com/icons/preview/blue/marker-xxl.png'}
+        else{marker_colour = 'https://www.iconsdb.com/icons/preview/gray/marker-xxl.png'}
         map.addLayer(markers)
 
             markers.addMarker(new OpenLayers.Marker(lonLat))
@@ -57,7 +57,7 @@
         var feature = new OpenLayers.Feature.Vector(
         new OpenLayers.Geometry.Point( lon,lat ).transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject()),
         {description:'Latitude:'+lat+'<br>Longitude:'+lon+'<br>Recorder:'+rec+'<br>Recorder Gender:'+gen+'<br>Transit Type:'+tra},
-        {externalGraphic: marker_colour, graphicHeight: 25, graphicWidth: 21, graphicXOffset:-12, graphicYOffset:-25}
+        {externalGraphic: marker_colour}
         );
 
         vectorLayer.addFeatures(feature);
