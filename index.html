@@ -38,10 +38,6 @@
             var zoom=10;
         
             var markers = new OpenLayers.Layer.Markers( "Markers" );
-            markers.id ="Information tab";
-            markers.events.register("mousedown", markers, function() {
-            alert(this.id);
-            });
             map.addLayer(markers)
                 
             markers.addMarker(new OpenLayers.Marker(lonLat))
