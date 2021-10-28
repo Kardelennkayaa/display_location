@@ -13,7 +13,7 @@ var options = {
 };
 
 function getAllLocations(cb) {
-      DATABASE_PGB.any('SELECT ST_X(geom) as longitude, ST_Y(geom) as latitude from minibus_stations')
+      DATABASE_PGB.any('SELECT recorder_name as recorder, recorder_gender as gender, public_transit as transit, ST_X(geom) as longitude, ST_Y(geom) as latitude from location_data')
       .then(function (data) {
          cb(null, data);})
        .catch(function (err) {
