@@ -44,11 +44,11 @@
         
             var markers = new OpenLayers.Layer.Markers( "Markers" );
             var marker_colour;
-            if (tra=='Dolmus') {
-                marker_colour = 'https://github.com/Kardelennkayaa/display_location/blob/master/location_images/blue_marker.png';
-            } else if(tra=='Bus'){ marker_colour='https://github.com/Kardelennkayaa/display_location/blob/master/location_images/red_marker.png'}
-            else{marker_colour = "https://github.com/Kardelennkayaa/display_location/blob/master/location_images/gray_marker.png"}
-            map.addLayer(markers)
+        if (tra=='Dolmus') {
+            marker_colour = 'https://github.com/Kardelennkayaa/display_location/blob/master/location_images/blue_marker.png';
+        } else if(tra=='Bus'){ marker_colour='https://github.com/Kardelennkayaa/display_location/blob/master/location_images/red_marker.png'}
+        else{marker_colour = "https://github.com/Kardelennkayaa/display_location/blob/master/location_images/gray_marker.png"}
+        map.addLayer(markers)
 
             markers.addMarker(new OpenLayers.Marker(lonLat))
                 
