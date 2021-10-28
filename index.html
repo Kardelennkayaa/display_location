@@ -21,7 +21,8 @@
 
             map = new OpenLayers.Map("mapdiv");
             map.addLayer(new OpenLayers.Layer.OSM());
-
+            
+            var vectorLayer = new OpenLayers.Layer.Vector("Overlay");
             var point;
             var length=data.length;
             //TODO - data haritaya ekleme işlemi
