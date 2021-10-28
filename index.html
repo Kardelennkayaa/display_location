@@ -26,7 +26,6 @@
             map = new OpenLayers.Map("mapdiv");
             map.addLayer(new OpenLayers.Layer.OSM());
             
-            var vectorLayer = new OpenLayers.Layer.Vector("Overlay");
             var point;
             var length=data.length;
             //TODO - data haritaya ekleme işlemi
@@ -54,6 +53,39 @@
             {description:'Latitude:'+lat+'<br>Longitude:'+lon+'<br>Recorder:'+rec+'<br>Recorder Gender:'+gen+'<br>Transit Type:'+tra}
             );
             
+            var vectorLayer = new Openlayers.Layer.Vector({
+                source: sourcePoints,
+                style: function(feature) {
+                   if (feature.attributes.description.tra == 'Dolmus'){
+                        return new Openlayers.Style({
+                                image :new Openlayers.Style.Circle({
+                                    fill: new Openlayers.Style.Fill({
+                                        color:'#0000FF'
+                                    }),
+                                    radius:6
+                                })
+                            })
+                    } else if (feature.attributes.description.tra == 'Minibus'){
+                        return new Openlayers.Style({
+                            image :new Openlayers.Style.Circle({
+                                fill: new Openlayers.Style.Fill({
+                                    color:'#00FF00'
+                                }),
+                                radius:6
+                            })
+                        })
+                    } else if (feature.attributes.description.tra == 'Bus'){
+                        return new Openlayers.Style({
+                            image :new Openlayers.Style.Circle({
+                                fill: new Openlayers.Style.Fill({
+                                    color:'#FF0000'
+                                }),
+                                radius:6
+                            })
+                        }) 
+                    }
+                }
+            });
             vectorLayer.addFeatures(feature);
             map.addLayer(vectorLayer);
                 
