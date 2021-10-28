@@ -28,7 +28,7 @@
             
             var point;
             var length=data.length;
-            var vectorLayer = new OpenLayers.Layer.Vector();
+            var vectorLayer = new OpenLayers.Layer.Vector("Overlay");
             //TODO - data haritaya ekleme işlemi
             for (point = 0; point < data.length; point++) {
             var rec=data[point].recorder;
