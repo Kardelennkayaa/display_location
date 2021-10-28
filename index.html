@@ -46,7 +46,7 @@
                 
             var feature = new OpenLayers.Feature.Vector(
             new OpenLayers.Geometry.Point( lon,lat ).transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject()),
-            {description:'Latitude:'+lat+'<br>Longitude:'+lon+'<br>Recorder:'+rec+'<br>Recorder Gender:'+gen+'<br>Transit Type:'+tra+'} ,
+            {description:'Latitude:'+lat+'<br>Longitude:'+lon+'<br>Recorder:'+rec+'<br>Recorder Gender:'+gen+'<br>Transit Type:'+tra}
             );
             
             vectorLayer.addFeatures(feature);
