@@ -41,20 +41,14 @@ body {
 <body>
     <div class="topnav">
         <a class="active" href="#home">Home</a>
-        <a class="nav-link" onclick="myFunction()">Recorder</a>
-        <p id="demo"></p>
+        <a href="#Recorder">Recorder</a>
     </div>
     
-
     <div id="mapdiv"></div>
     <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=fetch,requestAnimationFrame,Element.prototype.classList,URL"></script>
     <script src="http://www.openlayers.org/api/OpenLayers.js"></script>
     <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script>
-        
-        function myFunction() {
-            document.getElementById("demo").innerHTML = "Hello World";
-        }
 
         $.getJSON('/api/data', function(data) {
             console.log(data[0].recorder);
