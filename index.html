@@ -42,8 +42,8 @@
                                                                 )
             var zoom=10;
         
-            var markers = new OpenLayers.Layer.Markers( drawMarker: marker_colour);
-            var marker_colour;
+            var markers = new OpenLayers.Layer.Markers("Markers");
+            var marker_colour = new OpenLayers.Layer.Markers("Markers");
         if (tra=='Dolmus') {
                 marker_colour = 'https://image.shutterstock.com/image-illustration/airport-shuttle-minivan-bus-flat-600w-1079223752.jpg';
         } else if(tra=='Bus'){ marker_colour='https://previews.123rf.com/images/artizarus/artizarus1706/artizarus170600001/79471555-.jpg'}
