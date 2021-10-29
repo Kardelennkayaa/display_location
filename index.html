@@ -35,6 +35,19 @@ body {
   background-color: #BA55D3;
   color: white;
 }
+    .button {
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.button1 {background-color: #4CAF50;} /* Green */
 </style>
 <title>Display Location</title>
 </head>
@@ -43,6 +56,7 @@ body {
         <a class="active" href="#home">Home</a>
         <a href="#Recorder">Recorder</a>
     </div>
+    <button class="button button1">Green</button>
     
     <div id="mapdiv"></div>
     <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=fetch,requestAnimationFrame,Element.prototype.classList,URL"></script>
