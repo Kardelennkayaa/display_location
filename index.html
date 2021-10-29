@@ -20,7 +20,6 @@
       </style>
 </head>
 <body>
-    <div id="mapdiv"></div>
     <nav class="navbar navbar-expand-lg navbar-light bg-light"
          <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
@@ -30,6 +29,7 @@
           </ul>
         </div>
     </nav>
+
     <h1>Select location by recorder</h1>
     <form action="/action_page.php">
         <label for="fname">Recorder Name: </label>
@@ -37,7 +37,7 @@
         <input type="submit" value="Submit">
     </form>
  
-
+    <div id="mapdiv"></div>
     <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=fetch,requestAnimationFrame,Element.prototype.classList,URL"></script>
     <script src="http://www.openlayers.org/api/OpenLayers.js"></script>
     <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
