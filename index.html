@@ -20,24 +20,25 @@
       </style>
 </head>
 <body>
-    <div id="mapdiv"></div>
     <nav class="navbar navbar-expand-lg navbar-light bg-light"
+        <a class="navbar-brand" href="#">Station App</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
          <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
               <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
             </li>
+              <li class="nav-item">
+              <a class="nav-link" >Select</a>
+            </li>
           </ul>
         </div>
     </nav>
-    <h1>Select location by recorder</h1>
-    <form action="/action_page.php">
-        <label for="fname">Recorder Name: </label>
-        <input type="text" id="fname" name="fname"><br><br>
-        <input type="submit" value="Submit">
-    </form>
+    
  
-
+    <div id="mapdiv"></div>
     <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=fetch,requestAnimationFrame,Element.prototype.classList,URL"></script>
     <script src="http://www.openlayers.org/api/OpenLayers.js"></script>
     <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
