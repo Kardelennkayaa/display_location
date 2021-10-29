@@ -8,8 +8,9 @@
 </head>
 <body>
     <div id="mapdiv"></div>
-    <div class="tooltip">Hover over me
-        <span class="tooltiptext">Tooltip text</span>
+    <div id="tools">
+        <a id="clear">Clear</a>
+        <a id="download" >Download</a>
     </div>
     <h1>Select location by recorder</h1>
     <form action="/action_page.php">
@@ -17,6 +18,7 @@
         <input type="text" id="fname" name="fname"><br><br>
         <input type="submit" value="Submit">
     </form>
+ 
 
     <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=fetch,requestAnimationFrame,Element.prototype.classList,URL"></script>
     <script src="http://www.openlayers.org/api/OpenLayers.js"></script>
@@ -55,8 +57,8 @@
             var markers = new OpenLayers.Layer.Markers("Markers");
             var marker_colour = new OpenLayers.Layer.Markers("Markers");
         if (tra=='Dolmus') {
-                marker_colour = 'https://cdn-icons-png.flaticon.com/512/2207/2207497.png';
-        } else if(tra=='Bus'){ marker_colour='https://cdn-icons-png.flaticon.com/512/15/15923.png'}
+                marker_colour = 'https://www.clipartmax.com/png/middle/50-500794_minivan-vector-mini-bus-icon-png.png';
+        } else if(tra=='Bus'){ marker_colour='https://www.clipartmax.com/png/middle/96-960569_bus-driver-icon-vector-bus-symbol-png.png'}
         else{marker_colour = 'https://cdn4.iconfinder.com/data/icons/tanks/500/Panzer_IV_German_Tank-RAD-512.png'}
             markers.addMarker(new OpenLayers.Marker(lonLat))
                 
@@ -65,7 +67,7 @@
         var feature = new OpenLayers.Feature.Vector(
         new OpenLayers.Geometry.Point( lon,lat ).transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject()),
         {description:'Latitude: '+lat+'<br>Longitude: '+lon+'<br>Recorder: '+rec+'<br>Recorder Gender: '+gen+'<br>Transit Type: '+tra},
-        {externalGraphic: marker_colour, graphicHeight: 40, graphicWidth: 40, graphicXOffset:-20, graphicYOffset:-30 }
+        {externalGraphic: marker_colour, graphicHeight: 60, graphicWidth: 60, graphicXOffset:-20, graphicYOffset:-30 }
         );
 
         vectorLayer.addFeatures(feature);
