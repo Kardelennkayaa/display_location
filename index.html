@@ -41,15 +41,13 @@ body {
     <script src="http://www.openlayers.org/api/OpenLayers.js"></script>
     <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script>
-        function getButton_id1()
+        function getButton_id()
         {
             alert(event.srcElement.id);
         }
     </script>   
     <script>
-         function getButton_id()
-        {
-            alert(event.srcElement.id);
+       
         $.getJSON('/api/data', function(data) {
             console.log(data[0].recorder);
             console.log(data[0].gender);
@@ -74,17 +72,14 @@ body {
             var tra=data[point].transit;
             var lon=data[point].longitude;
             var lat=data[point].latitude;
-            if (event.srcElement.id==rec){
-                
-                
-
-                var lonLat = new OpenLayers.LonLat(lon,lat ).transform(new OpenLayers.Projection("EPSG:4326"), // transform from WGS 1984
+            
+            var lonLat = new OpenLayers.LonLat(lon,lat ).transform(new OpenLayers.Projection("EPSG:4326"), // transform from WGS 1984
                                                                 map.getProjectionObject() // to Spherical Mercator Projection
                                                                 )
-                var zoom=10;
+            var zoom=10;
         
-                var markers = new OpenLayers.Layer.Markers("Markers");
-                var marker_colour = new OpenLayers.Layer.Markers("Markers");
+            var markers = new OpenLayers.Layer.Markers("Markers");
+            var marker_colour = new OpenLayers.Layer.Markers("Markers");
             
         if (tra=='Dolmus') {
                 marker_colour = 'https://cdn-icons-png.flaticon.com/512/1165/1165961.png';
@@ -130,10 +125,8 @@ body {
 
             }
 
-            }
-            else{alert("No Comment")}
         });
-            }
+           
         
     </script>
     
