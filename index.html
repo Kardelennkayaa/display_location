@@ -41,13 +41,15 @@ body {
     <script src="http://www.openlayers.org/api/OpenLayers.js"></script>
     <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script>
-        function getButton_id()
+        function getButton_id1()
         {
             alert(event.srcElement.id);
         }
     </script>   
     <script>
-
+         function getButton_id()
+        {
+            alert(event.srcElement.id);
         $.getJSON('/api/data', function(data) {
             console.log(data[0].recorder);
             console.log(data[0].gender);
@@ -125,6 +127,7 @@ body {
 
 
         });
+            }
         
     </script>
     
