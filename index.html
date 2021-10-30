@@ -32,8 +32,8 @@ body {
 </head>
 <body>
     <div class="topnav">
-        <button class="button button1">Home</button>
-        <button class="button button2">Recorder</button>
+        <button id="home" class="button button1" onClick="getButton_id">Home</button>
+        <button id="recorder" class="button button2" onClick="getButton_id">Recorder</button>
     </div>
     
     
@@ -42,6 +42,10 @@ body {
     <script src="http://www.openlayers.org/api/OpenLayers.js"></script>
     <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script>
+        function getButton_id()
+        {
+            alert(this.id);
+        }
 
         $.getJSON('/api/data', function(data) {
             console.log(data[0].recorder);
