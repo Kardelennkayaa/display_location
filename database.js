@@ -19,3 +19,11 @@ function getAllLocations(cb) {
        .catch(function (err) {
           cb(err)});
 }
+
+function getAllRecorders(cb) {
+      DATABASE_PGB.any('SELECT recorder_name as recorder, from location_data')
+      .then(function (getRecorder) {
+         cb(null, data);})
+       .catch(function (err) {
+          cb(err)});
+}
