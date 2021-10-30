@@ -33,22 +33,16 @@ body {
 <body>
     <body>
     <div class="topnav">
-        <button id="home" class="button button1" onClick="getButton_id()">Home</button>
-        <button id="recorder" class="button button2" onClick="getButton_id()">Recorder</button>
+        <!-- <button id="home" class="button button1" onClick="data()">Home</button> -->
+        <!-- <button id="recorder" class="button button2" onClick="data()">Recorder</button> -->
         <label for="r_name">Recorder Name</label><br>
         <input type="text" id="fname" name="fname" value="John"><br>
-        <button id="submit" class="button button2" onClick="getButton_id()">Submit</button>
+        <button id="submit" class="button button2" onClick="data()">Submit</button>
     </div>
     <div id="mapdiv"></div>
     <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=fetch,requestAnimationFrame,Element.prototype.classList,URL"></script>
     <script src="http://www.openlayers.org/api/OpenLayers.js"></script>
     <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script>
-        function getButton_id()
-        {
-            alert(event.srcElement.id);
-        }
-    </script>   
     <script>
 
         $.getJSON('/api/data', function(data) {
