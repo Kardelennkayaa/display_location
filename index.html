@@ -31,13 +31,29 @@ body {
 <title>Display Location</title>
 </head>
 <body>
-    <div class="topnav">
-        <button id="home" class="button button1" onClick="getButton_id()">Home</button>
-        <button id="recorder" class="button button2" onClick="getButton_id()">Recorder</button>
-        <label for="r_name">Recorder Name name="r_name"</label><br>
-        <input type="text" id="fname" name="fname" value="John"><br>
-        <input type="submit" value="Submit">
-    </div>
+    <h3>Recorders</h3>
+    <form enctype="multipart/form-data" method="POST">
+    Recorder Name: <br/>
+    <input type="text" name="name"/>
+    <br/><br/>
+    Select recorder : <br/>
+    <select>
+        $.getJSON('/api/data', function(getRecorder) {
+            console.log(data[0].recorder);
+            var point;
+            for (point = 0; point < data.length; point++) {
+                                                var rec=data[point].recorder;
+            //echo $sql;
+            <option value="rec"></option>
+    </select>
+
+    <br/><br/>
+    Select Song : <br/><br/>
+    <input type="file" name="song"/>
+    <br/><br/>
+    <input type="submit" name="upload" value="Upload"/>
+    <br/>
+    </form>
     
     
     <div id="mapdiv"></div>
