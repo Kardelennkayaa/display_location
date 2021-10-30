@@ -68,19 +68,24 @@ body {
             var vectorLayer = new OpenLayers.Layer.Vector("Overlay");
             //TODO - data haritaya ekleme işlemi
             for (point = 0; point < data.length; point++) {
+                
             var rec=data[point].recorder;
             var gen=data[point].gender;
             var tra=data[point].transit;
             var lon=data[point].longitude;
             var lat=data[point].latitude;
+            if (event.srcElement.id==rec){
+                
+                
 
-            var lonLat = new OpenLayers.LonLat(lon,lat ).transform(new OpenLayers.Projection("EPSG:4326"), // transform from WGS 1984
+                var lonLat = new OpenLayers.LonLat(lon,lat ).transform(new OpenLayers.Projection("EPSG:4326"), // transform from WGS 1984
                                                                 map.getProjectionObject() // to Spherical Mercator Projection
                                                                 )
-            var zoom=10;
+                var zoom=10;
         
-            var markers = new OpenLayers.Layer.Markers("Markers");
-            var marker_colour = new OpenLayers.Layer.Markers("Markers");
+                var markers = new OpenLayers.Layer.Markers("Markers");
+                var marker_colour = new OpenLayers.Layer.Markers("Markers");
+            
         if (tra=='Dolmus') {
                 marker_colour = 'https://cdn-icons-png.flaticon.com/512/1165/1165961.png';
         } else if(tra=='Bus'){ marker_colour='https://cdn-icons-png.flaticon.com/512/808/808338.png'}
@@ -125,7 +130,8 @@ body {
 
             }
 
-
+            }
+            else{alert("No Comment"}
         });
             }
         
