@@ -42,6 +42,12 @@ body {
     <script src="http://www.openlayers.org/api/OpenLayers.js"></script>
     <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script>
+        function getButton_id()
+        {
+            alert(this.id);
+        }
+    </script>   
+    <script>
 
         $.getJSON('/api/data', function(data) {
             console.log(data[0].recorder);
@@ -120,11 +126,7 @@ body {
 
 
         });
-        function getButton_id()
-        {
-            alert(this.id);
-        }
-     
+        
     </script>
     
   </body>
