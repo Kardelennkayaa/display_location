@@ -199,7 +199,7 @@ Oluşturulan **appConfig.js** dosyası aşağıdaki gibi olmalıdır:
     postgres: developmentDatabase.postgres
     }
     }
-     ```
+  ```
 
 
 Burada **host, database, user, password ve connectionString** parametreleri; **Heroku Database Credentials** bölümünden alınna veritabanı bilgileri ile doldurulmalıdır. Bu parametreler PostgreSQL veritabanı ile bağlantıyı sağlamaktadır.
@@ -373,6 +373,7 @@ Burada verilerin ulaşım aracı bilgisi, otobüs ya da dolmuş olmasına göre 
 
 **index.html** dosyası oluşturulduktan sonra tasarlanan websitesinin NodeJS aracılığı ile yayınlanabilmesi için **index.js** dosyası hazırlanmalıdır. Oluşturulan dosya şu şekilde olmalıdır:
 
+```javascript
 var express = require('express');
 var fs = require('fs');
 var DATABASE = require('./database.js');
@@ -380,14 +381,17 @@ var app = express();
 app.get('/', function (req, res, next) {
 process.env.NODE_TLS_REJECT_UNAUTHORIZED='0';
 res.writeHead(200, { 'Content-Type': 'text/html' });
+
 var myReadStream = fs.createReadStream(__dirname + '/index.html',
 'utf8')
 myReadStream.pipe(res);
 });
 app.use('/api/data', function (req, res) {
 DATABASE.getAllLocations(function (err, data) {
+
 if (err) {
 res.sendStatus(500);
+
 } else {
 res.send(data);
 }
@@ -397,6 +401,7 @@ app.listen(process.env.PORT || 4000, function(){
 console.log("Express server listening on port %d in %s mode",
 this.address().port, app.settings.env);
 });
+ ```
 
   
 **index.js** kodu, hazırlanan **index.html** kodunu okur ve bu koda göre bir cevap gönderir. Kod içeriği ve veritabanı bağlantılarında bir yanlışlık olmadığı durumda, **index.js** kodu ile websitesi yayınlanmış olur.
