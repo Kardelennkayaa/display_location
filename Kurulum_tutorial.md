@@ -422,7 +422,7 @@ Veritabanından çekilen veriler aşağıdaki gibi görüntülenir:
 
 ### Projeyi Heroku platformuna **Deploy** etme 
 
-Heroku, hazırlanan websitesini açık kaynak olarak sunmak için kullanılan bir platformdur. Bu amacı gerçekleştirmek için öncelikle oluştuurlan kodlar Github arayüzüne yüklenmeli ve ardından Heroku-Github bağlantısı sağlanmalıdır.
+Heroku, hazırlanan websitesini açık kaynak olarak sunmak için kullanılan bir platformdur. Bu amacı gerçekleştirmek için öncelikle oluşturulan kodlar Github arayüzüne yüklenmeli ve ardından Heroku-Github bağlantısı sağlanmalıdır.
 Uygulanması gereken adımlar şu şekildedir:
 
 **1.** Kişisel Github hesabı açılmalı ve ardından **New** butonuna basarak yeni bir repository oluşturulmalıdır.
