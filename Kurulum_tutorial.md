@@ -150,7 +150,8 @@ PostgreSQL üzerinde oluşturulan veritabanı ile bağlantı kurabilmek için Vi
 Oluşturulan **appConfig.js** dosyası aşağıdaki gibi olmalıdır:
 
 
- var developmentDatabase = {
+ ```javascript
+    var developmentDatabase = {
     postgres: {
     host: 'localhost',
     port: 5432,
@@ -159,6 +160,7 @@ Oluşturulan **appConfig.js** dosyası aşağıdaki gibi olmalıdır:
     password: 'postgres'
     }
     }
+    
     var connectionString = "postgres_connectionString";
     if (process.env.NODE_ENV == 'production') {
     //Production mode
@@ -197,12 +199,14 @@ Oluşturulan **appConfig.js** dosyası aşağıdaki gibi olmalıdır:
     postgres: developmentDatabase.postgres
     }
     }
+     ```
 
 
 Burada **host, database, user, password ve connectionString** parametreleri; **Heroku Database Credentials** bölümünden alınna veritabanı bilgileri ile doldurulmalıdır. Bu parametreler PostgreSQL veritabanı ile bağlantıyı sağlamaktadır.
 
 Sonrasında ise veritabanında olan verilere ulaşmak için **database.js** dosyası oluşturulmalıdır. Veritabanından alınan verilerin web üzerinde görselleştirilmesi yapılacaktır. **database.js** dosyası aşağıdaki gibi olmalııdr:
 
+```javascript
 const fs = require('fs');
 var promise = require('bluebird');
 var CONFIG = require('./appConfig');
@@ -221,12 +225,14 @@ function getAllLocations(cb) {
        .catch(function (err) {
           cb(err)});
 }
+ ```
 
 Tanımlanan **database.js** dosyasında PostgreSQL veritabanı üzerinden veri çekmek için **select** komutu kullanılır. **select** komutu ile veri alabilmek için ise daha önce PostgreSQL veritabanı üzerinde oluşturmuş olduğumuz tablonun ismi ve tablo içeriğinde eklediğimiz öznitelik adları bulunmalıdır.
 Tablo içinde bulunan geometrik verilerin **latitude** ve **longitude** değerini alabilmek için ise **ST_X ve ST_Y** metodları kullanılır.
 
 PostgreSQL veritabanı bağlantısı kurulduğuna göre web sitesi hazırlamak için **index.html** dosyası oluşturulmalıdır. Bu dosya şu şekildedir:
 
+ ```html
 <html lang="en">
 <head>
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
@@ -355,6 +361,7 @@ body {
     </script>
   </body>
   </html>
+   ```
   
 Burada altlık harita için **OpenLayers** kullanılmıştır. Ayrıca **Jquery** kütüphanesinin kullanılma amacı da veritabanına **select** komutu ile gönderilmiş olunan sorguların yanıtını almaktır. 
 Ayrıca güvenlik politikası, web sayfasını **HTTPS** protokolü olarak çalıştırabilmek için eklenmiştir. Hazırlanan **index.html** kodu ile veritabanından alınan konum verileri öznitelikleri ile birlikte OpenLayers haritası üzerinde görselleştirilmiştir. 
