@@ -202,7 +202,7 @@ Oluşturulan **appConfig.js** dosyası aşağıdaki gibi olmalıdır:
   ```
 
 
-Burada **host, database, user, password ve connectionString** parametreleri; **Heroku Database Credentials** bölümünden alınna veritabanı bilgileri ile doldurulmalıdır. Bu parametreler PostgreSQL veritabanı ile bağlantıyı sağlamaktadır.
+Burada **host, database, user, password ve connectionString** parametreleri; **Heroku Database Credentials** bölümünden alınan veritabanı bilgileri ile doldurulmalıdır. Bu parametreler PostgreSQL veritabanı ile bağlantıyı sağlamaktadır.
 
 Sonrasında ise veritabanında olan verilere ulaşmak için **database.js** dosyası oluşturulmalıdır. Veritabanından alınan verilerin web üzerinde görselleştirilmesi yapılacaktır. **database.js** dosyası aşağıdaki gibi olmalııdr:
 
