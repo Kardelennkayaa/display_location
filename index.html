@@ -84,7 +84,7 @@ body {
             
         if (tra=='Dolmus') {
                 marker_colour = 'https://cdn-icons-png.flaticon.com/512/1165/1165961.png';
-        } else if(tra=='Bus'){ marker_colour='https://cdn-icons-png.flaticon.com/512/808/808338.png'}
+        } else if(tra=='Bus'){ marker_colour='https://cdn-icons-png.flaticon.com/512/30/30979.png'}
         else{marker_colour = 'https://cdn-icons-png.flaticon.com/128/3202/3202926.png'}
             markers.addMarker(new OpenLayers.Marker(lonLat))
                 
@@ -93,7 +93,7 @@ body {
         var feature = new OpenLayers.Feature.Vector(
         new OpenLayers.Geometry.Point( lon,lat ).transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject()),
         {description:'Latitude: '+lat+'<br>Longitude: '+lon+'<br>Recorder: '+rec+'<br>Recorder Gender: '+gen+'<br>Transit Type: '+tra},
-        {externalGraphic: marker_colour, graphicHeight: 60, graphicWidth: 60, graphicXOffset:-20, graphicYOffset:-30 }
+        {externalGraphic: marker_colour, graphicHeight: 25, graphicWidth: 25, graphicXOffset:-20, graphicYOffset:-30 }
         );
 
         vectorLayer.addFeatures(feature);
