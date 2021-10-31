@@ -159,7 +159,6 @@ Oluşturulan **appConfig.js** dosyası aşağıdaki gibi olmalıdır:
     password: 'postgres'
     }
     }
-    
     var connectionString = "postgres_connectionString";
     if (process.env.NODE_ENV == 'production') {
     //Production mode
@@ -209,29 +208,26 @@ var promise = require('bluebird');
 var CONFIG = require('./appConfig');
 var pgp = require('pg-promise')(options);
 var DATABASE_PGB = pgp(CONFIG.database.postgres);
-
 module.exports = {
        getAllLocations: getAllLocations
 };
-
 var options = {
     promiseLib: promise
 };
-
 function getAllLocations(cb) {
       DATABASE_PGB.any('SELECT recorder_name as recorder, recorder_gender as gender, public_transit as transit, ST_X(geom) as longitude, ST_Y(geom) as latitude from location_data')
       .then(function (data) {
          cb(null, data);})
        .catch(function (err) {
           cb(err)});
-}`
+}
 
 Tanımlanan **database.js** dosyasında PostgreSQL veritabanı üzerinden veri çekmek için **select** komutu kullanılır. **select** komutu ile veri alabilmek için ise daha önce PostgreSQL veritabanı üzerinde oluşturmuş olduğumuz tablonun ismi ve tablo içeriğinde eklediğimiz öznitelik adları bulunmalıdır.
 Tablo içinde bulunan geometrik verilerin **latitude** ve **longitude** değerini alabilmek için ise **ST_X ve ST_Y** metodları kullanılır.
 
 PostgreSQL veritabanı bağlantısı kurulduğuna göre web sitesi hazırlamak için **index.html** dosyası oluşturulmalıdır. Bu dosya şu şekildedir:
 
-`<html lang="en">
+<html lang="en">
 <head>
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <meta charset="utf-8"/>
@@ -245,7 +241,6 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   background-color: #FDF5E6;
 }
-
     .button {
   border: none;
   color: white;
@@ -257,7 +252,6 @@ body {
   margin: 4px 2px;
   cursor: pointer;
 }
-
 .button1 {background-color: #BA55D3;} 
 .button2 {background-color: #BA55D3;} 
 </style>
@@ -280,14 +274,13 @@ body {
         }
     </script>   
     <script>
-       
         $.getJSON('/api/data', function(data) {
             console.log(data[0].recorder);
             console.log(data[0].gender);
             console.log(data[0].transit);
             console.log(data[0].longitude);
             console.log(data[0].latitude);
-            
+           
             var veri1=data[0].longitude;
             var veri2=data[0].latitude;
 
@@ -359,10 +352,7 @@ body {
             }
 
         });
-           
-        
     </script>
-    
   </body>
   </html>
   
@@ -383,17 +373,14 @@ var app = express();
 app.get('/', function (req, res, next) {
 process.env.NODE_TLS_REJECT_UNAUTHORIZED='0';
 res.writeHead(200, { 'Content-Type': 'text/html' });
-
 var myReadStream = fs.createReadStream(__dirname + '/index.html',
 'utf8')
 myReadStream.pipe(res);
 });
 app.use('/api/data', function (req, res) {
 DATABASE.getAllLocations(function (err, data) {
-
 if (err) {
 res.sendStatus(500);
-
 } else {
 res.send(data);
 }
@@ -404,6 +391,7 @@ console.log("Express server listening on port %d in %s mode",
 this.address().port, app.settings.env);
 });
 
+  
 **index.js** kodu, hazırlanan **index.html** kodunu okur ve bu koda göre bir cevap gönderir. Kod içeriği ve veritabanı bağlantılarında bir yanlışlık olmadığı durumda, **index.js** kodu ile websitesi yayınlanmış olur.
 
 Tasarlanan websitesi kodunun çalıştırılması için Visual Studio Code üzerinde bulunan **Terminal** sekmesinden **New Terminal** seçeneği seçilerek gelen terminal üzerine **node index.js** yazılır ve enter tuşuna bsılır.
