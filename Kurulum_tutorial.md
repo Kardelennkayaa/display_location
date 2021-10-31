@@ -453,7 +453,7 @@ Oluşturulan repository linki şu şekilde bulunabilir:
   <img src="https://github.com/Kardelennkayaa/display_location/blob/master/location_images/repository_link.png"/>
 </p>
 
-Burada mor kutu içerisinde belirtilen linki kopyalanarak **repositoryLink** olarak verilen alana yazılmalıdır.
+Burada mor kutu içerisinde belirtilen link kopyalanarak **repositoryLink** olarak verilen alana yazılmalıdır.
 
 Hazırlanan proje dosyasını Github üzerine **push** etmek için aşağıdaki komut yazılabilir:
 - git push -u origin master
