@@ -144,13 +144,13 @@ Gerekli modüllerün kurulumundan sonra **package.json** dosyası aşağıdaki g
   <img src="https://github.com/Kardelennkayaa/display_location/blob/master/location_images/update_package_img.jpg" alt="Sublime's custom image"/>
 </p>
 
-###### Veritabanı Bağlantısı
+### Veritabanı Bağlantısı
 
 PostgreSQL üzerinde oluşturulan veritabanı ile bağlantı kurabilmek için Visual Studio Code üzerinde **appConfig.js** dosyası oluşturulmalıdır. Bunun için "New File" butonuna basılarak dosya adı  **appConfig.js** olarak tanımlanmalıdır.
 Oluşturulan **appConfig.js** dosyası aşağıdaki gibi olmalıdır:
 
 
-`var developmentDatabase = {
+ var developmentDatabase = {
     postgres: {
     host: 'localhost',
     port: 5432,
@@ -197,14 +197,14 @@ Oluşturulan **appConfig.js** dosyası aşağıdaki gibi olmalıdır:
     database: {
     postgres: developmentDatabase.postgres
     }
-    }`
+    }
 
 
 Burada **host, database, user, password ve connectionString** parametreleri; **Heroku Database Credentials** bölümünden alınna veritabanı bilgileri ile doldurulmalıdır. Bu parametreler PostgreSQL veritabanı ile bağlantıyı sağlamaktadır.
 
 Sonrasında ise veritabanında olan verilere ulaşmak için **database.js** dosyası oluşturulmalıdır. Veritabanından alınan verilerin web üzerinde görselleştirilmesi yapılacaktır. **database.js** dosyası aşağıdaki gibi olmalııdr:
 
-`const fs = require('fs');
+const fs = require('fs');
 var promise = require('bluebird');
 var CONFIG = require('./appConfig');
 var pgp = require('pg-promise')(options);
@@ -364,7 +364,7 @@ body {
     </script>
     
   </body>
-  </html>`
+  </html>
   
 Burada altlık harita için **OpenLayers** kullanılmıştır. Ayrıca **Jquery** kütüphanesinin kullanılma amacı da veritabanına **select** komutu ile gönderilmiş olunan sorguların yanıtını almaktır. 
 Ayrıca güvenlik politikası, web sayfasını **HTTPS** protokolü olarak çalıştırabilmek için eklenmiştir. Hazırlanan **index.html** kodu ile veritabanından alınan konum verileri öznitelikleri ile birlikte OpenLayers haritası üzerinde görselleştirilmiştir. 
@@ -376,7 +376,7 @@ Burada verilerin ulaşım aracı bilgisi, otobüs ya da dolmuş olmasına göre 
 
 **index.html** dosyası oluşturulduktan sonra tasarlanan websitesinin NodeJS aracılığı ile yayınlanabilmesi için **index.js** dosyası hazırlanmalıdır. Oluşturulan dosya şu şekilde olmalıdır:
 
-`var express = require('express');
+var express = require('express');
 var fs = require('fs');
 var DATABASE = require('./database.js');
 var app = express();
@@ -402,7 +402,7 @@ res.send(data);
 app.listen(process.env.PORT || 4000, function(){
 console.log("Express server listening on port %d in %s mode",
 this.address().port, app.settings.env);
-});`
+});
 
 **index.js** kodu, hazırlanan **index.html** kodunu okur ve bu koda göre bir cevap gönderir. Kod içeriği ve veritabanı bağlantılarında bir yanlışlık olmadığı durumda, **index.js** kodu ile websitesi yayınlanmış olur.
 
@@ -412,7 +412,7 @@ Tasarlanan websitesi kodunun çalıştırılması için Visual Studio Code üzer
   <img src="https://github.com/Kardelennkayaa/display_location/blob/master/location_images/node_terminal.jpg"/>
 </p>
 
-Oluşturulan websitesini ziyaret etmek için verilen link kullanılabilir (https://www.postgresqltutorial.com/install-postgresql/).
+Oluşturulan websitesini ziyaret etmek için verilen link kullanılabilir [localhost](http://localhost:4000/).
 Veritabanından çekilen veriler aşağıdaki gibi görüntülenir:
 
 <p align="center">
@@ -420,19 +420,19 @@ Veritabanından çekilen veriler aşağıdaki gibi görüntülenir:
 </p>
 
 
-###### Projeyi Heroku platformuna **Deploy** etme 
+### Projeyi Heroku platformuna **Deploy** etme 
 
 Heroku, hazırlanan websitesini açık kaynak olarak sunmak için kullanılan bir platformdur. Bu amacı gerçekleştirmek için öncelikle oluştuurlan kodlar Github arayüzüne yüklenmeli ve ardından Heroku-Github bağlantısı sağlanmalıdır.
 Uygulanması gereken adımlar şu şekildedir:
 
-1. Kişisel Github hesabı açılmalı ve ardından **New** butonuna basarak yeni bir repository oluşturulmalıdır.
+**1.** Kişisel Github hesabı açılmalı ve ardından **New** butonuna basarak yeni bir repository oluşturulmalıdır.
 
 <p align="center">
   <img src="https://github.com/Kardelennkayaa/display_location/blob/master/location_images/github_new.jpg"/>
 </p>
 
-2. **Repository name** tanımlanmalı ve ardından **Create repository** butonuna basılmalıdır.
-3. Hazırlanan kodları Github arayüzüne yüklemek için **cmd (Command Prompt** açılmalı ve bilgisayarınızda ilgili projenin bulunduğu yola gidilmelidir. Ardından aşağıdaki komut yazılmalıdır:
+**2.** **Repository name** tanımlanmalı ve ardından **Create repository** butonuna basılmalıdır.
+**3.** Hazırlanan kodları Github arayüzüne yüklemek için **cmd (Command Prompt** açılmalı ve bilgisayarınızda ilgili projenin bulunduğu yola gidilmelidir. Ardından aşağıdaki komut yazılmalıdır:
 - `git init`
 
 
@@ -462,13 +462,13 @@ Burada **master** olarak verilen isim, oluşturduğunuz repositoryde bulunan **b
 
 İlgili komutlar çalıştırıldıktan sonra Github arayüzünde proje dosyaları görüntülenebilir.
 
-4. Heroku'da oluşturulan proje açılır ve  **Deploy** sekmesi altında bulunan **Github** seçilir.
+**4.** Heroku'da oluşturulan proje açılır ve  **Deploy** sekmesi altında bulunan **Github** seçilir.
 
 <p align="center">
   <img src="https://github.com/Kardelennkayaa/display_location/blob/master/location_images/heroku_deploy.png"/>
 </p>
 
-5. Github bağlantısı için ilgili repository ismi verilir. Bu aşamada **Automatic Deploys** ve **Manual Deploy** olarak verilen iki adet deploy seçeneği mevcuttur. **Manuel Deploy** seçeneğinden projenin bulunduğu branch ismi seçilerek **Deploy Branch** butonuna basılır.
+**5.** Github bağlantısı için ilgili repository ismi verilir. Bu aşamada **Automatic Deploys** ve **Manual Deploy** olarak verilen iki adet deploy seçeneği mevcuttur. **Manuel Deploy** seçeneğinden projenin bulunduğu branch ismi seçilerek **Deploy Branch** butonuna basılır.
 Heroku ve Github arasındaki bağlantı sağlandıktan sonra **View** butonu ile, tasarlanan websitesine erişilebilir:
 
 <p align="center">
