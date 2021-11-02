@@ -86,6 +86,10 @@ body {
         
             var markers = new OpenLayers.Layer.Markers("Markers");
             var marker_colour = new OpenLayers.Layer.Markers("Markers");
+            if (recorder_name==rec){
+                alert(recorder_name);
+                map.setCenter(rec[lonLat],zoom)
+            }
             
         if (tra=='Dolmus') {
                 marker_colour = 'https://cdn-icons-png.flaticon.com/512/1165/1165961.png';
@@ -95,10 +99,7 @@ body {
                 
             
             
-            if (recorder_name==rec){
-                 alert(recorder_name);
-                 map.setCenter(rec[lonLat],zoom)
-            }
+            
                 
             
             
