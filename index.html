@@ -79,15 +79,16 @@ body {
             var lat=data[point].latitude;
                 
             
-            var lonLat = new OpenLayers.LonLat(lon,lat ).transform(new OpenLayers.Projection("EPSG:4326"), // transform from WGS 1984
-                                                                map.getProjectionObject() // to Spherical Mercator Projection
-                                                                )
-            var zoom=10;
-        
-            var markers = new OpenLayers.Layer.Markers("Markers");
-            var marker_colour = new OpenLayers.Layer.Markers("Markers");
+            
             if (recorder_name==rec){
                 alert(recorder_name);
+                var lonLat = new OpenLayers.LonLat(lon,lat ).transform(new OpenLayers.Projection("EPSG:4326"), // transform from WGS 1984
+                                                                map.getProjectionObject() // to Spherical Mercator Projection
+                                                                )
+                var zoom=10;
+        
+                var markers = new OpenLayers.Layer.Markers("Markers");
+                var marker_colour = new OpenLayers.Layer.Markers("Markers");
                 if (tra=='Dolmus') {
                 marker_colour = 'https://cdn-icons-png.flaticon.com/512/1165/1165961.png';
                 } else if(tra=='Bus'){ marker_colour='https://cdn-icons-png.flaticon.com/512/30/30979.png'}
