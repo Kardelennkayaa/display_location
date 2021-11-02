@@ -38,12 +38,16 @@ body {
 </head>
 <body>
     <body>
+    <form>    
     <div class="topnav">
         <button id="home" class="button button1" onClick="window.location.reload();">Home</button><br>
         <label for="rname">Recorder name:<br></label><br>
         <input type="text" id="rname" name="rname" ><br>
+     </div>
+     <div>
         <input type="submit" value="Submit" onclick="submit_recorder();">
     </div>
+    </form>     
     <div id="mapdiv"></div>
     <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=fetch,requestAnimationFrame,Element.prototype.classList,URL"></script>
     <script src="http://www.openlayers.org/api/OpenLayers.js"></script>
