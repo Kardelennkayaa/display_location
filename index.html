@@ -80,10 +80,7 @@ body {
                 
             if (recorder_name==rec){
                  alert(recorder_name);
-            }
-                
-            
-            var lonLat = new OpenLayers.LonLat(lon,lat ).transform(new OpenLayers.Projection("EPSG:4326"), // transform from WGS 1984
+                var lonLat = new OpenLayers.LonLat(lon,lat ).transform(new OpenLayers.Projection("EPSG:4326"), // transform from WGS 1984
                                                                 map.getProjectionObject() // to Spherical Mercator Projection
                                                                 )
             var zoom=10;
@@ -98,6 +95,10 @@ body {
             markers.addMarker(new OpenLayers.Marker(lonLat))
                 
             map.setCenter(lonLat,zoom)
+            }
+                
+            
+            
                 
         var feature = new OpenLayers.Feature.Vector(
         new OpenLayers.Geometry.Point( lon,lat ).transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject()),
