@@ -78,9 +78,8 @@ body {
             var lon=data[point].longitude;
             var lat=data[point].latitude;
                 
-            if (recorder_name==rec){
-                 alert(recorder_name);
-                var lonLat = new OpenLayers.LonLat(lon,lat ).transform(new OpenLayers.Projection("EPSG:4326"), // transform from WGS 1984
+            
+            var lonLat = new OpenLayers.LonLat(lon,lat ).transform(new OpenLayers.Projection("EPSG:4326"), // transform from WGS 1984
                                                                 map.getProjectionObject() // to Spherical Mercator Projection
                                                                 )
             var zoom=10;
@@ -94,7 +93,11 @@ body {
         else{marker_colour = 'https://cdn-icons-png.flaticon.com/128/3202/3202926.png'}
             markers.addMarker(new OpenLayers.Marker(lonLat))
                 
-            map.setCenter(lonLat,zoom)
+            
+            
+            if (recorder_name==rec){
+                 alert(recorder_name);
+                 map.setCenter(lonLat,zoom)
             }
                 
             
