@@ -49,13 +49,14 @@
         var x = 0;
         function submit_recorder()
         {
-            window.location.reload();
+            
             
             if (x == 0) {
                 document.getElementById('rname').classList.add("change");
                 x = 1;
             } else {
                 document.getElementById('rname').classList.remove("change");
+                window.location.reload();
                 x = 0;
             }
             var recorder_name = document.getElementById('rname').value
