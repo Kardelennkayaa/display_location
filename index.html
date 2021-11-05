@@ -39,15 +39,24 @@
         <button id="home" class="button button1" onClick="window.location.reload();">Home</button><br>
         <label for="rname">Recorder name:<br></label><br>
         <input type="text" id="rname" name="rname" ><br>
-         <input type="submit" onclick="submit_recorder()" >
+         <input type="change" onclick="submit_recorder()" >
     </div>       
     <div class="map" id="mapdiv"></div>
     <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=fetch,requestAnimationFrame,Element.prototype.classList,URL"></script>
     <script src="http://www.openlayers.org/api/OpenLayers.js"></script>
     <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script>
+        var x = 0;
         function submit_recorder()
         {
+            
+            if (x == 0) {
+                document.getElementById('rname').classList.add("change");
+                x = 1;
+            } else {
+                document.getElementById('rname').classList.remove("change");
+                x = 0;
+            }
             var recorder_name = document.getElementById('rname').value
        
             $.getJSON('/api/data', function(data) {
