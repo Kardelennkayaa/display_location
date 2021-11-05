@@ -38,7 +38,7 @@
     <div class="topnav">
         <button id="home" class="button button1" onClick="window.location.reload();">Home</button><br>
         <label for="rname">Recorder name:<br></label><br>
-        <input type="text" id="rname" name="rname" ><br>
+        <input type="text" id="rname" name="rname" onkeydown="return event.key != 'Enter';"> ><br>
          <input type="submit" onclick="submit_recorder()" >
     </div>       
     <div class="map" id="mapdiv"></div>
@@ -83,13 +83,14 @@
             var tra=data[point].transit;
             var lon=data[point].longitude;
             var lat=data[point].latitude;
-            var lonLat = new OpenLayers.LonLat(lon,lat ).transform(new OpenLayers.Projection("EPSG:4326"), // transform from WGS 1984
-                                                                map.getProjectionObject() // to Spherical Mercator Projection
-                                                                )
-            var zoom=10;    
+              
             
             
             if (recorder_name==rec){
+                var lonLat = new OpenLayers.LonLat(lon,lat ).transform(new OpenLayers.Projection("EPSG:4326"), // transform from WGS 1984
+                                                                map.getProjectionObject() // to Spherical Mercator Projection
+                                                                )
+                var zoom=10;  
                 
         
                 var markers = new OpenLayers.Layer.Markers("Markers");
