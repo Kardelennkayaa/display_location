@@ -38,7 +38,7 @@
     <div class="topnav">
         <button id="home" class="button button1" onClick="window.location.reload();">Home</button><br>
         <label for="rname">Recorder name:<br></label><br>
-        <input type="text" id="rname" name="rname"><br>
+        <button type="button" class="hide">Hide</button>
          <input type="submit" >
     </div>       
     <div class="map" id="mapdiv"></div>
@@ -47,8 +47,9 @@
     <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script>
         var x = 0;
-        function submit_recorder()
-        {
+        $('button.hide').click(function() {
+            $('form').hide();
+
             
             
             if (x == 0) {
