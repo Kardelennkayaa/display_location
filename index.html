@@ -38,7 +38,7 @@
     <div class="topnav">
         <button id="home" class="button button1" onClick="window.location.reload();">Home</button><br>
         <label for="rname">Recorder name:<br></label><br>
-        <input type="text" id="rname" name="rname" class="show"><br>
+        <input type="text" id="rname" name="rname"><br>
          <input type="submit" >
     </div>       
     <div class="map" id="mapdiv"></div>
@@ -47,9 +47,8 @@
     <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script>
         var x = 0;
-        $('input.show').click(function() {
-            $('form').show();
-
+        function submit_recorder()
+        {
             
             
             if (x == 0) {
@@ -58,6 +57,8 @@
             } else {
                 document.getElementById('rname').classList.remove("change");
                 x = 0;
+                window.location.reload();
+                submit_recorder();
             }
             var recorder_name = document.getElementById('rname').value
        
@@ -142,7 +143,7 @@
             }
 
         });
-        });
+        }
         
     </script>   
     
