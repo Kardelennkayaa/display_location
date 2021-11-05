@@ -83,14 +83,14 @@
             var tra=data[point].transit;
             var lon=data[point].longitude;
             var lat=data[point].latitude;
-                
+            var lonLat = new OpenLayers.LonLat(lon,lat ).transform(new OpenLayers.Projection("EPSG:4326"), // transform from WGS 1984
+                                                                map.getProjectionObject() // to Spherical Mercator Projection
+                                                                )
+            var zoom=10;    
             
             
             if (recorder_name==rec){
-                var lonLat = new OpenLayers.LonLat(lon,lat ).transform(new OpenLayers.Projection("EPSG:4326"), // transform from WGS 1984
-                                                                map.getProjectionObject() // to Spherical Mercator Projection
-                                                                )
-                var zoom=10;
+                
         
                 var markers = new OpenLayers.Layer.Markers("Markers");
                 var marker_colour = new OpenLayers.Layer.Markers("Markers");
