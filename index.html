@@ -157,7 +157,7 @@ body {
     
     var point;
     var length=data.length;
-    var vectorLayer = new OpenLayers.Layer.Vector("Overlay");
+    vectorLayer = new OpenLayers.Layer.Vector("Overlay");
     //TODO - data haritaya ekleme işlemi
     for (point = 0; point < data.length; point++) {
         
@@ -170,21 +170,21 @@ body {
     
     
     if (recorder_name==rec){
-        var lonLat = new OpenLayers.LonLat(lon,lat ).transform(new OpenLayers.Projection("EPSG:4326"), // transform from WGS 1984
+        lonLat = new OpenLayers.LonLat(lon,lat ).transform(new OpenLayers.Projection("EPSG:4326"), // transform from WGS 1984
                                                         map.getProjectionObject() // to Spherical Mercator Projection
                                                         )
         var zoom=10;  
         
 
-        var markers = new OpenLayers.Layer.Markers("Markers");
-        var marker_colour = new OpenLayers.Layer.Markers("Markers");
+        markers = new OpenLayers.Layer.Markers("Markers");
+        marker_colour = new OpenLayers.Layer.Markers("Markers");
         if (tra=='Dolmus') {
         marker_colour = 'https://cdn-icons-png.flaticon.com/512/1165/1165961.png';
         } else if(tra=='Bus'){ marker_colour='https://cdn-icons-png.flaticon.com/512/30/30979.png'}
         else{marker_colour = 'https://cdn-icons-png.flaticon.com/128/3202/3202926.png'}
         markers.addMarker(new OpenLayers.Marker(lonLat))
         map.setCenter(lonLat,zoom)
-        var feature = new OpenLayers.Feature.Vector(
+        feature = new OpenLayers.Feature.Vector(
         new OpenLayers.Geometry.Point( lon,lat ).transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject()),
         {description:'Latitude: '+lat+'<br>Longitude: '+lon+'<br>Recorder: '+rec+'<br>Recorder Gender: '+gen+'<br>Transit Type: '+tra},
         {externalGraphic: marker_colour, graphicHeight: 25, graphicWidth: 25, graphicXOffset:-20, graphicYOffset:-30 }
