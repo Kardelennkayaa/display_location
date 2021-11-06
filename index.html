@@ -133,7 +133,7 @@ body {
     function submit_recorder()
     {   
       markers.clearMarkers();
-      vectorLayer.clearFeatures(feature);
+      vectorLayer.removeFeatures();
     if (x == 0) {
         document.getElementById('rname').classList.add("change");
         x = 1;
