@@ -72,7 +72,7 @@ body {
             var lon=data[point].longitude;
             var lat=data[point].latitude;
             
-            var lonLat = new OpenLayers.LonLat(lon,lat ).transform(new OpenLayers.Projection("EPSG:4326"), // transform from WGS 1984
+            lonLat = new OpenLayers.LonLat(lon,lat ).transform(new OpenLayers.Projection("EPSG:4326"), // transform from WGS 1984
                                                                 map.getProjectionObject() // to Spherical Mercator Projection
                                                                 )
             var zoom=10;
@@ -132,8 +132,8 @@ body {
     var x=0;
     function submit_recorder()
     {   
-      markers.clearMarkers();
-      vectorLayer.removeFeatures();
+      markers.clearMarkers(new OpenLayers.Marker(lonLat));
+      vectorLayer.removeFeatures(feature);
     if (x == 0) {
         document.getElementById('rname').classList.add("change");
         x = 1;
