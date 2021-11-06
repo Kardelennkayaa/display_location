@@ -123,6 +123,7 @@ body {
             controls['selector'].activate();
 
             }
+            return [markers,vectorLayer]
 
         });
            
@@ -130,9 +131,11 @@ body {
 var x=0;
 function submit_recorder()
 {   
-    
-    markers.clear();
-    vectorLayer.clear();
+    let marker = data()
+    marKer = marker[0],
+    layer = marker[1],
+    marKer.clear();
+    layer.clear();
     if (x == 0) {
         document.getElementById('rname').classList.add("change");
         x = 1;
