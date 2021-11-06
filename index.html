@@ -132,8 +132,8 @@ body {
     var x=0;
     function submit_recorder()
     {   
-      markers.getSource().clear();
-      vectorLayer.getSource.clear();
+      markers.removeMarker();
+      vectorLayer.removeFeatures();
     if (x == 0) {
         document.getElementById('rname').classList.add("change");
         x = 1;
