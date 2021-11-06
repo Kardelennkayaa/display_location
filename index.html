@@ -126,11 +126,12 @@ body {
             return [markers,vectorLayer]
 
         });
-           
-        
-var x=0;
-function submit_recorder()
-{   
+        </script>
+        <script>
+            
+    var x=0;
+    function submit_recorder()
+    {   
     let marker = get_data()
     marKer = marker[0],
     layer = marker[1],
@@ -218,9 +219,13 @@ function submit_recorder()
     map.addControl(controls['selector']);
     controls['selector'].activate();
     }
-});
-}
-      </script>
+    });
+   }
+  </script>
 
   </body>
   </html>
+
+           
+        
+
