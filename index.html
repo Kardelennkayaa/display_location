@@ -133,8 +133,9 @@ body {
     function submit_recorder()
     { 
       markers.clearMarkers(new OpenLayers.Marker(lonLat));
-      marker_colour.clearMarkers();
       vectorLayer.removeFeatures(feature);
+      map.removeLayer(vectorLayer);
+        
     if (x == 0) {
         document.getElementById('rname').classList.add("change");
         x = 1;
