@@ -85,6 +85,7 @@ body {
         } else if(tra=='Bus'){ marker_colour='https://cdn-icons-png.flaticon.com/512/30/30979.png'}
         else{marker_colour = 'https://cdn-icons-png.flaticon.com/128/3202/3202926.png'}
             markers.addMarker(new OpenLayers.Marker(lonLat))
+                return markers;
                 
             map.setCenter(lonLat,zoom)
                 
@@ -96,6 +97,7 @@ body {
 
         vectorLayer.addFeatures(feature);
         map.addLayer(vectorLayer);
+                return vectorLayer;
                 
             var controls = {
               selector: new OpenLayers.Control.SelectFeature(vectorLayer, { onSelect: createPopup, onUnselect: destroyPopup })
@@ -123,7 +125,7 @@ body {
             controls['selector'].activate();
 
             }
-            return [markers,vectorLayer]
+            
 
         });
         </script>
