@@ -47,7 +47,7 @@ body {
     <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script>
 
-        $.getJSON('/api/data', function(data) {
+        $.getJSON('/api/data', function get_data(data) {
             console.log(data[0].recorder);
             console.log(data[0].gender);
             console.log(data[0].transit);
@@ -131,7 +131,7 @@ body {
 var x=0;
 function submit_recorder()
 {   
-    let marker = data()
+    let marker = get_data()
     marKer = marker[0],
     layer = marker[1],
     marKer.clear();
