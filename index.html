@@ -7,7 +7,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-    body {
+body {
       margin: 4px 2px;
       font-family: Arial, Helvetica, sans-serif;
       background-color: #FDF5E6;
@@ -33,35 +33,22 @@
 </style>
 <title>Display Location</title>
 </head>
-<body>   
+<body>
+    <body>
+      <script src="function.js"></script>
     <div class="topnav">
-        <button id="home" class="button button1" onClick="window.location.reload();">Home</button><br>
-        <label for="rname">Recorder name:<br></label><br>
-        <input type="text" id="rname" name="rname"><br>
-         <input type="submit" onclick="submit_recorder()" >
-    </div>       
-    <div class="map" id="mapdiv"></div>
+      <button id="home" class="button button1" onClick="window.location.reload();">Home</button><br>
+      <label for="rname">Recorder name:<br></label><br>
+      <input type="text" id="rname" name="rname"><br>
+       <input type="submit" onclick="submit_recorder()" > 
+    </div>
+    <div id="mapdiv"></div>
     <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=fetch,requestAnimationFrame,Element.prototype.classList,URL"></script>
     <script src="http://www.openlayers.org/api/OpenLayers.js"></script>
     <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script>
-        var x = 0;
-        function submit_recorder()
-        {
-            
-            
-            if (x == 0) {
-                document.getElementById('rname').classList.add("change");
-                x = 1;
-            } else {
-                document.getElementById('rname').classList.remove("change");
-                x = 0;
-                window.location.reload();
-                submit_recorder();
-            }
-            var recorder_name = document.getElementById('rname').value
-       
-            $.getJSON('/api/data', function(data) {
+
+        $.getJSON('/api/data', function(data) {
             console.log(data[0].recorder);
             console.log(data[0].gender);
             console.log(data[0].transit);
@@ -70,6 +57,7 @@
             
             var veri1=data[0].longitude;
             var veri2=data[0].latitude;
+
             map = new OpenLayers.Map("mapdiv");
             map.addLayer(new OpenLayers.Layer.OSM());
             
@@ -84,37 +72,36 @@
             var tra=data[point].transit;
             var lon=data[point].longitude;
             var lat=data[point].latitude;
-              
             
-            
-            if (recorder_name==rec){
-                var lonLat = new OpenLayers.LonLat(lon,lat ).transform(new OpenLayers.Projection("EPSG:4326"), // transform from WGS 1984
+            var lonLat = new OpenLayers.LonLat(lon,lat ).transform(new OpenLayers.Projection("EPSG:4326"), // transform from WGS 1984
                                                                 map.getProjectionObject() // to Spherical Mercator Projection
                                                                 )
-                var zoom=10;  
-                
+            var zoom=10;
         
-                var markers = new OpenLayers.Layer.Markers("Markers");
-                var marker_colour = new OpenLayers.Layer.Markers("Markers");
-                if (tra=='Dolmus') {
+            var markers = new OpenLayers.Layer.Markers("Markers");
+            var marker_colour = new OpenLayers.Layer.Markers("Markers");
+            
+        if (tra=='Dolmus') {
                 marker_colour = 'https://cdn-icons-png.flaticon.com/512/1165/1165961.png';
-                } else if(tra=='Bus'){ marker_colour='https://cdn-icons-png.flaticon.com/512/30/30979.png'}
-                else{marker_colour = 'https://cdn-icons-png.flaticon.com/128/3202/3202926.png'}
-                markers.addMarker(new OpenLayers.Marker(lonLat))
-                map.setCenter(lonLat,zoom)
-                var feature = new OpenLayers.Feature.Vector(
-                new OpenLayers.Geometry.Point( lon,lat ).transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject()),
-                {description:'Latitude: '+lat+'<br>Longitude: '+lon+'<br>Recorder: '+rec+'<br>Recorder Gender: '+gen+'<br>Transit Type: '+tra},
-                {externalGraphic: marker_colour, graphicHeight: 25, graphicWidth: 25, graphicXOffset:-20, graphicYOffset:-30 }
-                );
-                vectorLayer.addFeatures(feature);
-                map.addLayer(vectorLayer);
-                }
+        } else if(tra=='Bus'){ marker_colour='https://cdn-icons-png.flaticon.com/512/30/30979.png'}
+        else{marker_colour = 'https://cdn-icons-png.flaticon.com/128/3202/3202926.png'}
+            markers.addMarker(new OpenLayers.Marker(lonLat))
                 
+            map.setCenter(lonLat,zoom)
+                
+        var feature = new OpenLayers.Feature.Vector(
+        new OpenLayers.Geometry.Point( lon,lat ).transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject()),
+        {description:'Latitude: '+lat+'<br>Longitude: '+lon+'<br>Recorder: '+rec+'<br>Recorder Gender: '+gen+'<br>Transit Type: '+tra},
+        {externalGraphic: marker_colour, graphicHeight: 25, graphicWidth: 25, graphicXOffset:-20, graphicYOffset:-30 }
+        );
+
+        vectorLayer.addFeatures(feature);
+        map.addLayer(vectorLayer);
                 
             var controls = {
               selector: new OpenLayers.Control.SelectFeature(vectorLayer, { onSelect: createPopup, onUnselect: destroyPopup })
             };
+
             function createPopup(feature) {
               feature.popup = new OpenLayers.Popup.FramedCloud("pop",
                   feature.geometry.getBounds().getCenterLonLat(),
@@ -127,18 +114,20 @@
              
               map.addPopup(feature.popup);
             }
+
             function destroyPopup(feature) {
               feature.popup.destroy();
               feature.popup = null;
             }
+
             map.addControl(controls['selector']);
             controls['selector'].activate();
+
             }
+
         });
-        }
+           
         
-    </script>   
-    
-    
+    </script>
   </body>
   </html>
