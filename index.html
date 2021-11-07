@@ -39,7 +39,7 @@ body {
             <button id="home" class="button button1" onClick="window.location.reload();">Home</button><br>
             <label for="rname">Recorder name:<br></label><br>
             <input type="text" id="rname" name="rname"><br>
-            <input type="submit" onclick="submit_recorder(document.getElementById('rname').value)"> 
+            <button onclick="submit_recorder()">Submit</button>
         </div>
     </form>
     </div>
@@ -132,14 +132,14 @@ body {
         <script>
             
     var x=0;
-    function submit_recorder(recorder_name)
+    function submit_recorder()
     { 
       markers.clearMarkers(new OpenLayers.Marker(lonLat));
       vectorLayer.removeFeatures(feature);
       map.removeLayer(vectorLayer);
         
     
-    //var recorder_name = document.getElementById('rname').value
+    var recorder_name = document.getElementById('rname').value
 
     $.getJSON('/api/data', function(data) {
     console.log(data[0].recorder);
