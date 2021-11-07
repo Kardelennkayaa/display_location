@@ -36,12 +36,17 @@ body {
         position: absolute;
         }
     .button2 {background-color: #BA55D3;} 
+    #container{
+    text-align: center;
+}
 </style>
 <title>Display Location</title>
 </head>
 <body>
-    <button class="open-button" onclick="selectBy_recorder()">Select by Recorder</button>
-    <button id="home" class="button button1" onClick="window.location.reload();">Home</button><br>
+    <div id="container">
+        <button class="open-button" onclick="selectBy_recorder()">Select by Recorder</button>
+        <button id="home" class="button button1" onClick="window.location.reload();">Home</button><br>
+    </div>
     <div class="form-popup" id="open_entry">
             <label for="rname">Recorder name:<br></label><br>
             <input type="text" id="rname" name="rname"><br>
