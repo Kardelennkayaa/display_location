@@ -215,9 +215,6 @@ body {
         map.addLayer(vectorLayer);
         x=1;
         } 
-        if (x==0) {
-            alert("Recorder not found!")
-        }
             
         
         
@@ -242,6 +239,9 @@ body {
     }
     map.addControl(controls['selector']);
     controls['selector'].activate();
+    }
+    if (x==0) {
+        alert("Recorder not found!")
     }
     document.getElementById('rname').value=null;
     });
