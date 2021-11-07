@@ -52,9 +52,9 @@ Sign up sayfasında istenen bilgiler girildikten sonra vermiş olduğunuz email 
 
 **3.** Kurulum için gerekli olan bu bilgiler girildikten sonra Heroku App oluşturulmuş olur. Oluşturulan Heroku App verilen görseldeki gibi bulunabilir:
 
-<kbd> <p align="center">
+<p align="center">
   <img src="https://github.com/Kardelennkayaa/display_location/blob/master/location_images/dashboard_img.png" alt="Sublime's custom image"/>
-</p></kbd> 
+</p>
 
 **4.** Heroku ile PostgreSQL veritabanı oluşturmak için ilk olarak "Resources" butonu seçilir.
 
