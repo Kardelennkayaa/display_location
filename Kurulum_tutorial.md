@@ -478,3 +478,20 @@ Heroku ve Github arasındaki bağlantı sağlandıktan sonra **View** butonu ile
 
 ### **Android Studio**
 
+Android platformu için yazılım hazırlamayı en kolay hale getiren program olduğu için bu çalışmada android studio kullanacağız. Android studio içerisinde bulundurduğu AVD Manager ile kodu sanal telefon üzerinde test etmemizi kolaylaştırarak ek program kullanmamıza gerek kalmayan bir uygulamadır.
+
+### Android Studio Kurulumu ###
+
+İlk olarak [buradaki linkten](https://developer.android.com/studio) adresine giderek işletim sistemimize uygun olan android studio versiyonunu indiriyoruz.
+
+### Projenin Oluşturulması
+
+İlk olarak boş bir aktivite dosyası oluşturuyoruz.
+
+ss-1
+
+
+
+
+
+
