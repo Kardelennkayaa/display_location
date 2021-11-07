@@ -146,9 +146,7 @@ body {
             controls['selector'].activate();
 
             }
-            else{
-                alert("Recorder not found!")
-            }
+           
             
 
         });
@@ -215,7 +213,9 @@ body {
         );
         vectorLayer.addFeatures(feature);
         map.addLayer(vectorLayer);
-        }
+        } else {
+                alert("Recorder not found!");
+            }
         
         
     var controls = {
