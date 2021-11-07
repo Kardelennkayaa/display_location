@@ -243,50 +243,70 @@ PostgreSQL veritabanı bağlantısı kurulduğuna göre web sitesi hazırlamak i
     <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 body {
-  margin: 4px 2px;
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: #FDF5E6;
-}
-    .button {
-  border: none;
-  color: white;
-  padding: 14px 16px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 17px;
-  margin: 4px 2px;
-  cursor: pointer;
-}
-.button1 {background-color: #BA55D3;} 
-.button2 {background-color: #BA55D3;} 
+      margin: 10px 10px;
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: #FDF5E6;
+    }
+    .map {
+        width: 100%;
+        height:92%;
+        position:fixed
+      }
+   
+
+    .button1 {
+        background-color: #BA55D3;
+        color: white;
+        padding: 16px 20px;
+        border: none;
+        cursor: pointer;
+        opacity: 0.8;
+    } 
+    .open-button {
+        background-color: #BA55D3;
+        color: white;
+        padding: 16px 20px;
+        border: none;
+        cursor: pointer;
+        opacity: 0.8;
+        }
+    #container{
+        display:inline-block;
+    }
+    
+    .form-popup {
+        display: none;
+        border: 4px solid #FDF5E6 ;
+     }
 </style>
 <title>Display Location</title>
 </head>
 <body>
-    <body>
-    <div class="topnav">
+    <div id="container">
         <button id="home" class="button button1" onClick="window.location.reload();">Home</button>
-        <button id="recorder" class="button button2" onClick="getButton_id()">Recorder</button>
+        <button class="open-button" onclick="selectBy_recorder()">Select by Recorder</button><br>
     </div>
-    <div id="mapdiv"></div>
+    <div class="form-popup" id="open_entry">
+            <label for="rname">Recorder name:<br></label><br>
+            <input type="text" id="rname" name="rname"><br>
+            <button onclick="submit_recorder()">Submit</button>
+    </div>
+    <div class="map" id="mapdiv"></div>
     <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=fetch,requestAnimationFrame,Element.prototype.classList,URL"></script>
     <script src="http://www.openlayers.org/api/OpenLayers.js"></script>
     <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script>
-        function getButton_id()
-        {
-            alert(event.srcElement.id);
-        }
-    </script>   
-    <script>
+
         $.getJSON('/api/data', function(data) {
             console.log(data[0].recorder);
             console.log(data[0].gender);
+            console.log(data[0].age);
             console.log(data[0].transit);
+            console.log(data[0].destination);
             console.log(data[0].longitude);
             console.log(data[0].latitude);
-           
+            console.log(data[0].date);
+            
             var veri1=data[0].longitude;
             var veri2=data[0].latitude;
 
@@ -295,35 +315,40 @@ body {
             
             var point;
             var length=data.length;
-            var vectorLayer = new OpenLayers.Layer.Vector("Overlay");
+            vectorLayer = new OpenLayers.Layer.Vector("Overlay");
             //TODO - data haritaya ekleme işlemi
             for (point = 0; point < data.length; point++) {
                 
             var rec=data[point].recorder;
             var gen=data[point].gender;
+            var ag=data[point].age;
             var tra=data[point].transit;
+            var dest=data[point].destination;
             var lon=data[point].longitude;
             var lat=data[point].latitude;
+            var dt=data[point].date;
             
-            var lonLat = new OpenLayers.LonLat(lon,lat ).transform(new OpenLayers.Projection("EPSG:4326"), // transform from WGS 1984
+            lonLat = new OpenLayers.LonLat(lon,lat ).transform(new OpenLayers.Projection("EPSG:4326"), // transform from WGS 1984
                                                                 map.getProjectionObject() // to Spherical Mercator Projection
                                                                 )
             var zoom=10;
         
-            var markers = new OpenLayers.Layer.Markers("Markers");
-            var marker_colour = new OpenLayers.Layer.Markers("Markers");
+            markers = new OpenLayers.Layer.Markers("Markers");
+            marker_colour = new OpenLayers.Layer.Markers("Markers");
             
-        if (tra=='Dolmus') {
+        if (tra=='Dolmush' || tra == 'Dolmuş') {
                 marker_colour = 'https://cdn-icons-png.flaticon.com/512/1165/1165961.png';
-        } else if(tra=='Bus'){ marker_colour='https://cdn-icons-png.flaticon.com/512/30/30979.png'}
+        } else if(tra=='Bus' || tra=='Otobüs'){ marker_colour='https://cdn-icons-png.flaticon.com/512/30/30979.png'}
+        else if(tra=='Tren' || tra=='Train'){ marker_colour='https://cdn-icons-png.flaticon.com/512/335/335045.png'}
+        else if(tra=='Tramvay' || tra=='Streetcar'){ marker_colour='https://cdn-icons-png.flaticon.com/512/82/82281.png'}
         else{marker_colour = 'https://cdn-icons-png.flaticon.com/128/3202/3202926.png'}
             markers.addMarker(new OpenLayers.Marker(lonLat))
                 
             map.setCenter(lonLat,zoom)
                 
-        var feature = new OpenLayers.Feature.Vector(
+        feature = new OpenLayers.Feature.Vector(
         new OpenLayers.Geometry.Point( lon,lat ).transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject()),
-        {description:'Latitude: '+lat+'<br>Longitude: '+lon+'<br>Recorder: '+rec+'<br>Recorder Gender: '+gen+'<br>Transit Type: '+tra},
+        {description:'Recorder: '+rec+'<br>Gender: '+gen+'<br>Transit Type: '+tra+'<br>Age: '+ag+'<br>Destination: '+dest+'<br>Date: '+dt+'<br>Latitude: '+lat+'<br>Longitude: '+lon},
         {externalGraphic: marker_colour, graphicHeight: 25, graphicWidth: 25, graphicXOffset:-20, graphicYOffset:-30 }
         );
 
@@ -356,16 +381,120 @@ body {
             controls['selector'].activate();
 
             }
+           
+            
 
         });
-    </script>
+        </script>
+        <script>
+            
+    function submit_recorder()
+    { 
+      markers.clearMarkers(new OpenLayers.Marker(lonLat));
+      vectorLayer.removeFeatures(feature);
+      map.removeLayer(vectorLayer);
+        
+    
+    var recorder_name = document.getElementById('rname').value
+
+    $.getJSON('/api/data', function(data) {
+    console.log(data[0].recorder);
+    console.log(data[0].gender);
+    console.log(data[0].transit);
+    console.log(data[0].longitude);
+    console.log(data[0].latitude);
+    
+    var veri1=data[0].longitude;
+    var veri2=data[0].latitude;
+    
+    var point;
+    var length=data.length;
+    vectorLayer = new OpenLayers.Layer.Vector("Overlay");
+    x=0;   
+    for (point = 0; point < data.length; point++) {
+        
+    var rec=data[point].recorder;
+    var gen=data[point].gender;
+    var ag=data[point].age;
+    var tra=data[point].transit;
+    var dest=data[point].destination;
+    var lon=data[point].longitude;
+    var lat=data[point].latitude;
+    var dt=data[point].date;
+      
+    
+    
+    if (recorder_name==rec){
+        lonLat = new OpenLayers.LonLat(lon,lat ).transform(new OpenLayers.Projection("EPSG:4326"), // transform from WGS 1984
+                                                        map.getProjectionObject() // to Spherical Mercator Projection
+                                                        )
+        var zoom=10;  
+        
+
+        markers = new OpenLayers.Layer.Markers("Markers");
+        marker_colour = new OpenLayers.Layer.Markers("Markers");
+        if (tra=='Dolmush' || tra == 'Dolmuş') {
+                marker_colour = 'https://cdn-icons-png.flaticon.com/512/1165/1165961.png';
+        } else if(tra=='Bus' || tra=='Otobüs'){ marker_colour='https://cdn-icons-png.flaticon.com/512/30/30979.png'}
+        else if(tra=='Tren' || tra=='Train'){ marker_colour='https://cdn-icons-png.flaticon.com/512/335/335045.png'}
+        else if(tra=='Tramvay' || tra=='Streetcar'){ marker_colour='https://cdn-icons-png.flaticon.com/512/82/82281.png'}
+        else{marker_colour = 'https://cdn-icons-png.flaticon.com/128/3202/3202926.png'}
+        markers.addMarker(new OpenLayers.Marker(lonLat))
+        map.setCenter(lonLat,zoom)
+        feature = new OpenLayers.Feature.Vector(
+        new OpenLayers.Geometry.Point( lon,lat ).transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject()),
+        {description:'Recorder: '+rec+'<br>Gender: '+gen+'<br>Transit Type: '+tra+'<br>Age: '+ag+'<br>Destination: '+dest+'<br>Date: '+dt+'<br>Latitude: '+lat+'<br>Longitude: '+lon},
+        {externalGraphic: marker_colour, graphicHeight: 25, graphicWidth: 25, graphicXOffset:-20, graphicYOffset:-30 }
+        );
+        vectorLayer.addFeatures(feature);
+        map.addLayer(vectorLayer);
+        x=1;
+        } 
+            
+        
+        
+    var controls = {
+      selector: new OpenLayers.Control.SelectFeature(vectorLayer, { onSelect: createPopup, onUnselect: destroyPopup })
+    };
+    function createPopup(feature) {
+      feature.popup = new OpenLayers.Popup.FramedCloud("pop",
+          feature.geometry.getBounds().getCenterLonLat(),
+          null,
+          '<div class="markerContent">'+feature.attributes.description+'</div>',
+          null,
+          true,
+          function() { controls['selector'].unselectAll(); }
+      );
+     
+      map.addPopup(feature.popup);
+    }
+    function destroyPopup(feature) {
+      feature.popup.destroy();
+      feature.popup = null;
+    }
+    map.addControl(controls['selector']);
+    controls['selector'].activate();
+    }
+    if (x==0) {
+        alert("Recorder not found!")
+    }
+    document.getElementById('rname').value=null;
+    });
+   }
+  </script>
+  <script>
+      function selectBy_recorder() {
+          document.getElementById("open_entry").style.display = "block";
+        }
+ </script>
   </body>
   </html>
    ```
   
 Burada altlık harita için **OpenLayers** kullanılmıştır. Ayrıca **Jquery** kütüphanesinin kullanılma amacı da veritabanına **select** komutu ile gönderilmiş olunan sorguların yanıtını almaktır. 
 Ayrıca güvenlik politikası, web sayfasını **HTTPS** protokolü olarak çalıştırabilmek için eklenmiştir. Hazırlanan **index.html** kodu ile veritabanından alınan konum verileri öznitelikleri ile birlikte OpenLayers haritası üzerinde görselleştirilmiştir. 
-Burada verilerin ulaşım aracı bilgisi, otobüs ya da dolmuş olmasına göre sınıflandırılmıştır ve bu bilgiye özel iconlar ile ilgili konumu üzerinde gösterilmiştir.
+Hazırlanan **index.html** dosyası ile oluşturulan web arayüzünde; verilerin ulaşım aracı bilgisi, otobüs ya da dolmuş olmasına göre belirli bir icon ile sembolize edilmiştir. Ayrıca veriyi niteleyen icona basılarak da veri ile ilgili öznitelik bilgilerine erişilebilir. 
+Arayüzde **Home** ve **Select by Recorder** olarak iki adet buton bulunmaktadır. **Select by Recorder** butonu yardımı ile spesifik bir **Recorder** ismi yazılarak, belirtilen kişinin kaydettiği veriler görselleştirilebilir. Bir diğer buton olan **Home** butonu ile de arayüz tekrar yüklenerek veritabanında kayıtlı olan tüm verilere erişilebilir.
 
 <p align="center">
   <img src="https://github.com/Kardelennkayaa/display_location/blob/master/location_images/visualize_data.jpg"/>
@@ -412,7 +541,7 @@ Tasarlanan websitesi kodunun çalıştırılması için Visual Studio Code üzer
   <img src="https://github.com/Kardelennkayaa/display_location/blob/master/location_images/node_terminal.jpg"/>
 </p>
 
-Oluşturulan websitesini ziyaret etmek için verilen link kullanılabilir [localhost](http://localhost:4000/).
+Oluşturulan websitesini ziyaret etmek için [verilen link](http://localhost:4000/) kullanılabilir.
 Veritabanından çekilen veriler aşağıdaki gibi görüntülenir:
 
 <p align="center">
@@ -472,7 +601,7 @@ Burada **master** olarak verilen isim, oluşturduğunuz repositoryde bulunan **b
 Heroku ve Github arasındaki bağlantı sağlandıktan sonra **View** butonu ile, tasarlanan websitesine erişilebilir:
 
 <p align="center">
-  <img src="https://github.com/Kardelennkayaa/display_location/blob/master/location_images/deploy_display.jpg"/>
+  <img src="https://github.com/Kardelennkayaa/display_location/blob/master/location_images/display_deploy.jpg"/>
 </p>
 
 
