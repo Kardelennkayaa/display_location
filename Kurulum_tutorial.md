@@ -493,7 +493,10 @@ body {
   
 Burada altlık harita için **OpenLayers** kullanılmıştır. Ayrıca **Jquery** kütüphanesinin kullanılma amacı da veritabanına **select** komutu ile gönderilmiş olunan sorguların yanıtını almaktır. 
 Ayrıca güvenlik politikası, web sayfasını **HTTPS** protokolü olarak çalıştırabilmek için eklenmiştir. Hazırlanan **index.html** kodu ile veritabanından alınan konum verileri öznitelikleri ile birlikte OpenLayers haritası üzerinde görselleştirilmiştir. 
-Hazırlanan **index.html** dosyası ile oluşturulan web arayüzünde; verilerin ulaşım aracı bilgisi, otobüs ya da dolmuş olmasına göre belirli bir icon ile sembolize edilmiştir. Ayrıca veriyi niteleyen icona basılarak da veri ile ilgili öznitelik bilgilerine erişilebilir. 
+
+Oluşturulan web arayüzünde; verilerin ulaşım aracı bilgisi, otobüs ya da dolmuş olmasına göre belirli bir icon ile sembolize edilmiştir. Ayrıca veriyi niteleyen icona basılarak da veri ile ilgili öznitelik bilgilerine erişilebilir. 
+
+
 Arayüzde **Home** ve **Select by Recorder** olarak iki adet buton bulunmaktadır. **Select by Recorder** butonu yardımı ile spesifik bir **Recorder** ismi yazılarak, belirtilen kişinin kaydettiği veriler görselleştirilebilir. Bir diğer buton olan **Home** butonu ile de arayüz tekrar yüklenerek veritabanında kayıtlı olan tüm verilere erişilebilir.
 
 <p align="center">
