@@ -175,7 +175,7 @@ body {
     var point;
     var length=data.length;
     vectorLayer = new OpenLayers.Layer.Vector("Overlay");
-    //TODO - data haritaya ekleme işlemi
+    x=0;   
     for (point = 0; point < data.length; point++) {
         
     var rec=data[point].recorder;
@@ -213,7 +213,12 @@ body {
         );
         vectorLayer.addFeatures(feature);
         map.addLayer(vectorLayer);
+        x=1;
         } 
+        if (x==0) {
+            alert("Recorder not found!")
+        }
+            
         
         
     var controls = {
