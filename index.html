@@ -34,11 +34,15 @@ body {
 <title>Display Location</title>
 </head>
 <body>
-    <div class="topnav">
-        <button id="home" class="button button1" onClick="window.location.reload();">Home</button><br>
-        <label for="rname">Recorder name:<br></label><br>
-        <input type="text" id="rname" name="rname"><br>
-        <button onclick="submit_recorder()">Submit</button>
+    <button class="open-button" onclick="selectBy_recorder()">Select by Recorder</button>
+    <div class="form-popup" id="open_entry">
+        <form action="/action_page.php" class="form-container">
+        <h1>Login</h1>
+            <button id="home" class="button button1" onClick="window.location.reload();">Home</button><br>
+            <label for="rname">Recorder name:<br></label><br>
+            <input type="text" id="rname" name="rname"><br>
+            <button onclick="submit_recorder()">Submit</button>
+         </form>
     </div>
     <div class="map" id="mapdiv"></div>
     <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=fetch,requestAnimationFrame,Element.prototype.classList,URL"></script>
@@ -212,6 +216,10 @@ body {
     });
    }
   </script>
+  <script>
+      function selectBy_recorder() {
+          document.getElementById("myForm").style.display = "block";
+        }
 
   </body>
   </html>
