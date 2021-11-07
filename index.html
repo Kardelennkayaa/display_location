@@ -95,9 +95,11 @@ body {
             markers = new OpenLayers.Layer.Markers("Markers");
             marker_colour = new OpenLayers.Layer.Markers("Markers");
             
-        if (tra=='Dolmus') {
+        if (tra=='Dolmush' || tra == 'Dolmuş') {
                 marker_colour = 'https://cdn-icons-png.flaticon.com/512/1165/1165961.png';
-        } else if(tra=='Bus'){ marker_colour='https://cdn-icons-png.flaticon.com/512/30/30979.png'}
+        } else if(tra=='Bus' || tra=='Otobüs'){ marker_colour='https://cdn-icons-png.flaticon.com/512/30/30979.png'}
+        else if(tra=='Tren' || tra=='Train'){ marker_colour='https://cdn-icons-png.flaticon.com/512/335/335045.png'}
+        else if(tra=='Tramvay' || tra=='Streetcar'){ marker_colour='https://cdn-icons-png.flaticon.com/512/82/82281.png'}
         else{marker_colour = 'https://cdn-icons-png.flaticon.com/128/3202/3202926.png'}
             markers.addMarker(new OpenLayers.Marker(lonLat))
                 
@@ -186,9 +188,11 @@ body {
 
         markers = new OpenLayers.Layer.Markers("Markers");
         marker_colour = new OpenLayers.Layer.Markers("Markers");
-        if (tra=='Dolmus') {
-        marker_colour = 'https://cdn-icons-png.flaticon.com/512/1165/1165961.png';
-        } else if(tra=='Bus'){ marker_colour='https://cdn-icons-png.flaticon.com/512/30/30979.png'}
+        if (tra=='Dolmush' || tra == 'Dolmuş') {
+                marker_colour = 'https://cdn-icons-png.flaticon.com/512/1165/1165961.png';
+        } else if(tra=='Bus' || tra=='Otobüs'){ marker_colour='https://cdn-icons-png.flaticon.com/512/30/30979.png'}
+        else if(tra=='Tren' || tra=='Train'){ marker_colour='https://cdn-icons-png.flaticon.com/512/335/335045.png'}
+        else if(tra=='Tramvay' || tra=='Streetcar'){ marker_colour='https://cdn-icons-png.flaticon.com/512/82/82281.png'}
         else{marker_colour = 'https://cdn-icons-png.flaticon.com/128/3202/3202926.png'}
         markers.addMarker(new OpenLayers.Marker(lonLat))
         map.setCenter(lonLat,zoom)
