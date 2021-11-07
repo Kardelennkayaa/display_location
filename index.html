@@ -65,9 +65,12 @@ body {
         $.getJSON('/api/data', function(data) {
             console.log(data[0].recorder);
             console.log(data[0].gender);
+            console.log(data[0].age);
             console.log(data[0].transit);
+            console.log(data[0].destination);
             console.log(data[0].longitude);
             console.log(data[0].latitude);
+            console.log(data[0].date);
             
             var veri1=data[0].longitude;
             var veri2=data[0].latitude;
@@ -83,9 +86,12 @@ body {
                 
             var rec=data[point].recorder;
             var gen=data[point].gender;
+            var ag=data[point].age;
             var tra=data[point].transit;
+            var dest=data[point].destination;
             var lon=data[point].longitude;
             var lat=data[point].latitude;
+            var dt=data[point].date;
             
             lonLat = new OpenLayers.LonLat(lon,lat ).transform(new OpenLayers.Projection("EPSG:4326"), // transform from WGS 1984
                                                                 map.getProjectionObject() // to Spherical Mercator Projection
@@ -107,7 +113,7 @@ body {
                 
         feature = new OpenLayers.Feature.Vector(
         new OpenLayers.Geometry.Point( lon,lat ).transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject()),
-        {description:'Latitude: '+lat+'<br>Longitude: '+lon+'<br>Recorder: '+rec+'<br>Recorder Gender: '+gen+'<br>Transit Type: '+tra},
+        {description:'Latitude: '+lat+'<br>Longitude: '+lon+'<br>Recorder: '+rec+'<br>Gender: '+gen+'<br>Transit Type: '+tra+'<br>Age: '+ag+'<br>Destination: '+dest+'<br>Date: '+dt},
         {externalGraphic: marker_colour, graphicHeight: 25, graphicWidth: 25, graphicXOffset:-20, graphicYOffset:-30 }
         );
 
@@ -173,9 +179,12 @@ body {
         
     var rec=data[point].recorder;
     var gen=data[point].gender;
+    var ag=data[point].age;
     var tra=data[point].transit;
+    var dest=data[point].destination;
     var lon=data[point].longitude;
     var lat=data[point].latitude;
+    var dt=data[point].date;
       
     
     
@@ -198,7 +207,7 @@ body {
         map.setCenter(lonLat,zoom)
         feature = new OpenLayers.Feature.Vector(
         new OpenLayers.Geometry.Point( lon,lat ).transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject()),
-        {description:'Latitude: '+lat+'<br>Longitude: '+lon+'<br>Recorder: '+rec+'<br>Recorder Gender: '+gen+'<br>Transit Type: '+tra},
+        {description:'Latitude: '+lat+'<br>Longitude: '+lon+'<br>Recorder: '+rec+'<br>Gender: '+gen+'<br>Transit Type: '+tra+'<br>Age: '+ag+'<br>Destination: '+dest+'<br>Date: '+dt},
         {externalGraphic: marker_colour, graphicHeight: 25, graphicWidth: 25, graphicXOffset:-20, graphicYOffset:-30 }
         );
         vectorLayer.addFeatures(feature);
