@@ -84,6 +84,7 @@ body {
             var length=data.length;
             vectorLayer = new OpenLayers.Layer.Vector("Overlay");
             //TODO - data haritaya ekleme işlemi
+            var list_rec = [];
             for (point = 0; point < data.length; point++) {
                 
             var rec=data[point].recorder;
@@ -94,6 +95,13 @@ body {
             var lon=data[point].longitude;
             var lat=data[point].latitude;
             var dt=data[point].date;
+            list_rec.push({ val: point, text: rec })
+            for  (index = 0; index < list_rec.length; index++) {
+                if (list_rec[index].inList(list_rec)){
+                    delete list_rec[index];
+                }
+            }
+                alert(list_rec)
             
             lonLat = new OpenLayers.LonLat(lon,lat ).transform(new OpenLayers.Projection("EPSG:4326"), // transform from WGS 1984
                                                                 map.getProjectionObject() // to Spherical Mercator Projection
