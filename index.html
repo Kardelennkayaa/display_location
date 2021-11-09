@@ -95,7 +95,7 @@ body {
             var lon=data[point].longitude;
             var lat=data[point].latitude;
             var dt=data[point].date;
-            list_rec.push({ text: rec })
+            list_rec.push(rec)
             for  (index = 0; index < list_rec.length; index++) {
                 if (list_rec.includes[list_rec[index]]=="true"){
                     delete list_rec[index];
