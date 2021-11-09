@@ -52,7 +52,7 @@ body {
         <button class="open-button" onclick="selectBy_recorder()">Select by Recorder</button><br>
     </div>
     <div class="form-popup" id="open_entry">
-        <select id="cars">
+        <select id="recorder_options" onchange="getSelectValue();">
                 <option label="recorder"></option>
         </select>
         <label for="rname">Recorder name:<br></label><br>
@@ -253,6 +253,12 @@ body {
   <script>
       function selectBy_recorder() {
           document.getElementById("open_entry").style.display = "block";
+        }
+ </script>
+  <script>
+      var selectedValue = "256"
+      function getSelectValue() {
+          document.getElementById("recorder_options").value = selectedValue;
         }
  </script>
   </body>
