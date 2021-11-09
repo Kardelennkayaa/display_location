@@ -51,8 +51,7 @@ body {
         <button id="home" class="button button1" onClick="window.location.reload();">Home</button>
         <button class="open-button" onclick="selectBy_recorder()">Select by Recorder</button><br>
     </div>
-    <select id="recorder_options" onchange="getSelectValue();">
-                <option value="recorder">JS</option>
+    <select id="recorder_options">
     </select>
     <div class="form-popup" id="open_entry">
         <label for="rname">Recorder name:<br></label><br>
@@ -256,11 +255,16 @@ body {
         }
  </script>
   <script>
-      function getSelectValue() {
-          var selectedValue = "256";
-          document.getElementById("recorder_options").value = selectedValue;
-        }
-      getSelectValue();
+      var list_array = {
+          ValueA : 'Text A',
+          ValueB : 'Text B',
+          ValueC : 'Text C'
+      };
+    var select = document.getElementById("recorder_options");
+    for(index in list_array) {
+        select.options[select.options.length] = new Option(list_array[index], index);
+    }
+
  </script>
   </body>
   </html>
