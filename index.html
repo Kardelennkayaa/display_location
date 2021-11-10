@@ -175,7 +175,6 @@ body {
         
     
     var recorder_name = document.getElementById('recorder_options').value
-    alert(document.getElementById('recorder_options').value)
 
     $.getJSON('/api/data', function(data) {
     console.log(data[0].recorder);
@@ -264,7 +263,7 @@ body {
   </script>
   <script>
       function selectBy_recorder() {
-          document.getElementById("open_entry").style.display = "block";
+          document.getElementById("recorder_options").style.display = "block";
         }
  </script>
  <script>
