@@ -52,8 +52,8 @@ body {
         <button class="open-button" onclick="selectBy_recorder()">Select by Recorder</button><br>
     </div>
     <select id="recorder_options">
-        <button onclick="submit_option()">Submit</button>
-    </select>
+    </select><br>
+    <input class="SubmitButton" type="button" value="Submit" onclick="submit_recorder()"  style="font-size:20px; " />
     <div class="form-popup" id="open_entry">
         <label for="rname">Recorder name:<br></label><br>
         <input type="text" id="rname" name="rname"><br>
@@ -181,7 +181,7 @@ body {
       map.removeLayer(vectorLayer);
         
     
-    var recorder_name = document.getElementById('rname').value
+    var recorder_name = document.getElementById('recorder_options').value
 
     $.getJSON('/api/data', function(data) {
     console.log(data[0].recorder);
