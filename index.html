@@ -96,9 +96,7 @@ body {
             var lat=data[point].latitude;
             var dt=data[point].date;
             list_rec.push(rec);
-            
-            
-            
+
             lonLat = new OpenLayers.LonLat(lon,lat ).transform(new OpenLayers.Projection("EPSG:4326"), // transform from WGS 1984
                                                                 map.getProjectionObject() // to Spherical Mercator Projection
                                                                 )
@@ -152,15 +150,15 @@ body {
             controls['selector'].activate();
 
             }
-            for  (index = 0; index < list_rec.length; index++) {
-                for (n = 1; n < list_rec.length; n++) {
-                    if (list_rec[index]==list_rec[n]){
-                        delete list_rec[index]
-                    }
+            //for  (index = 0; index < list_rec.length; index++) {
+                //for (n = 1; n < list_rec.length; n++) {
+                    //if (list_rec[index]==list_rec[n]){
+                        //delete list_rec[index]
+                    //}
                
-            }
-            }
-            alert(list_rec[1]);
+            //}
+            //}
+            alert(list_rec);
             
 
         });
