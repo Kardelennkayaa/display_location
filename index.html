@@ -47,19 +47,25 @@ body {
 <title>Display Location</title>
 </head>
 <body>
-    <div id="container">
-        <button id="home" class="button button1" onClick="window.location.reload();">Home</button>
-        <button class="open-button" onclick="selectBy_recorder()">Select by Recorder</button><br>
+    <div class="span9" style="height:100%">
+        <div id="map">
+            <div class="leaflet-bottom leaflet-left">
+                <div id="container">
+                    <button id="home" class="button button1" onClick="window.location.reload();">Home</button>
+                    <button class="open-button" onclick="selectBy_recorder()">Select by Recorder</button><br>
+                </div>
+                <select id="recorder_options">
+                </select><br>
+                <input class="SubmitButton" type="button" value="Submit" onclick="submit_recorder()" />
+                <div class="form-popup" id="open_entry">
+                    <label for="rname">Recorder name:<br></label><br>
+                    <input type="text" id="rname" name="rname"><br>
+                    <button onclick="submit_recorder()">Submit</button>
+                   </div>
+                </div>
     </div>
-    <select id="recorder_options">
-    </select><br>
-    <input class="SubmitButton" type="button" value="Submit" onclick="submit_recorder()" />
-    <div class="form-popup" id="open_entry">
-        <label for="rname">Recorder name:<br></label><br>
-        <input type="text" id="rname" name="rname"><br>
-        <button onclick="submit_recorder()">Submit</button>
-       </div>
-    <div class="map" id="mapdiv">
+</div>
+                <div class="map" id="mapdiv">
     <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=fetch,requestAnimationFrame,Element.prototype.classList,URL"></script>
     <script src="http://www.openlayers.org/api/OpenLayers.js"></script>
     <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
