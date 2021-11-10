@@ -151,14 +151,7 @@ body {
             controls['selector'].activate();
 
             }
-            //for  (index = 0; index < list_rec.length; index++) {
-                //for (n = 1; n < list_rec.length; n++) {
-                    //if (list_rec[index]==list_rec[n]){
-                        //delete list_rec[index]
-                    //}
-               
-            //}
-            //}
+     
             var unique_rec = [];
             $.each(list_rec, function(i, el){
             if($.inArray(el, unique_rec) === -1) unique_rec.push(el);
@@ -166,7 +159,7 @@ body {
             alert(unique_rec);
             var select = document.getElementById("recorder_options");
             for(index in unique_rec) {
-                select.options[select.options.length] = new Option(unique_rec[index], index);
+                select.options[select.options.length] = new Option(index, unique_rec[index]);
             }
             
 
