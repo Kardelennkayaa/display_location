@@ -158,6 +158,10 @@ body {
                
             //}
             //}
+            var unique_rec = [];
+            $.each(names, function(i, el){
+            if($.inArray(el, unique_rec) === -1) unique_rec.push(el);
+            });
             alert(list_rec);
             
 
