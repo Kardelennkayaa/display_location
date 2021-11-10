@@ -47,7 +47,6 @@ body {
 <title>Display Location</title>
 </head>
 <body>
-   <div class="map" id="mapdiv">
     <div id="container">
         <button id="home" class="button button1" onClick="window.location.reload();">Home</button>
         <button class="open-button" onclick="selectBy_recorder()">Select by Recorder</button><br>
@@ -60,7 +59,7 @@ body {
         <input type="text" id="rname" name="rname"><br>
         <button onclick="submit_recorder()">Submit</button>
        </div>
-     </div>
+    <div class="map" id="mapdiv">
     <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=fetch,requestAnimationFrame,Element.prototype.classList,URL"></script>
     <script src="http://www.openlayers.org/api/OpenLayers.js"></script>
     <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
