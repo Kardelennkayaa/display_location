@@ -156,10 +156,10 @@ body {
             $.each(list_rec, function(i, el){
             if($.inArray(el, unique_rec) === -1) unique_rec.push(el);
             });
-            alert(unique_rec);
+            //alert(unique_rec);
             var select = document.getElementById("recorder_options");
             for(index in unique_rec) {
-                select.options[select.options.length] = new Option(index, unique_rec[index]);
+                select.options[select.options.length] = new Option(unique_rec[index], unique_rec[index]);
             }
             
 
