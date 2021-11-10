@@ -51,9 +51,11 @@ body {
         <button id="home" class="button button1" onClick="window.location.reload();">Home</button>
         <button class="open-button" onclick="selectBy_recorder()">Select by Recorder</button><br>
     </div>
-    <select id="recorder_options">
-    </select><br>
-    <input class="SubmitButton" type="button" value="Submit" onclick="submit_recorder()" />
+    <div class="form-popup" id="recorder_option">
+        <select id="recorder_options">
+        </select><br>
+        <input class="SubmitButton" type="button" value="Submit" onclick="submit_recorder()" />
+    </div>
     <div class="form-popup" id="open_entry">
         <label for="rname">Recorder name:<br></label><br>
         <input type="text" id="rname" name="rname"><br>
@@ -263,14 +265,9 @@ body {
   </script>
   <script>
       function selectBy_recorder() {
-          document.getElementById("recorder_options").style.display = "block";
+          document.getElementById("recorder_option").style.display = "block";
         }
  </script>
- <script>
-      function submit_option() {
-          alert("Recorder is sent");
-      }
- </script> 
   </body>
   </html>
 
