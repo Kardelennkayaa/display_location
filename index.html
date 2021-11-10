@@ -95,13 +95,11 @@ body {
             var lon=data[point].longitude;
             var lat=data[point].latitude;
             var dt=data[point].date;
-            list_rec.push(rec)
-            for  (index = 1; index < list_rec.length; index++) {
-                if (list_rec.includes[list_rec[index]]=="true"){
-                    delete list_rec[index];
-                }
-                alert(list_rec[index]);
-            }
+            list_rec.push(rec);
+            alert(list_rec[index]);
+            //for  (index = 1; index < list_rec.length; index++) {
+                //alert(list_rec[index]);
+            //}
             
             
             lonLat = new OpenLayers.LonLat(lon,lat ).transform(new OpenLayers.Projection("EPSG:4326"), // transform from WGS 1984
