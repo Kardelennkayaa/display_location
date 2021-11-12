@@ -105,7 +105,7 @@ body {
             lonLat = new OpenLayers.LonLat(lon,lat ).transform(new OpenLayers.Projection("EPSG:4326"), // transform from WGS 1984
                                                                 map.getProjectionObject() // to Spherical Mercator Projection
                                                                 )
-            var zoom=5;
+            var zoom=10;
         
             markers = new OpenLayers.Layer.Markers("Markers");
             marker_colour = new OpenLayers.Layer.Markers("Markers");
