@@ -40,7 +40,7 @@ body {
     }
     
     .form-popup {
-        position: absolute;
+        position: fixed;
         display: none;
         border: 4px solid #FDF5E6 ;
      }
@@ -52,7 +52,7 @@ body {
         <button id="home" class="button button1" onClick="window.location.reload();">Home</button>
         <button class="open-button" onclick="selectBy_recorder()">Select by Recorder</button><br>
     </div>
-    <br><br><select id="recorder_options">
+    <select id="recorder_options">
     </select>
     <input class="SubmitButton" type="button" value="Submit" onclick="submit_recorder()" />
     <div class="form-popup" id="open_entry">
