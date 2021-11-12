@@ -53,9 +53,13 @@ body {
             <button id="home" class="button button1" onClick="window.location.reload();">Home</button>
             <button class="open-button" onclick="selectBy_recorder()">Select by Recorder</button><br>
         </div><br>
-        <br><select id="recorder_options">
-        </select><br>
-        <br><input class="SubmitButton" type="button" value="Submit" onclick="submit_recorder()" />
+        
+        <div class="layer" id="select_option">
+            <h2>Select Recorder</h2>
+            <br><select id="recorder_options">
+            </select><br>
+            <br><input class="SubmitButton" type="button" value="Submit" onclick="submit_recorder()" />
+        </div> 
            <div class="form-popup" id="open_entry">
             <label for="rname">Recorder name:<br></label><br>
             <input type="text" id="rname" name="rname"><br>
