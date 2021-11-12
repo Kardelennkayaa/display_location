@@ -87,7 +87,7 @@ body {
             
             var point;
             var length=data.length;
-            vectorLayer = new OpenLayers.Layer.Vector({div: "Overlay", maxZoomLevel: 12});
+            vectorLayer = new OpenLayers.Layer.Vector("Overlay");
             //TODO - data haritaya ekleme işlemi
             var list_rec = [];
             for (point = 0; point < data.length; point++) {
