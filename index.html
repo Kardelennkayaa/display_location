@@ -46,11 +46,6 @@ body {
      }
     
     
-    .layer {
-        position: absolute;
-        display: none;
-        border: 4px solid #FDF5E6 ;
-     }
 </style>
 <title>Display Location</title>
 </head>
@@ -61,12 +56,10 @@ body {
             <button class="open-button" onclick="selectBy_recorder()">Select by Recorder</button><br>
         </div><br>
         
-        <div class="layer" id="select_option">
-            <h2>Select Recorder</h2>
-            <br><select id="recorder_options">
-            </select><br>
-            <br><input class="SubmitButton" type="button" value="Submit" onclick="submit_recorder()" />
-        </div> 
+        <h2>Select Recorder</h2>
+        <br><select id="recorder_options">
+        </select><br>
+        <br><input class="SubmitButton" type="button" value="Submit" onclick="submit_recorder()" />
            <div class="form-popup" id="open_entry">
             <label for="rname">Recorder name:<br></label><br>
             <input type="text" id="rname" name="rname"><br>
