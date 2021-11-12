@@ -234,7 +234,32 @@ body {
         map.addLayer(vectorLayer);
         x=1;
         } 
-            
+        elseif (recorder_name=="All Recorders"){
+            lonLat = new OpenLayers.LonLat(lon,lat ).transform(new OpenLayers.Projection("EPSG:4326"), // transform from WGS 1984
+                                                        map.getProjectionObject() // to Spherical Mercator Projection
+                                                        )
+        var zoom=10;  
+        
+
+        markers = new OpenLayers.Layer.Markers("Markers");
+        marker_colour = new OpenLayers.Layer.Markers("Markers");
+        if (tra=='Dolmush' || tra == 'Dolmuş') {
+                marker_colour = 'https://cdn-icons-png.flaticon.com/512/1165/1165961.png';
+        } else if(tra=='Bus' || tra=='Otobüs'){ marker_colour='https://cdn-icons-png.flaticon.com/512/30/30979.png'}
+        else if(tra=='Tren' || tra=='Train'){ marker_colour='https://cdn-icons-png.flaticon.com/512/335/335045.png'}
+        else if(tra=='Tramvay' || tra=='Streetcar'){ marker_colour='https://cdn-icons-png.flaticon.com/512/82/82281.png'}
+        else{marker_colour = 'https://cdn-icons-png.flaticon.com/128/3202/3202926.png'}
+        markers.addMarker(new OpenLayers.Marker(lonLat))
+        map.setCenter(lonLat,zoom)
+        feature = new OpenLayers.Feature.Vector(
+        new OpenLayers.Geometry.Point( lon,lat ).transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject()),
+        {description:'Recorder: '+rec+'<br>Gender: '+gen+'<br>Transit Type: '+tra+'<br>Age: '+ag+'<br>Destination: '+dest+'<br>Date: '+dt+'<br>Latitude: '+lat+'<br>Longitude: '+lon},
+        {externalGraphic: marker_colour, graphicHeight: 25, graphicWidth: 25, graphicXOffset:-10, graphicYOffset:-10 }
+        );
+        vectorLayer.addFeatures(feature);
+        map.addLayer(vectorLayer);
+        x=1;
+        } 
         
         
     var controls = {
