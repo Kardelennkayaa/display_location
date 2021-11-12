@@ -126,7 +126,7 @@ body {
         {externalGraphic: marker_colour, graphicHeight: 25, graphicWidth: 25, graphicXOffset:-10, graphicYOffset:-10 }
         );
 
-        vectorLayer.addFeatures(feature);
+        vectorLayer.addFeatures(feature, maxZoom:14);
         map.addLayer(vectorLayer);
                 
             var controls = {
