@@ -14,6 +14,15 @@ Yapılan bu projede geliştirilen uygulama git servisinde mevcut olup Heroku App
 
 Android Studio ile alınan konum verilerinin tutulacağı uygulama olarak PostgreSQL veritabanı kullanılır. PostgreSQL yüklemek için link takip edilebilir: [PostgreSQL download](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads).
 PostgreSQL kurulumu için verilen sayfadan ilerlenebilir:  [PosgreSQL Kurulumu](https://www.postgresqltutorial.com/install-postgresql/)
+PostgreSQL kurulumu yapılırken aşağıda verilen adımlarda, belirtilen seçenekler PostGIS uzantısı için işaretlenmelidir.
+
+<p align="center">
+  <img src="https://github.com/Kardelennkayaa/display_location/blob/master/location_images/spatial_.png"/>
+</p>
+
+<p align="center">
+  <img src="https://github.com/Kardelennkayaa/display_location/blob/master/location_images/create_spatial_ss.png"/>
+</p>
 
 
 ### Visual Studio Code
@@ -816,6 +825,12 @@ Veritabanından çekilen veriler aşağıdaki gibi görüntülenir:
 
 <p align="center">
   <img src="https://github.com/Kardelennkayaa/display_location/blob/master/location_images/display_end.jpg"/>
+</p>
+
+Projeyi Heroku platformuna deploy etmeden önce, **package.json** dosyası güncellenmesi gerekir. Güncelleme işlemi için aşağıda örneği verilen satır, dosyaya eklenebilir.
+
+<p align="center">
+  <img src="https://github.com/Kardelennkayaa/display_location/blob/master/location_images/start_node.png"/>
 </p>
 
 
