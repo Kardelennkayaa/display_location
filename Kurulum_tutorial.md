@@ -112,7 +112,7 @@ Heroku-PostgreSQL bağlantısı oluşturmak için, PostgreSQL veritabanlarını 
 Oluşturulan veritabanında verilerin kaydedileceği bir tablo, "Schemas" başlığı altındaki "Tables" seçeneğinden "Create" işaretlenerek oluşturulabilir. Verilerin öznitelik bilgilerinin kaydı için "Column" ve "Data Type" seçenekleri şu şekilde girilebilir:
 
 <p align="center">
-  <img src="https://github.com/Kardelennkayaa/display_location/blob/master/location_images/table_img.jpg" alt="Sublime's custom image"/>
+  <img src="https://github.com/Kardelennkayaa/display_location/blob/master/location_images/postgre_table.png" alt="Sublime's custom image"/>
 </p>
 
 
