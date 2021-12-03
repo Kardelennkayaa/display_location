@@ -128,7 +128,7 @@ Bu modül ile istek (request) ve yanıtlar (response) yönetilir. Express JS mod
 
 **2. File System Modülü**
 
-File System modülü (FS Modülü); tüm dosya okuma, yazma, izin verme gibi işlemleri gerçekleştirmeye yarayan fonksiyonları içeren bir modüldür. FS modülünün kurulumu için terminale **npm install express --save** komutunun yazılması gerekir.
+File System modülü (FS Modülü); tüm dosya okuma, yazma, izin verme gibi işlemleri gerçekleştirmeye yarayan fonksiyonları içeren bir modüldür. FS modülünün kurulumu için terminale **npm install fs --save** komutunun yazılması gerekir.
 
 **3. Bluebird Modülü**
 
