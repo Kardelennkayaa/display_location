@@ -114,6 +114,7 @@ INSERT INTO public.minibus_stations(
 	recorder, gender, age, transit_type, destination, geom, date)
 	VALUES ('test_rec2', 'male', '22', 'Dolmush', 'Beytepe', ST_SetSRID( ST_Point(32.72823692028502,39.84361890532323), 4326), 'Fri Dec 03 11:59:15 GMT+03:00 2021');
 ```  
+Verilen örnekte girilen lokasyon EPSG:4326 projeksiyonu baz alınarak tabloya eklenmiştir. Örnekte formatı verilen veri girişinde tablo ismi 'minibus_stations' olarak girilmiştir. Farklı bir isim girilerek tablo oluşturulmuşsa bu değer komutta değiştirilmelidir. Örnekte verilen değişkenleri değiştirerek siz de kendi verinizi aynı formatta girebilirsiniz.
 ### Visual Studio Code 
 
 Geliştirilecek web arayüzü için gerekli olan kodlar Visual Studio Code uygulaması kullanılarak düzenlenir. VSC ile yeni bir proje yaratmak için öncelikle, bilgisayarınızda yeni bir boş klasör oluşturmanız gerekir. Sonrasında ise oluşturulan klasör VSC ile açılır.
