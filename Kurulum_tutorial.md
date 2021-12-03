@@ -106,6 +106,14 @@ Oluşturulan veritabanında verilerin kaydedileceği bir tablo, "Schemas" başl�
   <img src="https://github.com/Kardelennkayaa/display_location/blob/master/location_images/table_img.jpg" alt="Sublime's custom image"/>
 </p>
 
+
+Oluşturduğunuz tabloya örnek bir veri girişi şu şekilde yapılmalıdır:
+
+```
+INSERT INTO public.minibus_stations(
+	recorder, gender, age, transit_type, destination, geom, date)
+	VALUES ('test_rec2', 'male', '22', 'Dolmush', 'Beytepe', ST_SetSRID( ST_Point(32.72823692028502,39.84361890532323), 4326), 'Fri Dec 03 11:59:15 GMT+03:00 2021');
+```  
 ### Visual Studio Code 
 
 Geliştirilecek web arayüzü için gerekli olan kodlar Visual Studio Code uygulaması kullanılarak düzenlenir. VSC ile yeni bir proje yaratmak için öncelikle, bilgisayarınızda yeni bir boş klasör oluşturmanız gerekir. Sonrasında ise oluşturulan klasör VSC ile açılır.
