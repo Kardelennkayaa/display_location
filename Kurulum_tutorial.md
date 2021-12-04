@@ -667,7 +667,9 @@ Android platformu için yazılım hazırlamayı en kolay hale getiren program ol
 
 Projemizi yapmaya new project seçeneğini seçerek başlıyoruz. Karşımıza gelen ilk ekranda "Phone and Tablet seçeneği ile "Empty Activity" seçeneklerini seçerek Next tuşuna tıklıyoruz.
 
-ss-1
+<p align="center">
+  <img src="https://github.com/Kardelennkayaa/display_location/Ekran Görüntüleri/Screenshot_1.png"/>
+</p>
 
 *Sonraki adımda ise projemizin ismini belirliyoruz.
 -Name: Projenin Adı
