@@ -670,13 +670,12 @@ Projemizi yapmaya new project seçeneğini seçerek başlıyoruz. Karşımıza g
 ss-1
 
 *Sonraki adımda ise projemizin ismini belirliyoruz.
-
 -Name: Projenin Adı
-+Package Name: Uygulamının paket adı. (com.example kısmından sonra otomatik olarak projenin adını alır.)
+-Package Name: Uygulamının paket adı. (com.example kısmından sonra otomatik olarak projenin adını alır.)
 -Save Location: Projenin kaydedileceği yer
-+Language: Kodlamanın yapılcağı programlama dili. (Biz bu uygulamada Java yı kullanacağız.)
+-Language: Kodlamanın yapılcağı programlama dili. (Biz bu uygulamada Java yı kullanacağız.)
 -Minimum SDK: Bu kısımda uygulamamızın destekleyeceği en düsük android sürümünü belirliyoruz. (Biz API 23 kullanıyoruz.)
-+"Using legeacy android.support library" seçeneğini işaretliyerek, en son versiyon android servislerini kullanacağız.
+-"Using legeacy android.support library" seçeneğini işaretliyerek, en son versiyon android servislerini kullanacağız.
 
 SS-2
 
