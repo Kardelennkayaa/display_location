@@ -695,7 +695,9 @@ Bu aşamadan sonra elimizde iki adet string dosyası olacak. Bu string dosyalar�
 
 string.xml klasörü:
 
-'''xml<resources>
+'''
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
     <string name="app_name">Dolmush</string>
     <string name="start_button">Start the Trip</string>
     <string name="location_button">Start the Trip</string>
@@ -741,12 +743,14 @@ string.xml klasörü:
     <string name="finish">Finish</string>
     <string name="wait">Please Wait</string>
     <string name="empty"></string>
-</resources>'''
+</resources>
+'''
 
 
 string.xml (tr - rTR)
 
-'''xml<?xml version="1.0" encoding="utf-8"?>
+'''
+xml<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Dolmuş</string>
     <string name="start_button">Yolculuğa Başla</string>
@@ -793,9 +797,11 @@ string.xml (tr - rTR)
     <string name="NotificationText">Bize Destek Olduğunuz İçin Teşekkürler</string>
     <string name="wait">Cevaplarınız Kaydediliyor Lütfen Bekleyiniz</string>
     <string name="empty">"  "</string>
-</resources>'''
+</resources>
+'''
 
-'''xml<?xml version="1.0" encoding="utf-8"?>
+'''
+<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -900,7 +906,8 @@ string.xml (tr - rTR)
     </RadioGroup>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>'''
+</androidx.constraintlayout.widget.ConstraintLayout>
+'''
 
 
 
