@@ -693,7 +693,7 @@ ss-4
 
 Bu aşamadan sonra elimizde iki adet string dosyası olacak. Bu string dosyaları telefonun dilini otomatik olarak algılayarak ona göre uygulamayı çalıştıracak. 
 
-string.xml klasörü:
+"strings.xml" klasörü bu yapıda olacak.
 
 ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -746,8 +746,7 @@ string.xml klasörü:
 </resources>
 ```
 
-
-"string.xml (tr - rTR)" klasörü bu yapıda olacak.
+"strings.xml (tr - rTR)" klasörü bu yapıda olacak.
 
 ```
 xml<?xml version="1.0" encoding="utf-8"?>
@@ -799,6 +798,37 @@ xml<?xml version="1.0" encoding="utf-8"?>
     <string name="empty">"  "</string>
 </resources>
 ```
+String yapımızı oluşturduktan sonra butonlarda kullanmak için bir "lets_start_button" adında bir xml dosyası oluşturacağız. Bunun için "drawable" klasörüne sağ tıklayarak
+"Drawable Resource File" seçeneğini seçiyoruz. Dosyamızın adını verdikten sonra "OK" tuşuna tıklayarak dosyamızı oluşturuyoruz.
+
+"lets_start_button.xml" dosyası:
+
+```
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle" >
+    <corners
+        android:radius="30dp"
+        />
+    <solid
+        android:color="#9F5252"
+        />
+    <padding
+        android:left="0dp"
+        android:top="0dp"
+        android:right="0dp"
+        android:bottom="0dp"
+        />
+    <size
+        android:width="270dp"
+        android:height="60dp"
+        />
+    <stroke
+        android:width="3dp"
+        android:color="#8A6D64"
+        />
+</shape>
+```
+
 
 ```
 <?xml version="1.0" encoding="utf-8"?>
