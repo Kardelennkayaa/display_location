@@ -669,14 +669,14 @@ Projemizi yapmaya new project seçeneğini seçerek başlıyoruz. Karşımıza g
 
 ss-1
 
-Sonraki adımda ise projemizin ismini belirliyoruz.
+*Sonraki adımda ise projemizin ismini belirliyoruz.
 
-Name: Projenin Adı
-Package Name: Uygulamının paket adı. (com.example kısmından sonra otomatik olarak projenin adını alır.)
-Save Location: Projenin kaydedileceği yer
-Language: Kodlamanın yapılcağı programlama dili. (Biz bu uygulamada Java yı kullanacağız.)
-Minimum SDK: Bu kısımda uygulamamızın destekleyeceği en düsük android sürümünü belirliyoruz. (Biz API 23 kullanıyoruz.)
-"Using legeacy android.support library" seçeneğini işaretliyerek, en son versiyon android servislerini kullanacağız.
+-Name: Projenin Adı
++Package Name: Uygulamının paket adı. (com.example kısmından sonra otomatik olarak projenin adını alır.)
+-Save Location: Projenin kaydedileceği yer
++Language: Kodlamanın yapılcağı programlama dili. (Biz bu uygulamada Java yı kullanacağız.)
+-Minimum SDK: Bu kısımda uygulamamızın destekleyeceği en düsük android sürümünü belirliyoruz. (Biz API 23 kullanıyoruz.)
++"Using legeacy android.support library" seçeneğini işaretliyerek, en son versiyon android servislerini kullanacağız.
 
 SS-2
 
@@ -828,7 +828,10 @@ String yapımızı oluşturduktan sonra butonlarda kullanmak için bir "lets_sta
         />
 </shape>
 ```
+Anasayfamızda kullanacağımız materyalleri hazırladıktan sonra activity_main.xml dosyasını hazırlamaya başlıyoruz. Burada yaptığımız ana tasarımı hazırlayacağız.
+activity_main.xml dosyamızın tasarımını kod üzerinden yapacağız. Bunun için activity_main dosyamızı açtıktan sonra sağ üst kısımda buluna "Code", "Split" ve "Design" seçeneklerinde "Code" olanı kullanacağız.
 
+"activity_main.xml" dosyamız bu şekilde olacak.
 
 ```
 <?xml version="1.0" encoding="utf-8"?>
