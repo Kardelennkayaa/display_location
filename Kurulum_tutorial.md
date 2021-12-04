@@ -682,7 +682,125 @@ SS-2
 
 Bu adımları tamamladıktan sonra "Finish" butonuna tıklayarak projemize giriş yapıyoruz.
 
-Projemizin yüklenmesi bilgisayarın durumuna göre 5 dakika kadar sürebilir. Proje yüklendikten sonra ekranımzıda MainActivity.java ve activity_main.xml adında 2 farklı dosya açılacak. Android studio da xml dosyaları tasarım, java dosalarını kodlama kısmı için kullanacağız. Projemizin ilk adımı olarak anasayfamızın layout düzenini activity_main.xml dosyası üzerinde yapacağız.
+Projemizin yüklenmesi bilgisayarın durumuna göre 5 dakika kadar sürebilir. Proje yüklendikten sonra ekranımzıda MainActivity.java ve activity_main.xml adında 2 farklı dosya açılacak. Android studio da xml dosyaları tasarım, java dosalarını kodlama kısmı için kullanacağız. Projemizin ilk adımı olarak anasayfamızın layout düzenini activity_main.xml dosyası üzerinde yapacağız. Bunu yapmadan önce uygulamamızın daha kullanışlı olabilmesi için farklı dil desteklerini kullanacağız. Ekranımızın sol kısmında res --> values -- >>
+strings.xml dosyasını açıyoruz. Dosyayı açtığımız zaman sağ üst kısımda "Open Editor" seçeneğini seçiyoruz.
+
+ss-3
+
+Translations Editors sayfası açılınca burad Dünya İşaretine tıklayarak "Türkçe" seçeneğini seçiyoruz ve çıkan uyarıya "add" diyoruz.
+
+ss-4
+
+Bu aşamadan sonra elimizde iki adet string dosyası olacak. Bu string dosyaları telefonun dilini otomatik olarak algılayarak ona göre uygulamayı çalıştıracak. 
+
+string.xml klasörü:
+
+'''xml
+
+<resources>
+    <string name="app_name">Dolmush</string>
+    <string name="start_button">Start the Trip</string>
+    <string name="location_button">Start the Trip</string>
+    <string name="finish_button">Finish the Trip</string>
+    <string name="Latitude">Latitude</string>
+    <string name="Longitude">Longitude</string>
+    <string name="Country_Name">Country Name:</string>
+    <string name="Locality">Locality:</string>
+    <string name="Address">Address:</string>
+    <string name="signout">Sign Out</string>
+    <string name="name">Name</string>
+    <string name="surname">Surname</string>
+    <string name="email">E-mail</string>
+    <string name="id">ID</string>
+    <string name="ToastMessageOne">User already Signed-in</string>
+    <string name="ToastMessageTwo">Service Started</string>
+    <string name="ToastMessage3">Name can not be empty</string>
+    <string name="ToastMessage4">Surname can not be empty</string>
+    <string name="ToastMessage5">Choose at Least One</string>
+    <string name="ToastMessage6">Route can not be empty </string>
+    <string name="ToastMessage7">Now you can start the trip </string>
+    <string name="NotificationHead">Dolmush</string>
+    <string name="NotificationText">Dolmush runs in the background</string>
+    <string name="Age">How Old Are You?</string>
+    <string name="Age1">12-18</string>
+    <string name="Age2">19-25</string>
+    <string name="Age3">26-32</string>
+    <string name="Age4">33+</string>
+    <string name="todo">TODO</string>
+    <string name="welcome">Welcome to Dolmush</string>
+    <string name="lets_start">Lets Start</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="next">Next</string>
+    <string name="transport">Which means of transportation do you prefer to use?</string>
+    <string name="transit">Choose a transit</string>
+    <string name="hint">Where are you going?</string>
+    <string name="welcome_back">Welcome</string>
+    <string name="bus">Bus</string>
+    <string name="dolmush">Dolmush</string>
+    <string name="train">Train</string>
+    <string name="streetcar">Streetcar</string>
+    <string name="finish">Finish</string>
+    <string name="wait">Please Wait</string>
+    <string name="empty"></string>
+</resources>
+
+'''
+
+
+string.xml (tr - rTR)
+
+'''xml
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Dolmuş</string>
+    <string name="start_button">Yolculuğa Başla</string>
+    <string name="location_button">Yolculuğa Başla</string>
+    <string name="finish_button">Yolculuğu Bitir</string>
+    <string name="id">ID</string>
+    <string name="email">E-posta</string>
+    <string name="name">İsim</string>
+    <string name="signout">Çıkış Yap</string>
+    <string name="Address">Adres:</string>
+    <string name="Locality">Mekan:</string>
+    <string name="Country_Name">Ülke Adı:</string>
+    <string name="Latitude">Enlem</string>
+    <string name="Longitude">Boylam</string>
+    <string name="ToastMessageOne">Tekrar Hoşgeldiniz</string>
+    <string name="ToastMessageTwo">Yolculuk Başladı</string>
+    <string name="todo">TODO</string>
+    <string name="welcome">Dolmuşa Hoşgeldiniz</string>
+    <string name="lets_start">Hadi Başlayalım</string>
+    <string name="surname">Soyisim</string>
+    <string name="ToastMessage3">Lütfen İsim Giriniz</string>
+    <string name="ToastMessage4">Lütfen Soyadı Giriniz</string>
+    <string name="Age">Kaç Yaşındasın?</string>
+    <string name="Age1">12-18</string>
+    <string name="Age2">19-25</string>
+    <string name="Age3">26-32</string>
+    <string name="Age4">32+</string>
+    <string name="next">Sonraki</string>
+    <string name="male">Bay</string>
+    <string name="female">Bayan</string>
+    <string name="transport">Hangi Ulaşım Araçlarını Kullanmayı Tercih Ediyorsun?</string>
+    <string name="bus">Otobüs</string>
+    <string name="dolmush">Dolmuş</string>
+    <string name="train">Tren</string>
+    <string name="streetcar">Tramvay</string>
+    <string name="finish">Bitir</string>
+    <string name="ToastMessage5">En Az Birini Seçiniz</string>
+    <string name="transit">Ulaşım Aracını Seçiniz</string>
+    <string name="hint">Nereye Gidiyorsun?</string>
+    <string name="welcome_back">Hoşgeldin</string>
+    <string name="ToastMessage6">Lütfen Güzergah Giriniz</string>
+    <string name="ToastMessage7">Şimdi Yolculuğu Başlatabilirsin</string>
+    <string name="NotificationHead">Dolmuş</string>
+    <string name="NotificationText">Bize Destek Olduğunuz İçin Teşekkürler</string>
+    <string name="wait">Cevaplarınız Kaydediliyor Lütfen Bekleyiniz</string>
+    <string name="empty">"  "</string>
+</resources>
+
+'''
 
 '''xml
 <?xml version="1.0" encoding="utf-8"?>
