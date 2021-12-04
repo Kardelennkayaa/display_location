@@ -798,9 +798,7 @@ string.xml (tr - rTR)
     <string name="NotificationText">Bize Destek Olduğunuz İçin Teşekkürler</string>
     <string name="wait">Cevaplarınız Kaydediliyor Lütfen Bekleyiniz</string>
     <string name="empty">"  "</string>
-</resources>
-
-'''
+</resources>'''
 
 '''xml
 <?xml version="1.0" encoding="utf-8"?>
