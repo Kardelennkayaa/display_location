@@ -668,7 +668,7 @@ Android platformu için yazılım hazırlamayı en kolay hale getiren program ol
 Projemizi yapmaya new project seçeneğini seçerek başlıyoruz. Karşımıza gelen ilk ekranda "Phone and Tablet seçeneği ile "Empty Activity" seçeneklerini seçerek Next tuşuna tıklıyoruz.
 
 <p align="center">
-  <img src="https://github.com/Kardelennkayaa/display_location/Ekran Görüntüleri/Screenshot_1.png"/>
+  <img src="https://github.com/Kardelennkayaa/display_location/blob/master/Ekran Görüntüleri/Screenshot_1.png"/>
 </p>
 
 *Sonraki adımda ise projemizin ismini belirliyoruz.
@@ -684,7 +684,10 @@ Projemizi yapmaya new project seçeneğini seçerek başlıyoruz. Karşımıza g
 
 -"Using legeacy android.support library" seçeneğini işaretliyerek, en son versiyon android servislerini kullanacağız.
 
-SS-2
+<p align="center">
+  <img src="https://github.com/Kardelennkayaa/display_location/blob/master/Ekran Görüntüleri/Screenshot_2.png"/>
+</p>
+
 
 Bu adımları tamamladıktan sonra "Finish" butonuna tıklayarak projemize giriş yapıyoruz.
 
@@ -703,7 +706,10 @@ dosyasının içindeki "AndroidManifests.xml" dosyasını açıyoruz. Burada "pa
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
 ```
 
-ss-15
+<p align="center">
+  <img src="https://github.com/Kardelennkayaa/display_location/blob/master/Ekran Görüntüleri/Screenshot_15.png"/>
+</p>
+
 
 İzinleri ekledikten sonra Gradle Scripts --> build.gradle (Project: Dolmush) içine
 
@@ -735,16 +741,25 @@ Bu aşamadan sonra Gradle Scripts --> build.gradle (Module: Dolmush.app) içine
 
 Bu sayede gerekli kütüphaneleri uygulamamıza eklemiş olduk.
 
-ss-16
+<p align="center">
+  <img src="https://github.com/Kardelennkayaa/display_location/blob/master/Ekran Görüntüleri/Screenshot_16.png"/>
+</p>
+
 
 Projemizin ilk adımı olarak anasayfamızın layout düzenini activity_main.xml dosyası üzerinde yapacağız. Bunu yapmadan önce uygulamamızın daha kullanışlı olabilmesi için farklı dil desteklerini kullanacağız. Ekranımızın sol kısmında res --> values -- >>
 strings.xml dosyasını açıyoruz. Dosyayı açtığımız zaman sağ üst kısımda "Open Editor" seçeneğini seçiyoruz.
 
-ss-3
+<p align="center">
+  <img src="https://github.com/Kardelennkayaa/display_location/blob/master/Ekran Görüntüleri/Screenshot_3.png"/>
+</p>
+
 
 Translations Editors sayfası açılınca burad Dünya İşaretine tıklayarak "Türkçe" seçeneğini seçiyoruz ve çıkan uyarıya "add" diyoruz.
 
-ss-4
+<p align="center">
+  <img src="https://github.com/Kardelennkayaa/display_location/blob/master/Ekran Görüntüleri/Screenshot_4.png"/>
+</p>
+
 
 Bu aşamadan sonra elimizde iki adet string dosyası olacak. Bu string dosyaları telefonun dilini otomatik olarak algılayarak ona göre uygulamayı çalıştıracak. 
 
@@ -998,7 +1013,10 @@ activity_main.xml dosyamızın tasarımını kod üzerinden yapacağız. Bunun i
 ```
 Bu aşamadan sonra "Design" kısmına baktığımız zaman
 
-ss-6 
+<p align="center">
+  <img src="https://github.com/Kardelennkayaa/display_location/blob/master/Ekran Görüntüleri/Screenshot_6.png"/>
+</p>
+
 
 Bu şekilde bi tasarıma sahip olmamız gerekir. Tasarım kısmını bitirdikten sonra kodlama aşamasına geçiyoruz. Kodlama kısmında java programlama dilini kullanacağımızı projemizi oluştururken seçmiştik.
 
@@ -1125,9 +1143,15 @@ Bu sayfanın tasarımını yaptıktan sonra ikinci sayfamız olan "age.xml" layo
 
 "next_button.xml" dosyasını oluşturduktan sonra "age.xml" dosyasını oluşturuyoruz.
 
-ss-7
+<p align="center">
+  <img src="https://github.com/Kardelennkayaa/display_location/blob/master/Ekran Görüntüleri/Screenshot_7.png"/>
+</p>
 
-ss-8
+
+<p align="center">
+  <img src="https://github.com/Kardelennkayaa/display_location/blob/master/Ekran Görüntüleri/Screenshot_8.png"/>
+</p>
+
 
 Dosyamızı oluşturduktan sonra dosya yapısının bu şekilde olması gerekiyor.
 
@@ -1212,12 +1236,17 @@ Dosyamızı oluşturduktan sonra dosya yapısının bu şekilde olması gerekiyo
 
 Bu aşamadan sonra "Design" kısmının bu şekildeki gibi olması gerekiyor.
 
-ss-9
+<p align="center">
+  <img src="https://github.com/Kardelennkayaa/display_location/blob/master/Ekran Görüntüleri/Screenshot_9.png"/>
+</p>
+
 
 age sayfamızın tasarımını tamamladıktan sonra java kısmına geçebiliriz. Bunun için app --> java --> com.example.dolmush klasörüne sağ tıklayarak New --> Java Class
 seçeneğini seçiyoruz. Java dosyamızın adını "Age" yazarak enter tuşuna basıyoruz.
 
-ss-10
+<p align="center">
+  <img src="https://github.com/Kardelennkayaa/display_location/blob/master/Ekran Görüntüleri/Screenshot_10.png"/>
+</p>
 
 "Age.java"
 
@@ -1361,7 +1390,10 @@ public class Age extends AppCompatActivity {
 
 "transport.xml" in tasarımının bu şekilde gözükmesi gerekiyor.
 
-ss-12
+<p align="center">
+  <img src="https://github.com/Kardelennkayaa/display_location/blob/master/Ekran Görüntüleri/Screenshot_12.png"/>
+</p>
+
 
 Transport isminde bir java dosyası açıyoruz.
 
@@ -1476,7 +1508,10 @@ github üzerinden bunu indirebilirsiniz
 
 github-link
 
-ss-13
+<p align="center">
+  <img src="https://github.com/Kardelennkayaa/display_location/blob/master/Ekran Görüntüleri/Screenshot_13.png"/>
+</p>
+
 
 ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -1582,7 +1617,10 @@ ss-13
 </androidx.constraintlayout.widget.ConstraintLayout>
 ```
 
-ss-14
+<p align="center">
+  <img src="https://github.com/Kardelennkayaa/display_location/blob/master/Ekran Görüntüleri/Screenshot_14.png"/>
+</p>
+
 
 "Journey.java" dosyasını oluşturuyoruz.
 
