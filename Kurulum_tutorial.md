@@ -695,7 +695,7 @@ Bu aşamadan sonra elimizde iki adet string dosyası olacak. Bu string dosyalar�
 
 string.xml klasörü:
 
-'''
+```
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Dolmush</string>
@@ -744,12 +744,12 @@ string.xml klasörü:
     <string name="wait">Please Wait</string>
     <string name="empty"></string>
 </resources>
-'''
+```
 
 
 string.xml (tr - rTR)
 
-'''
+```
 xml<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Dolmuş</string>
@@ -798,9 +798,9 @@ xml<?xml version="1.0" encoding="utf-8"?>
     <string name="wait">Cevaplarınız Kaydediliyor Lütfen Bekleyiniz</string>
     <string name="empty">"  "</string>
 </resources>
-'''
+```
 
-'''
+```
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -907,7 +907,7 @@ xml<?xml version="1.0" encoding="utf-8"?>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-'''
+```
 
 
 
