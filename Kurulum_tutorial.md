@@ -940,8 +940,11 @@ activity_main.xml dosyamızın tasarımını kod üzerinden yapacağız. Bunun i
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 ```
+Bu aşamadan sonra "Design" kısmına baktığımız zaman
 
-Tasarım kısmını bitirdikten sonra kodlama aşamasına geçiyoruz. Kodlama kısmında java programlama dilini kullanacağımızı projemizi oluştururken seçmiştik.
+ss-6 
+
+Bu şekilde bi tasarıma sahip olmamız gerekir. Tasarım kısmını bitirdikten sonra kodlama aşamasına geçiyoruz. Kodlama kısmında java programlama dilini kullanacağımızı projemizi oluştururken seçmiştik.
 
 MainActivity.java dosyamız bu düzende olacak:
 
@@ -1033,5 +1036,175 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
+Bu sayfanın tasarımını yaptıktan sonra ikinci sayfamız olan "age.xml" layoutunu oluşturuyoruz. Layoutu oluşturmadan önce bu sayfada kullanacağımız buton tasarım dosyasını 
+"lets_start_button" kısmında yapığımız gibi oluşturuyoruz.
 
+"next_button.xml" dosyası bu şekilde olacak:
+
+```
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle" >
+    <corners
+        android:radius="110dp"
+        />
+    <solid
+        android:color="#9F5252"
+        />
+    <padding
+        android:left="0dp"
+        android:top="0dp"
+        android:right="0dp"
+        android:bottom="0dp"
+        />
+    <size
+        android:width="180dp"
+        android:height="45dp"
+        />
+    <stroke
+        android:width="3dp"
+        android:color="#878787"
+        />
+</shape>
+```
+
+"next_button.xml" dosyasını oluşturduktan sonra "age.xml" dosyasını oluşturuyoruz.
+
+ss-7
+
+ss-8
+
+Dosyamızı oluşturduktan sonra dosya yapısının bu şekilde olması gerekiyor.
+
+```
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RadioButton
+            android:id="@+id/radioButton10"
+            android:layout_width="179dp"
+            android:layout_height="55dp"
+            android:checked="true"
+            android:text="@string/Age1"
+            tools:ignore="TextContrastCheck" />
+
+        <RadioButton
+            android:id="@+id/radioButton11"
+            android:layout_width="179dp"
+            android:layout_height="55dp"
+            android:text="@string/Age2"
+            tools:ignore="DuplicateSpeakableTextCheck" />
+
+        <RadioButton
+            android:id="@+id/radioButton12"
+            android:layout_width="179dp"
+            android:layout_height="55dp"
+            android:text="@string/Age3" />
+
+        <RadioButton
+            android:id="@+id/radioButton13"
+            android:layout_width="179dp"
+            android:layout_height="55dp"
+            android:text="@string/Age4" />
+
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="239dp"
+        android:layout_height="70dp"
+        android:gravity="center"
+        android:text="@string/Age"
+        android:textColor="#9F5252"
+        app:autoSizeMaxTextSize="36sp"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.161" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="170dp"
+        android:layout_height="48dp"
+        android:background="@drawable/next_button"
+        android:text="@string/next"
+        android:textAllCaps="false"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.877" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+```
+
+Bu aşamadan sonra "Design" kısmının bu şekildeki gibi olması gerekiyor.
+
+ss-9
+
+age sayfamızın tasarımını tamamladıktan sonra java kısmına geçebiliriz. Bunun için app --> java --> com.example.dolmush klasörüne sağ tıklayarak New --> Java Class
+seçeneğini seçiyoruz. Java dosyamızın adını "Age" yazarak enter tuşuna basıyoruz.
+
+ss-10
+
+"Age.java"
+
+```
+package com.example.dolmush;
+
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.widget.Button;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+
+public class Age extends AppCompatActivity {
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.age);
+
+        Button next_button = findViewById(R.id.button);
+
+        RadioGroup radioGroup = findViewById(R.id.radioGroup);
+
+        next_button.setOnClickListener(v -> {
+
+            int ID = radioGroup.getCheckedRadioButtonId();
+            RadioButton radioButton = findViewById(ID);
+            String age =  radioButton.getText().toString();
+
+            SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(Age.this);
+            SharedPreferences.Editor editor = settings.edit();
+            editor.putString("age", age);
+            editor.apply();
+
+            Intent intent = new Intent(Age.this,Transport.class);
+            startActivity(intent);
+
+        });
+
+    }
+}
+```
 
