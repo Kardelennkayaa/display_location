@@ -747,7 +747,7 @@ string.xml klasörü:
 ```
 
 
-string.xml (tr - rTR)
+"string.xml (tr - rTR)" klasörü bu yapıda olacak.
 
 ```
 xml<?xml version="1.0" encoding="utf-8"?>
