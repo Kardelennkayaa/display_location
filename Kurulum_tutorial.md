@@ -671,7 +671,7 @@ ss-1
 
 Sonraki adımda ise projemizin ismini belirliyoruz.
 
-Name: Projenin Adı
+Name: Projenin Adı\n
 Package Name: Uygulamının paket adı. (com.example kısmından sonra otomatik olarak projenin adını alır.)
 Save Location: Projenin kaydedileceği yer
 Language: Kodlamanın yapılcağı programlama dili. (Biz bu uygulamada Java yı kullanacağız.)
