@@ -941,6 +941,97 @@ activity_main.xml dosyamızın tasarımını kod üzerinden yapacağız. Bunun i
 </androidx.constraintlayout.widget.ConstraintLayout>
 ```
 
+Tasarım kısmını bitirdikten sonra kodlama aşamasına geçiyoruz. Kodlama kısmında java programlama dilini kullanacağımızı projemizi oluştururken seçmiştik.
+
+MainActivity.java dosyamız bu düzende olacak:
+
+```
+package com.example.dolmush;
+
+import androidx.appcompat.app.AppCompatActivity;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.Toast;
+
+public class MainActivity extends AppCompatActivity {
+
+    String prevStarted = "yes";
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        SharedPreferences sharedpreferences = getSharedPreferences(getString(R.string.app_name), Context.MODE_PRIVATE);
+        if (!sharedpreferences.getBoolean(prevStarted, false)) {
+            SharedPreferences.Editor editor = sharedpreferences.edit();
+            editor.putBoolean(prevStarted, Boolean.TRUE);
+            editor.apply();
+        } else {
+            moveToOtherActivity();
+        }
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        setContentView(R.layout.activity_main);
+
+        Button lets_start_button = findViewById(R.id.button3);
+
+        EditText name = findViewById(R.id.editTextTextPersonName);
+        EditText surname = findViewById(R.id.editTextTextPersonName2);
+
+        RadioGroup radioGroup = findViewById(R.id.radioGroup2);
+
+        lets_start_button.setOnClickListener(v -> {
+
+            if (name.getText().toString().trim().length() == 0){
+                Toast.makeText(getApplicationContext(), R.string.ToastMessage3, Toast.LENGTH_SHORT).show();
+            }else if (surname.getText().toString().trim().length() == 0){
+                Toast.makeText(getApplicationContext(), R.string.ToastMessage4, Toast.LENGTH_SHORT).show();
+            }else {
+
+                int ID = radioGroup.getCheckedRadioButtonId();
+                RadioButton radioButton = findViewById(ID);
+
+                String sex =  radioButton.getText().toString();
+                String personName = name.getText().toString();
+                String personSurname = surname.getText().toString();
+
+                SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
+                SharedPreferences.Editor editor = settings.edit();
+                editor.putString("personName", personName);
+                editor.putString("personSurname", personSurname);
+                editor.putString("sex", sex);
+                editor.apply();
+
+                Intent intent = new Intent(this,Age.class);
+                startActivity(intent);
+
+            }
+        });
+
+    }
+
+    public void moveToOtherActivity(){
+
+        Intent intent = new Intent(this,Journey.class);
+        startActivity(intent);
+    }
+
+    @Override
+    public void onBackPressed() {
+
+    }
+}
+```
 
 
 
