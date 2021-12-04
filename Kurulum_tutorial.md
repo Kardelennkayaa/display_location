@@ -671,7 +671,7 @@ ss-1
 
 Sonraki adımda ise projemizin ismini belirliyoruz.
 
-Name: Projenin Adı\n
+Name: Projenin Adı
 Package Name: Uygulamının paket adı. (com.example kısmından sonra otomatik olarak projenin adını alır.)
 Save Location: Projenin kaydedileceği yer
 Language: Kodlamanın yapılcağı programlama dili. (Biz bu uygulamada Java yı kullanacağız.)
@@ -681,6 +681,116 @@ Minimum SDK: Bu kısımda uygulamamızın destekleyeceği en düsük android sü
 SS-2
 
 Bu adımları tamamladıktan sonra "Finish" butonuna tıklayarak projemize giriş yapıyoruz.
+
+Projemizin yüklenmesi bilgisayarın durumuna göre 5 dakika kadar sürebilir. Proje yüklendikten sonra ekranımzıda MainActivity.java ve activity_main.xml adında 2 farklı dosya açılacak. Android studio da xml dosyaları tasarım, java dosalarını kodlama kısmı için kullanacağız. Projemizin ilk adımı olarak anasayfamızın layout düzenini activity_main.xml dosyası üzerinde yapacağız.
+
+'''xml
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="349dp"
+        android:layout_height="148dp"
+        android:fontFamily="@font/bungee_shade"
+        android:gravity="center"
+        android:text="@string/welcome"
+        android:textColor="#9F5252"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:autoSizeMaxTextSize="36sp"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.072" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="227dp"
+        android:layout_height="65dp"
+        android:background="@drawable/lets_start_button"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="@string/lets_start"
+        android:textAllCaps="false"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.896" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName"
+        android:layout_width="243dp"
+        android:layout_height="82dp"
+        android:ems="10"
+        android:fontFamily="@font/peralta"
+        android:hint="@string/name"
+        android:importantForAutofill="no"
+        android:inputType="textPersonName"
+        android:textColorHint="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.394" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName2"
+        android:layout_width="247dp"
+        android:layout_height="82dp"
+        android:ems="10"
+        android:fontFamily="@font/peralta"
+        android:hint="@string/surname"
+        android:importantForAutofill="no"
+        android:inputType="textPersonName"
+        android:textColorHint="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.512"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.579" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.71000004">
+
+        <RadioButton
+            android:id="@+id/radioButton3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:fontFamily="@font/peralta"
+            android:minHeight="48dp"
+            android:text="@string/male"
+            tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
+
+        <RadioButton
+            android:id="@+id/radioButton4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/peralta"
+            android:minHeight="48dp"
+            android:text="@string/female" />
+    </RadioGroup>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>'''
 
 
 
