@@ -681,7 +681,41 @@ SS-2
 
 Bu adımları tamamladıktan sonra "Finish" butonuna tıklayarak projemize giriş yapıyoruz.
 
-Projemizin yüklenmesi bilgisayarın durumuna göre 5 dakika kadar sürebilir. Proje yüklendikten sonra ekranımzıda MainActivity.java ve activity_main.xml adında 2 farklı dosya açılacak. Android studio da xml dosyaları tasarım, java dosalarını kodlama kısmı için kullanacağız. Projemizin ilk adımı olarak anasayfamızın layout düzenini activity_main.xml dosyası üzerinde yapacağız. Bunu yapmadan önce uygulamamızın daha kullanışlı olabilmesi için farklı dil desteklerini kullanacağız. Ekranımızın sol kısmında res --> values -- >>
+Projemizin yüklenmesi bilgisayarın durumuna göre 5 dakika kadar sürebilir. Proje yüklendikten sonra ekranımzıda MainActivity.java ve activity_main.xml adında 2 farklı dosya açılacak. Android studio da xml dosyaları tasarım, java dosalarını kodlama kısmı için kullanacağız.
+
+Projeye başlamadan önce "Konum" ve "İnternet" gibi özellikleri alabilmemiz için izin isteği oluşturmamız gerekmektedir. Bunun için uygulamamızda sol üstte app --> manifests
+dosyasının içindeki "AndroidManifests.xml" dosyasını açıyoruz. Burada "package" ın altına gerekli izinleri ekliyoruz.
+
+```
+    <uses-permission android:name="com.google.android.things.permission.MANAGE_GNSS_DRIVERS" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+```
+
+ss-15
+
+İzinleri ekledikten sonra Gradle Scripts --> build.gradle (Project: Dolmush) içine
+
+```
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        maven {
+            url 'https://maven.google.com'
+        }
+        mavenCentral() // Warning: this repository is going to shut down soon
+    }
+}
+```
+
+komutunu ekliyoruz ve sağ üstten "Sync Now" a tıklıyoruz.
+
+Projemizin ilk adımı olarak anasayfamızın layout düzenini activity_main.xml dosyası üzerinde yapacağız. Bunu yapmadan önce uygulamamızın daha kullanışlı olabilmesi için farklı dil desteklerini kullanacağız. Ekranımızın sol kısmında res --> values -- >>
 strings.xml dosyasını açıyoruz. Dosyayı açtığımız zaman sağ üst kısımda "Open Editor" seçeneğini seçiyoruz.
 
 ss-3
@@ -1207,4 +1241,667 @@ public class Age extends AppCompatActivity {
     }
 }
 ```
+
+"transport.xml" dosyasını oluşturuyoruz.
+
+```
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="342dp"
+        android:layout_height="127dp"
+        android:gravity="center"
+        android:text="@string/transport"
+        android:textColor="#9F5252"
+        app:autoSizeMaxTextSize="48dp"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.057" />
+
+    <CheckBox
+        android:id="@+id/radioButton"
+        android:layout_width="188dp"
+        android:layout_height="59dp"
+        android:text="@string/dolmush"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.361" />
+
+    <CheckBox
+        android:id="@+id/radioButton2"
+        android:layout_width="188dp"
+        android:layout_height="59dp"
+        android:text="@string/bus"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.483" />
+
+    <CheckBox
+        android:id="@+id/radioButton5"
+        android:layout_width="188dp"
+        android:layout_height="59dp"
+        android:text="@string/train"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.596" />
+
+    <CheckBox
+        android:id="@+id/radioButton6"
+        android:layout_width="188dp"
+        android:layout_height="59dp"
+        android:text="@string/streetcar"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.708" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="170dp"
+        android:layout_height="48dp"
+        android:background="@drawable/next_button"
+        android:text="@string/finish"
+        android:textAllCaps="false"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.877" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+```
+
+"transport.xml" in tasarımının bu şekilde gözükmesi gerekiyor.
+
+ss-12
+
+Transport isminde bir java dosyası açıyoruz.
+
+```
+package com.example.dolmush;
+
+import android.app.ProgressDialog;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.Toast;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Transport extends AppCompatActivity {
+
+    Integer port = 5432;
+    String host = "ec2-44-197-142-172.compute-1.amazonaws.com";
+    String database = "dc8e8es3dfs8tj";
+    String user = "wnoomsxmhltgdl";
+    String pass = "444c9828fb61d52829262ee9d02ac48501f5c1b84d7884d31b973660ae8e5025";
+    String url = "jdbc:postgresql://%s:%d/%s";
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.transport);
+
+        Button finish = findViewById(R.id.button4);
+
+        CheckBox checkBox_dolmush = findViewById(R.id.radioButton);
+        CheckBox checkBox_bus = findViewById(R.id.radioButton2);
+        CheckBox checkBox_train = findViewById(R.id.radioButton5);
+        CheckBox checkBox_streetcar = findViewById(R.id.radioButton6);
+
+        finish.setOnClickListener(v -> {
+
+            if (!checkBox_dolmush.isChecked() && !checkBox_bus.isChecked() && !checkBox_train.isChecked() && !checkBox_streetcar.isChecked()){
+                Toast.makeText(getApplicationContext(), R.string.ToastMessage5, Toast.LENGTH_SHORT).show();
+            }else {
+
+                ProgressDialog progressDialog = new ProgressDialog(Transport.this);
+                progressDialog.setMessage(getString(R.string.wait));
+                progressDialog.show();
+
+                List<String> transportList = new ArrayList<>();
+
+                if (checkBox_dolmush.isChecked()){
+                    transportList.add(checkBox_dolmush.getText().toString());
+                }
+                if (checkBox_bus.isChecked()){
+                    transportList.add(checkBox_bus.getText().toString());
+                }
+                if (checkBox_train.isChecked()){
+                    transportList.add(checkBox_train.getText().toString());
+                }
+                if (checkBox_streetcar.isChecked()){
+                    transportList.add(checkBox_streetcar.getText().toString());
+                }
+
+                String transports = String.valueOf(transportList);
+
+                SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(Transport.this);
+                String personName = settings.getString("personName", "0");
+                String personSurname = settings.getString("personSurname", "0");
+                String sex = settings.getString("sex", "0");
+                String age = settings.getString("age", "0");
+
+                this.url = String.format(this.url, this.host, this.port, this.database);
+
+                Thread thread = new Thread(() -> {
+                    try {
+
+                        Class.forName("org.postgresql.Driver");
+                        Connection connection = DriverManager.getConnection(url, user, pass);
+                        Statement stmt = connection.createStatement();
+                        stmt.executeUpdate("INSERT INTO users(name, surname, gender, age, transport) VALUES ('" + personName + "'," + " '" + personSurname + "', '" + sex + "', '" + age + "', '" + transports + "')");
+                        stmt.close();
+
+                    } catch (Exception e) {
+
+                        System.out.print(e.getMessage());
+                        e.printStackTrace();
+                    }
+                });
+                thread.start();
+                try {
+                    thread.join();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+                Intent intent = new Intent(Transport.this,Journey.class);
+                startActivity(intent);
+            }
+
+        });
+    }
+}
+```
+
+Son layoutumuz olan "journey.xml" dosyasını oluşturuyoruz. Bu layoutta hacettepe logosu kullandığımız için bunu indirip res klasörünün içerisine atmanız gerekiyor.
+github üzerinden bunu indirebilirsiniz
+
+github-link
+
+ss-13
+
+```
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="226dp"
+        android:layout_height="60dp"
+        android:background="@drawable/lets_start_button"
+        android:text="@string/location_button"
+        android:textAllCaps="false"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.47"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.897" />
+
+    <Spinner
+        android:id="@+id/spinner2"
+        android:layout_width="191dp"
+        android:layout_height="53dp"
+        android:tag="@string/Age1"
+        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="236dp"
+        android:layout_height="36dp"
+        android:gravity="center"
+        android:text="@string/transit"
+        android:textColor="#1B1919"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.637" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="184dp"
+        android:layout_height="42dp"
+        android:gravity="center"
+        android:text="@string/welcome_back"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:autoSizeMaxTextSize="24sp"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.07"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.023" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/hint"
+        android:importantForAutofill="no"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/textView4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.815"
+        tools:ignore="TextContrastCheck" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="162dp"
+        android:layout_height="129dp"
+        android:contentDescription="@string/empty"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.191"
+        app:srcCompat="@mipmap/mipmap_hacettepe" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+```
+
+ss-14
+
+"Journey.java" dosyasını oluşturuyoruz.
+
+```
+package com.example.dolmush;
+
+import android.Manifest;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.os.Build;
+import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.provider.Settings;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+
+public class Journey extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+
+    String[] transportTypes = { "Dolmuş",
+            "Otobüs",
+            "Tren",
+            "Tramvay"
+    };
+
+    String transport;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.journey);
+
+        Button start_button = findViewById(R.id.button2);
+
+        TextView welcome = findViewById(R.id.textView5);
+
+        EditText editText = findViewById(R.id.editTextTextPersonName3);
+
+        SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(Journey.this);
+        String personName = settings.getString("personName", "0");
+
+        String welcome_str = getString(R.string.welcome_back) + " " + personName;
+
+        welcome.setText(welcome_str);
+
+        Spinner spinner = findViewById(R.id.spinner2);
+        spinner.setOnItemSelectedListener(this);
+
+        ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, transportTypes);
+        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(arrayAdapter);
+
+        start_button.setOnClickListener(v -> {
+
+            if (editText.getText().toString().trim().length() == 0){
+                Toast.makeText(getApplicationContext(), R.string.ToastMessage6, Toast.LENGTH_SHORT).show();
+            }else if (ActivityCompat.checkSelfPermission(Journey.this
+                    , Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+                if (start_button.getText().toString().equals(getResources().getString(R.string.start_button))){
+                    start_button.setText(R.string.finish_button);
+
+                    String destination = editText.getText().toString();
+
+                    SharedPreferences.Editor editor = settings.edit();
+                    editor.putString("destination", destination);
+                    editor.apply();
+
+
+                    Intent intent = new Intent(getApplicationContext(),MyService.class);
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                        startForegroundService(intent);
+                    } else {
+                        startService(intent);
+                    }
+                } else if (start_button.getText().toString().equals(getResources().getString(R.string.finish_button))){
+                    start_button.setText(R.string.start_button);
+
+                    Toast.makeText(this, R.string.ToastMessageTwo, Toast.LENGTH_SHORT).show();
+
+                    Intent intent = new Intent(getApplicationContext(),MyService.class);
+                    stopService(intent);
+
+
+                }
+            } else {
+                ActivityCompat.requestPermissions(Journey.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 44);
+                Toast.makeText(getApplicationContext(), R.string.ToastMessage7, Toast.LENGTH_SHORT).show();
+            }
+
+        });
+
+    }
+
+    @Override
+    public void onBackPressed() {
+
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+        transport = transportTypes[position];
+
+        SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(Journey.this);
+        SharedPreferences.Editor editor = settings.edit();
+        editor.putString("transitTypes", transport);
+        editor.apply();
+
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
+    }
+}
+```
+
+Son javadosyası olarak "MyService.java" dosyasını oluşturuyoruz.
+
+```
+package com.example.dolmush;
+
+import android.Manifest;
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.Service;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.location.Address;
+import android.location.Geocoder;
+import android.location.Location;
+import android.os.Build;
+import android.os.IBinder;
+import android.preference.PreferenceManager;
+import android.widget.Toast;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import androidx.core.app.ActivityCompat;
+import androidx.core.app.NotificationCompat;
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.tasks.CancellationToken;
+import com.google.android.gms.tasks.OnTokenCanceledListener;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
+import java.util.Date;
+import java.util.List;
+import java.util.Locale;
+import java.util.Timer;
+import java.util.TimerTask;
+
+public class MyService extends Service {
+
+    private static final int ID_SERVICE = 101;
+    FusedLocationProviderClient fusedLocationProviderClient;
+
+    Connection connection;
+
+    Integer port = 5432;
+    String host = "ec2-44-197-142-172.compute-1.amazonaws.com";
+    String database = "dc8e8es3dfs8tj";
+    String user = "wnoomsxmhltgdl";
+    String pass = "444c9828fb61d52829262ee9d02ac48501f5c1b84d7884d31b973660ae8e5025";
+    String url = "jdbc:postgresql://%s:%d/%s";
+    String latitude, longitude;
+
+    Timer timer = new Timer();
+
+    @Nullable
+    @Override
+    public IBinder onBind(Intent intent) {
+        return null;
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    @Override
+    public void onCreate() {
+        super.onCreate();
+
+        NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        String channelId = Build.VERSION.SDK_INT >= Build.VERSION_CODES.O ? createNotificationChannel(notificationManager) : "";
+        NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this, channelId);
+        Notification notification = notificationBuilder.setOngoing(true)
+                .setSmallIcon(R.mipmap.mipmap_hacettepe)
+                .setCategory(NotificationCompat.CATEGORY_SERVICE)
+                .setContentTitle(getString(R.string.NotificationHead))
+                .setContentText(getString(R.string.NotificationText))
+                .build();
+
+        startForeground(ID_SERVICE, notification);
+
+    }
+
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+
+        Toast.makeText(this, R.string.ToastMessageTwo, Toast.LENGTH_SHORT).show();
+        fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
+        TimerTask timerTask = new TimerTask() {
+            @Override
+            public void run() {
+                getLocation();
+            }
+        };
+        timer.schedule(timerTask, 0, 60000);
+
+        return START_STICKY;
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            stopForeground(true);
+        }
+
+        timer.cancel();
+    }
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    private String createNotificationChannel(NotificationManager notificationManager){
+        String channelId = "my_service_channel_id";
+        String channelName = "My Foreground Service";
+        NotificationChannel channel = new NotificationChannel(channelId, channelName, NotificationManager.IMPORTANCE_HIGH);
+        channel.setImportance(NotificationManager.IMPORTANCE_NONE);
+        channel.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
+        notificationManager.createNotificationChannel(channel);
+        return channelId;
+    }
+
+    private void getLocation() {
+
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this,
+                Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            return;
+
+        }
+
+        fusedLocationProviderClient.getCurrentLocation(105, new CancellationToken() {
+            @Override
+            public boolean isCancellationRequested() {
+                return false;
+            }
+
+            @NonNull
+            @Override
+            public CancellationToken onCanceledRequested(@NonNull OnTokenCanceledListener onTokenCanceledListener) {
+                return null;
+
+            }
+        }).addOnCompleteListener(task -> {
+
+            Location location = task.getResult();
+            if (location != null) {
+
+                try {
+
+                    Geocoder geocoder = new Geocoder(MyService.this
+                            , Locale.getDefault());
+
+                    List<Address> addresses = geocoder.getFromLocation(
+                            location.getLatitude(), location.getLongitude(), 1
+                    );
+
+                    latitude = Double.toString(addresses.get(0).getLatitude());
+                    longitude = Double.toString(addresses.get(0).getLongitude());
+
+                    connect();
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+
+    private void connect() {
+
+        this.url = String.format(this.url, this.host, this.port, this.database);
+
+        Thread thread = new Thread(() -> {
+            try {
+
+                SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(MyService.this);
+                String personName = settings.getString("personName", "0");
+                String personSurname = settings.getString("personSurname", "0");
+                String transitType = settings.getString("transitTypes", "0");
+                String destination = settings.getString("destination", "0");
+
+                String PersonName = personName + " " +  personSurname;
+
+                String sex = settings.getString("sex", "0");
+                String age = settings.getString("age", "0");
+
+                Date date = new Date();
+                Class.forName("org.postgresql.Driver");
+                connection = DriverManager.getConnection(url, user, pass);
+                Statement stmt = connection.createStatement();
+                stmt.executeUpdate("INSERT INTO datas(recorder, gender, age, transit_type, destination, geom, date) VALUES" +
+                        " ('" + PersonName + "', '" + sex + "' , '" + age + "', '" + transitType +
+                        "', '" + destination + "' ,ST_SetSRID(ST_MakePoint("+ longitude +","+ latitude +"),4326), '" + date + "')");
+                stmt.close();
+
+            } catch (Exception e) {
+
+                System.out.print(e.getMessage());
+                e.printStackTrace();
+            }
+        });
+        thread.start();
+        try {
+            thread.join();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+```
+
+
+
+
+
+
+
 
