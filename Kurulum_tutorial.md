@@ -671,10 +671,15 @@ ss-1
 
 *Sonraki adımda ise projemizin ismini belirliyoruz.
 -Name: Projenin Adı
+
 -Package Name: Uygulamının paket adı. (com.example kısmından sonra otomatik olarak projenin adını alır.)
+
 -Save Location: Projenin kaydedileceği yer
+
 -Language: Kodlamanın yapılcağı programlama dili. (Biz bu uygulamada Java yı kullanacağız.)
+
 -Minimum SDK: Bu kısımda uygulamamızın destekleyeceği en düsük android sürümünü belirliyoruz. (Biz API 23 kullanıyoruz.)
+
 -"Using legeacy android.support library" seçeneğini işaretliyerek, en son versiyon android servislerini kullanacağız.
 
 SS-2
@@ -714,6 +719,21 @@ allprojects {
 ```
 
 komutunu ekliyoruz ve sağ üstten "Sync Now" a tıklıyoruz.
+
+Bu aşamadan sonra Gradle Scripts --> build.gradle (Module: Dolmush.app) içine
+
+```
+    implementation 'com.google.android.gms:play-services-maps:17.0.1'
+    implementation 'org.postgresql:postgresql:42.2.5.jre7'
+    implementation 'com.google.android.gms:play-services-location:18.0.0'
+    implementation 'com.google.android.gms:play-services-auth:19.2.0'
+    implementation 'com.github.bumptech.glide:glide:4.12.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
+```
+
+Bu sayede gerekli kütüphaneleri uygulamamıza eklemiş olduk.
+
+ss-16
 
 Projemizin ilk adımı olarak anasayfamızın layout düzenini activity_main.xml dosyası üzerinde yapacağız. Bunu yapmadan önce uygulamamızın daha kullanışlı olabilmesi için farklı dil desteklerini kullanacağız. Ekranımızın sol kısmında res --> values -- >>
 strings.xml dosyasını açıyoruz. Dosyayı açtığımız zaman sağ üst kısımda "Open Editor" seçeneğini seçiyoruz.
