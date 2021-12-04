@@ -661,7 +661,7 @@ Android platformu için yazılım hazırlamayı en kolay hale getiren program ol
 
 İlk olarak [buradaki linkten](https://developer.android.com/studio) adresine giderek işletim sistemimize uygun olan Android Studio versiyonunu indiriyoruz.
 
-İndirdikten sonra .[bu linkteki](-------------------) adımları takip ederek Android Studio kurulumunu tamamlayabilirsiniz.
+İndirdikten sonra .[bu linkteki](https://www.youtube.com/watch?v=JDE_nTviig8) adımları takip ederek Android Studio kurulumunu tamamlayabilirsiniz.
 
 ### Projenin Oluşturulması
 
@@ -671,12 +671,13 @@ Projemizi yapmaya new project seçeneğini seçerek başlıyoruz. Karşımıza g
   <img src="https://github.com/Kardelennkayaa/display_location/blob/master/Ekran Görüntüleri/Screenshot_1.png"/>
 </p>
 
-*Sonraki adımda ise projemizin ismini belirliyoruz.
--Name: Projenin Adı
+Sonraki adımda ise projemizin ismini belirliyoruz.
 
--Package Name: Uygulamının paket adı. (com.example kısmından sonra otomatik olarak projenin adını alır.)
+- Name: Projenin Adı
 
--Save Location: Projenin kaydedileceği yer
+- Package Name: Uygulamının paket adı. (com.example kısmından sonra otomatik olarak projenin adını alır.)
+
+- Save Location: Projenin kaydedileceği yer
 
 -Language: Kodlamanın yapılcağı programlama dili. (Biz bu uygulamada Java yı kullanacağız.)
 
