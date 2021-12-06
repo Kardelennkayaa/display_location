@@ -261,7 +261,7 @@ PostgreSQL veritabanı bağlantısı kurulduğuna göre web sitesi hazırlamak i
     <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 body {
-      margin: 10px 10px;
+      margin: 5px 5px;
       font-family: Arial, Helvetica, sans-serif;
       background-color: #FDF5E6;
     }
@@ -369,7 +369,7 @@ body {
         } else if(tra=='Bus' || tra=='Otobüs'){ marker_colour='https://cdn-icons-png.flaticon.com/512/30/30979.png'}
         else if(tra=='Tren' || tra=='Train'){ marker_colour='https://cdn-icons-png.flaticon.com/512/335/335045.png'}
         else if(tra=='Tramvay' || tra=='Streetcar'){ marker_colour='https://cdn-icons-png.flaticon.com/512/82/82281.png'}
-        else{marker_colour = 'https://cdn-icons-png.flaticon.com/128/3202/3202926.png'}
+        else{marker_colour = 'https://cdn-icons-png.flaticon.com/512/4974/4974395.png'}
             markers.addMarker(new OpenLayers.Marker(lonLat))
                 
             map.setCenter(lonLat,zoom)
@@ -475,7 +475,7 @@ body {
         } else if(tra=='Bus' || tra=='Otobüs'){ marker_colour='https://cdn-icons-png.flaticon.com/512/30/30979.png'}
         else if(tra=='Tren' || tra=='Train'){ marker_colour='https://cdn-icons-png.flaticon.com/512/335/335045.png'}
         else if(tra=='Tramvay' || tra=='Streetcar'){ marker_colour='https://cdn-icons-png.flaticon.com/512/82/82281.png'}
-        else{marker_colour = 'https://cdn-icons-png.flaticon.com/128/3202/3202926.png'}
+        else{marker_colour = 'https://cdn-icons-png.flaticon.com/512/4974/4974395.png'}
         markers.addMarker(new OpenLayers.Marker(lonLat))
         map.setCenter(lonLat,zoom)
         feature = new OpenLayers.Feature.Vector(
@@ -525,6 +525,7 @@ body {
  </script>
   </body>
   </html>
+
    ```
   
 Burada altlık harita için **OpenLayers** kullanılmıştır. Ayrıca **Jquery** kütüphanesinin kullanılma amacı da veritabanına **select** komutu ile gönderilmiş olunan sorguların yanıtını almaktır. 
