@@ -584,7 +584,7 @@ Oluşturulan websitesini ziyaret etmek için [verilen link](http://localhost:400
 Veritabanından çekilen veriler aşağıdaki gibi görüntülenir:
 
 <p align="center">
-  <img src="https://github.com/Kardelennkayaa/display_location/blob/master/location_images/display_end.jpg"/>
+  <img src="https://github.com/Kardelennkayaa/display_location/blob/master/location_images/display_new.jpg"/>
 </p>
 
 Projeyi Heroku platformuna deploy etmeden önce, **package.json** dosyası güncellenmesi gerekir. Güncelleme işlemi için aşağıda örneği verilen satır, dosyaya eklenebilir.
