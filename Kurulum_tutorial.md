@@ -709,23 +709,32 @@ dosyasının içindeki "AndroidManifests.xml" dosyasını açıyoruz. Burada "pa
   <img src="https://github.com/Kardelennkayaa/display_location/blob/master/Ekran Görüntüleri/Screenshot_15.png"/>
 </p>
 
-
-İzinleri ekledikten sonra Gradle Scripts --> build.gradle (Project: Dolmush) içine
+Oluşuracağımız java dosyalarını manifest dosyasında tanıtmamız gerektiği için alttaki kodu da manifest dosyamıza ekliyoruz.
 
 ```
-allprojects {
-    repositories {
-        google()
-        mavenCentral()
-        maven {
-            url 'https://maven.google.com'
-        }
-        mavenCentral() // Warning: this repository is going to shut down soon
-    }
-}
-```
+<application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Dolmush">
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-komutunu ekliyoruz ve sağ üstten "Sync Now" a tıklıyoruz.
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Journey" />
+        <activity android:name=".Age" />
+        <activity android:name=".Transport" />
+        <service android:name=".MyService"
+            android:foregroundServiceType="location|camera" />
+    </application>
+``` 
 
 Bu aşamadan sonra Gradle Scripts --> build.gradle (Module: Dolmush.app) içine
 
