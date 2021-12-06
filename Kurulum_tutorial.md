@@ -1633,7 +1633,6 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.provider.Settings;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -1642,7 +1641,6 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
@@ -1696,7 +1694,6 @@ public class Journey extends AppCompatActivity implements AdapterView.OnItemSele
                     editor.putString("destination", destination);
                     editor.apply();
 
-
                     Intent intent = new Intent(getApplicationContext(),MyService.class);
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                         startForegroundService(intent);
@@ -1706,7 +1703,7 @@ public class Journey extends AppCompatActivity implements AdapterView.OnItemSele
                 } else if (start_button.getText().toString().equals(getResources().getString(R.string.finish_button))){
                     start_button.setText(R.string.start_button);
 
-                    Toast.makeText(this, R.string.ToastMessageTwo, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, R.string.ToastMessage8, Toast.LENGTH_SHORT).show();
 
                     Intent intent = new Intent(getApplicationContext(),MyService.class);
                     stopService(intent);
