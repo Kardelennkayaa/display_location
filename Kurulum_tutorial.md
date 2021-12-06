@@ -646,7 +646,7 @@ Burada **master** olarak verilen isim, oluşturduğunuz repositoryde bulunan **b
 Heroku ve Github arasındaki bağlantı sağlandıktan sonra **View** butonu ile, tasarlanan websitesine erişilebilir:
 
 <p align="center">
-  <img src="https://github.com/Kardelennkayaa/display_location/blob/master/location_images/display_deploy.jpg"/>
+  <img src="https://github.com/Kardelennkayaa/display_location/blob/master/location_images/all_recorder.jpg"/>
 </p>
 
 
