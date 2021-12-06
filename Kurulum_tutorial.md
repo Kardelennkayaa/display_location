@@ -533,7 +533,7 @@ Ayrıca güvenlik politikası, web sayfasını **HTTPS** protokolü olarak çal�
 Oluşturulan web arayüzünde; verilerin ulaşım aracı bilgisi, otobüs ya da dolmuş olmasına göre belirli bir icon ile sembolize edilmiştir. Ayrıca veriyi niteleyen icona basılarak da veri ile ilgili öznitelik bilgilerine erişilebilir. 
 
 
-Arayüzde **Home** ve **Select by Recorder** olarak iki adet buton bulunmaktadır. **Select by Recorder** butonu yardımı ile spesifik bir **Recorder** ismi yazılarak, belirtilen kişinin kaydettiği veriler görselleştirilebilir. Bir diğer buton olan **Home** butonu ile de arayüz tekrar yüklenerek veritabanında kayıtlı olan tüm verilere erişilebilir.
+Arayüzde **Home** ve **Select by Recorder** olarak iki adet buton bulunmaktadır. **Select by Recorder** butonu yardımı ile veritabanına konum gönderen kullanıcılar liste halinde ekrana gelir.Listeden bir recorder seçilerek girilen ismin kaydettiği veriler gözlemlenebilir. Bir diğer buton olan **Home** butonu ile de arayüz tekrar yüklenerek veritabanında kayıtlı olan tüm verilere erişilebilir.
 
 <p align="center">
   <img src="https://github.com/Kardelennkayaa/display_location/blob/master/location_images/visualize_data.jpg"/>
