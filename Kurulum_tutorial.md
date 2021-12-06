@@ -267,35 +267,39 @@ body {
     }
     .map {
         width: 100%;
-        height:92%;
-        position:fixed
+        height:100%;
+        position:fixed;
       }
    
-
     .button1 {
         background-color: #BA55D3;
         color: white;
         padding: 16px 20px;
-        border: none;
+        border: 2px solid #FDF5E6;
         cursor: pointer;
-        opacity: 0.8;
     } 
     .open-button {
         background-color: #BA55D3;
         color: white;
         padding: 16px 20px;
-        border: none;
+        border: 2px solid #FDF5E6 ;
         cursor: pointer;
-        opacity: 0.8;
+        position:fixed
         }
     #container{
         display:inline-block;
+        position:relative
     }
-    
+    .recorder_options {
+        background-color: #BA55D3;
+        color: white;
+        padding: 16px 20px;
+        border: none;
+        cursor: pointer;
+        }
     .form-popup {
-        position: fixed;
+        position: relative;
         display: none;
-        border: 4px solid #FDF5E6 ;
      }
     
     
@@ -303,19 +307,16 @@ body {
 <title>Display Location</title>
 </head>
 <body>
-    <div class="map" id="mapdiv">  
+        <div class="map" id="mapdiv"></div>
         <div id="container">
-            <button id="home" class="button button1" onClick="window.location.reload();">Home</button>
-            <button class="open-button" onclick="selectBy_recorder()">Select by Recorder</button><br>
+            <button id="home" class="button1" onClick="window.location.reload();">Home</button>
+            <button class="open-button" onclick="selectBy_recorder('recorder_options')">Select by Recorder</button><br>
         </div><br>
-        <br><select id="recorder_options">
-        </select><br>
-        <br><input class="SubmitButton" type="button" value="Submit" onclick="submit_recorder()" />
-           <div class="form-popup" id="open_entry">
-            <label for="rname">Recorder name:<br></label><br>
-            <input type="text" id="rname" name="rname"><br>
-            <button onclick="submit_recorder()">Submit</button>
-           </div>
+        <div class="form-popup" id="open_entry">
+          <br><select id="recorder_options">
+          </select><br>
+          <br><input class="SubmitButton" type="button" value="Submit" onclick="submit_recorder()" />
+        </div>
          
     <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=fetch,requestAnimationFrame,Element.prototype.classList,URL"></script>
     <script src="http://www.openlayers.org/api/OpenLayers.js"></script>
@@ -519,15 +520,11 @@ body {
   </script>
   <script>
       function selectBy_recorder() {
-          document.getElementById("recorder_options").style.display = "block";
+          document.getElementById("open_entry").style.display = "block";
         }
  </script>
   </body>
   </html>
-
-           
-        
-
    ```
   
 Burada altlık harita için **OpenLayers** kullanılmıştır. Ayrıca **Jquery** kütüphanesinin kullanılma amacı da veritabanına **select** komutu ile gönderilmiş olunan sorguların yanıtını almaktır. 
