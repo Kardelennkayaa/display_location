@@ -1959,9 +1959,28 @@ public class MyService extends Service {
 ```
 
 
-### Projenin Sanal Ortamda Test Edilmesi
+### AVD Manager
 
-Uygulamamızı Android Studio nun bizlere sağlamış olduğu AVD Manager ile yapacağız. Konu anlatımı için video ekleyeceğim.
+Uygulamamızı Android Studio nun bizlere sağlamış olduğu AVD Manager ile çalıştıracağız. AVD Manager kullanarak sanal cihaz oluşturmak için videoyu izleyebilirsiniz.
+
+AVD Manager Sanal Cihaz Oluşturma: (https://www.youtube.com/watch?v=ckGGG8HQEc4) 
+
+Bu video yardımıyla "Sanal Cihaz" oluşturabilirsiniz.
+
+
+### Projenin APK dosyasını oluşturma
+
+Projenin son aşaması olarak artık apk dosyasını dışarı alarak kendi telefonumuzda test edebiliriz.
+
+<p align="center">
+  <img src="https://github.com/Kardelennkayaa/display_location/blob/master/Ekran Görüntüleri/build_apk.png"/>
+</p>
+
+Üst kısımda bulunan build menüsünden "Build Bundles/APKs" seçeneği seçerek "Build APK's" a tıklanır.
+
+Apk oluşturma işlemi bittikten sonra ekranımızın sağ alt tarafında "Locate" seçeneği gelir. Bu seçeneği kullanarak Apk dosyasını windows gezgini üzerinde görüntüleyebiliriz.
+
+
 
 
 
