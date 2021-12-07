@@ -774,7 +774,6 @@ Bu aşamadan sonra elimizde iki adet string dosyası olacak. Bu string dosyalar�
 "strings.xml" klasörü bu yapıda olacak.
 
 ```
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Dolmush</string>
     <string name="start_button">Start the Trip</string>
@@ -800,9 +799,9 @@ Bu aşamadan sonra elimizde iki adet string dosyası olacak. Bu string dosyalar�
     <string name="NotificationHead">Dolmush</string>
     <string name="NotificationText">Dolmush runs in the background</string>
     <string name="Age">How Old Are You?</string>
-    <string name="Age1">12-18</string>
-    <string name="Age2">19-25</string>
-    <string name="Age3">26-32</string>
+    <string name="Age1">12–18</string>
+    <string name="Age2">19–25</string>
+    <string name="Age3">26–32</string>
     <string name="Age4">33+</string>
     <string name="todo">TODO</string>
     <string name="welcome">Welcome to Dolmush</string>
@@ -820,14 +819,15 @@ Bu aşamadan sonra elimizde iki adet string dosyası olacak. Bu string dosyalar�
     <string name="streetcar">Streetcar</string>
     <string name="finish">Finish</string>
     <string name="wait">Please Wait</string>
-    <string name="empty"></string>
+    <string name="empty"> </string>
+    <string name="ToastMessage8">Thanks</string>
 </resources>
 ```
 
 "strings.xml (tr - rTR)" klasörü bu yapıda olacak.
 
 ```
-xml<?xml version="1.0" encoding="utf-8"?>
+
 <resources>
     <string name="app_name">Dolmuş</string>
     <string name="start_button">Yolculuğa Başla</string>
@@ -851,9 +851,9 @@ xml<?xml version="1.0" encoding="utf-8"?>
     <string name="ToastMessage3">Lütfen İsim Giriniz</string>
     <string name="ToastMessage4">Lütfen Soyadı Giriniz</string>
     <string name="Age">Kaç Yaşındasın?</string>
-    <string name="Age1">12-18</string>
-    <string name="Age2">19-25</string>
-    <string name="Age3">26-32</string>
+    <string name="Age1">12–18</string>
+    <string name="Age2">19–25</string>
+    <string name="Age3">26–32</string>
     <string name="Age4">32+</string>
     <string name="next">Sonraki</string>
     <string name="male">Bay</string>
@@ -868,8 +868,9 @@ xml<?xml version="1.0" encoding="utf-8"?>
     <string name="transit">Ulaşım Aracını Seçiniz</string>
     <string name="hint">Nereye Gidiyorsun?</string>
     <string name="welcome_back">Hoşgeldin</string>
-    <string name="ToastMessage6">Lütfen Güzergah Giriniz</string>
+    <string name="ToastMessage6">Lütfen Güzergâh Giriniz</string>
     <string name="ToastMessage7">Şimdi Yolculuğu Başlatabilirsin</string>
+    <string name="ToastMessage8">Yolculuk Bitti</string>
     <string name="NotificationHead">Dolmuş</string>
     <string name="NotificationText">Bize Destek Olduğunuz İçin Teşekkürler</string>
     <string name="wait">Cevaplarınız Kaydediliyor Lütfen Bekleyiniz</string>
@@ -1881,7 +1882,7 @@ public class MyService extends Service {
 
         }
 
-        fusedLocationProviderClient.getCurrentLocation(105, new CancellationToken() {
+        fusedLocationProviderClient.getCurrentLocation(104, new CancellationToken() {
             @Override
             public boolean isCancellationRequested() {
                 return false;
