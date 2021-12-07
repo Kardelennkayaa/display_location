@@ -598,13 +598,14 @@ this.address().port, app.settings.env);
   
 **index.js** kodu, hazırlanan **index.html** kodunu okur ve bu koda göre bir cevap gönderir. Kod içeriği ve veritabanı bağlantılarında bir yanlışlık olmadığı durumda, **index.js** kodu ile websitesi yayınlanmış olur.
 
-Tasarlanan websitesi kodunun çalıştırılması için Visual Studio Code üzerinde bulunan **Terminal** sekmesinden **New Terminal** seçeneği seçilerek gelen terminal üzerine **node index.js** yazılır ve enter tuşuna bsılır.
+Tasarlanan websitesi kodunun çalıştırılması için Visual Studio Code üzerinde bulunan **Terminal** sekmesinden **New Terminal** seçeneği seçilerek gelen terminal üzerine **node index.js** yazılır ve enter tuşuna basılır.
 
 <p align="center">
   <img src="https://github.com/Kardelennkayaa/display_location/blob/master/location_images/node_terminal.jpg"/>
 </p>
 
 Oluşturulan websitesini ziyaret etmek için [verilen link](http://localhost:4000/) kullanılabilir.
+
 Veritabanından çekilen veriler aşağıdaki gibi görüntülenir:
 
 <p align="center">
