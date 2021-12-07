@@ -107,9 +107,32 @@ Heroku-PostgreSQL bağlantısı oluşturmak için, PostgreSQL veritabanlarını 
   <img src="https://github.com/Kardelennkayaa/display_location/blob/master/location_images/advanced_img.jpg" alt="Sublime's custom image"/>
 </p>
 
+### Uzantı(Extension) Eklemek:
+PostgreSQL veritabanında konum ve geometrik verilerin depolanabilmesini sağlayan **PostGIS** adında bir uzantı bulunur. **PostGIS** uzantısı veritabanına eklendiğinde, konum bilgisi o lokasyona ait **Point** verisi ile belirtilebilir ve bu konuma ait geometrik bilgilere ulaşılabilir. **PostGIS** uzantısını eklemek için aşağıdaki **SQL** kodu **Query Tool** aracılığı ile yazılabilir:
+
+ ```
+ create extension postgis;
+ ```
+
+Veritabanına PostGIS uzantııs eklemek, konum bilgisinin kaydedileceği sütun olan **geom** sütununa **geometry** veri tipini ekleyebilmek için önemlidir. Bu uzantı eklenmediği takdirde **geometry** veri tipinde sütun oluşturulamayacağı için konumsal veri eklenemeyecektir.
+
 ### Tablo Oluşturmak:
 
-Oluşturulan veritabanında verilerin kaydedileceği bir tablo, "Schemas" başlığı altındaki "Tables" seçeneğinden "Create" işaretlenerek oluşturulabilir. Verilerin öznitelik bilgilerinin kaydı için "Column" ve "Data Type" seçenekleri şu şekilde girilebilir:
+Oluşturulan veritabanında verilerin kaydedileceği bir tablo, "Schemas" başlığı altındaki "Tables" seçeneğinden "Create" işaretlenerek oluşturulabilir. Verilerin öznitelik bilgilerinin kaydı için "Column" ve "Data Type" seçenekleri verilen SQL kodu ile tanımlanabilir:
+
+ ```
+ CREATE TABLE public.minibus_stations
+(
+    recorder character varying,
+    gender character varying,
+    age character varying,
+    transit_type character varying,
+    destination character varying,
+    geom geometry,
+    date character varying
+);
+ ```
+Tablo oluştuurlduktan sonra, tablonun öznitelik bilgileri **Properties** bölümünden açıldığında aşağıdaki gibi bir görünüm elde edilecektir:
 
 <p align="center">
   <img src="https://github.com/Kardelennkayaa/display_location/blob/master/location_images/postgre_table.png" alt="Sublime's custom image"/>
@@ -121,9 +144,10 @@ Oluşturduğunuz tabloya örnek bir veri girişi şu şekilde yapılmalıdır:
 ```
 INSERT INTO public.minibus_stations(
 	recorder, gender, age, transit_type, destination, geom, date)
-	VALUES ('test_rec2', 'Bay', '22', 'Dolmuş', 'Beytepe', ST_SetSRID( ST_Point(32.72823692028502,39.84361890532323), 4326), 'Fri Dec 03 11:59:15 GMT+03:00 2021');
+	VALUES ('test_data', 'Bay', '22', 'Dolmuş', 'Beytepe', ST_SetSRID( ST_Point(32.73373285173033,39.865806256870776), 4326), 'Fri Dec 07 11:59:15 GMT+03:00 2021');
 ```  
-Verilen örnekte girilen lokasyon EPSG:4326 projeksiyonu baz alınarak tabloya eklenmiştir. Örnekte formatı verilen veri girişinde tablo ismi 'minibus_stations' olarak girilmiştir. Farklı bir isim girilerek tablo oluşturulmuşsa bu değer komutta değiştirilmelidir. Örnekte verilen değişkenleri değiştirerek siz de kendi verinizi aynı formatta girebilirsiniz.
+Verilen örnekte girilen lokasyon EPSG:4326 projeksiyonu baz alınarak tabloya eklenmiştir. Örnekte formatı verilen veri girişinde tablo ismi **'minibus_stations'** olarak girilmiştir. Farklı bir isim girilerek tablo oluşturulmuşsa bu değer komutta değiştirilmelidir. Örnekte verilen değişkenleri değiştirerek siz de kendi verinizi aynı formatta girebilirsiniz.
+
 ### Visual Studio Code 
 
 Geliştirilecek web arayüzü için gerekli olan kodlar Visual Studio Code uygulaması kullanılarak düzenlenir. VSC ile yeni bir proje yaratmak için öncelikle, bilgisayarınızda yeni bir boş klasör oluşturmanız gerekir. Sonrasında ise oluşturulan klasör VSC ile açılır.
@@ -178,7 +202,6 @@ Oluşturulan **appConfig.js** dosyası aşağıdaki gibi olmalıdır:
     password: 'postgres'
     }
     }
-    
     var connectionString = "postgres_connectionString";
     if (process.env.NODE_ENV == 'production') {
     //Production mode
@@ -220,7 +243,7 @@ Oluşturulan **appConfig.js** dosyası aşağıdaki gibi olmalıdır:
   ```
 
 
-Burada **host, database, user, password ve connectionString** parametreleri; **Heroku Database Credentials** bölümünden alınan veritabanı bilgileri ile doldurulmalıdır. Bu parametreler PostgreSQL veritabanı ile bağlantıyı sağlamaktadır.
+Burada **host, database, user, password ve connectionString** parametreleri; **Heroku Database Credentials** bölümünden alınan veritabanı bilgileri ile doldurulmalıdır. **connectionString** parametresi **Heroku Database Credentials** bölümünde yer alan **URI** bilgisi verilerek tanımlanmalıdır. Bu parametreler PostgreSQL veritabanı ile bağlantıyı sağlamaktadır.
 
 Sonrasında ise veritabanında olan verilere ulaşmak için **database.js** dosyası oluşturulmalıdır. Veritabanından alınan verilerin web üzerinde görselleştirilmesi yapılacaktır. **database.js** dosyası aşağıdaki gibi olmalııdr:
 
@@ -237,7 +260,7 @@ var options = {
     promiseLib: promise
 };
 function getAllLocations(cb) {
-      DATABASE_PGB.any('SELECT recorder_name as recorder, recorder_gender as gender, public_transit as transit, ST_X(geom) as longitude, ST_Y(geom) as latitude from location_data')
+      DATABASE_PGB.any('SELECT recorder, gender, age, transit_type as transit, destination, ST_X(geom) as longitude, ST_Y(geom) as latitude, date from minibus_stations')
       .then(function (data) {
          cb(null, data);})
        .catch(function (err) {
@@ -607,6 +630,7 @@ Uygulanması gereken adımlar şu şekildedir:
 </p>
 
 **2.** **Repository name** tanımlanmalı ve ardından **Create repository** butonuna basılmalıdır.
+
 **3.** Hazırlanan kodları Github arayüzüne yüklemek için **cmd (Command Prompt** açılmalı ve bilgisayarınızda ilgili projenin bulunduğu yola gidilmelidir. Ardından aşağıdaki komut yazılmalıdır:
 - `git init`
 
