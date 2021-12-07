@@ -1965,6 +1965,12 @@ public class MyService extends Service {
 ```
 
 
+### Projenin Sanal Ortamda Test Edilmesi
+
+Uygulamamızı Android Studio nun bizlere sağlamış olduğu AVD Manager ile yapacağız. Konu anlatımı için video ekleyeceğim.
+
+
+
 
 
 
