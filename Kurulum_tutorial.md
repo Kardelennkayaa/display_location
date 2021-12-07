@@ -659,7 +659,7 @@ Android platformu için yazılım hazırlamayı en kolay hale getiren program ol
 
 İlk olarak [buradaki linkten](https://developer.android.com/studio) adresine giderek işletim sistemimize uygun olan Android Studio versiyonunu indiriyoruz.
 
-İndirdikten sonra [buradaki linkten](https://www.youtube.com/watch?v=JDE_nTviig8) adımları takip ederek Android Studio kurulumunu tamamlayabilirsiniz.
+İndirdikten sonra [buradaki linkten](https://www.youtube.com/watch?v=8NoCm-A8oMk) adımları takip ederek Android Studio kurulumunu tamamlayabilirsiniz.
 
 ### Projenin Oluşturulması
 
