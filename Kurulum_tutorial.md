@@ -709,7 +709,7 @@ dosyasının içindeki "AndroidManifests.xml" dosyasını açıyoruz. Burada "pa
   <img src="https://github.com/Kardelennkayaa/display_location/blob/master/Ekran Görüntüleri/Screenshot_15.png"/>
 </p>
 
-Oluşuracağımız java dosyalarını manifest dosyasında tanıtmamız gerektiği için alttaki kodu da manifest dosyamıza ekliyoruz.
+Oluşuracağımız java dosyalarını manifest dosyasında tanıtmamız gerektiği için manifest dosyasındaki application kısmını silerek alttaki kodu yapıştırıyoruz.
 
 ```
 <application
@@ -925,7 +925,6 @@ activity_main.xml dosyamızın tasarımını kod üzerinden yapacağız. Bunun i
         android:id="@+id/textView"
         android:layout_width="349dp"
         android:layout_height="148dp"
-        android:fontFamily="@font/bungee_shade"
         android:gravity="center"
         android:text="@string/welcome"
         android:textColor="#9F5252"
@@ -944,7 +943,6 @@ activity_main.xml dosyamızın tasarımını kod üzerinden yapacağız. Bunun i
         android:layout_width="227dp"
         android:layout_height="65dp"
         android:background="@drawable/lets_start_button"
-        android:fontFamily="@font/montserrat_bold"
         android:text="@string/lets_start"
         android:textAllCaps="false"
         android:textStyle="bold"
@@ -959,7 +957,6 @@ activity_main.xml dosyamızın tasarımını kod üzerinden yapacağız. Bunun i
         android:layout_width="243dp"
         android:layout_height="82dp"
         android:ems="10"
-        android:fontFamily="@font/peralta"
         android:hint="@string/name"
         android:importantForAutofill="no"
         android:inputType="textPersonName"
@@ -975,7 +972,6 @@ activity_main.xml dosyamızın tasarımını kod üzerinden yapacağız. Bunun i
         android:layout_width="247dp"
         android:layout_height="82dp"
         android:ems="10"
-        android:fontFamily="@font/peralta"
         android:hint="@string/surname"
         android:importantForAutofill="no"
         android:inputType="textPersonName"
@@ -1003,7 +999,6 @@ activity_main.xml dosyamızın tasarımını kod üzerinden yapacağız. Bunun i
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:checked="true"
-            android:fontFamily="@font/peralta"
             android:minHeight="48dp"
             android:text="@string/male"
             tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
@@ -1012,7 +1007,6 @@ activity_main.xml dosyamızın tasarımını kod üzerinden yapacağız. Bunun i
             android:id="@+id/radioButton4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/peralta"
             android:minHeight="48dp"
             android:text="@string/female" />
     </RadioGroup>
@@ -1515,7 +1509,7 @@ public class Transport extends AppCompatActivity {
 Son layoutumuz olan "journey.xml" dosyasını oluşturuyoruz. Bu layoutta hacettepe logosu kullandığımız için bunu indirip res klasörünün içerisine atmanız gerekiyor.
 github üzerinden bunu indirebilirsiniz
 
-github-link
+[Github Link].(https://github.com/Kardelennkayaa/display_location/tree/master/res)
 
 <p align="center">
   <img src="https://github.com/Kardelennkayaa/display_location/blob/master/Ekran Görüntüleri/Screenshot_13.png"/>
