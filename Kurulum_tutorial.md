@@ -1509,7 +1509,7 @@ public class Transport extends AppCompatActivity {
 Son layoutumuz olan "journey.xml" dosyasını oluşturuyoruz. Bu layoutta hacettepe logosu kullandığımız için bunu indirip res klasörünün içerisine atmanız gerekiyor.
 github üzerinden bunu indirebilirsiniz
 
-[Github Link].(https://github.com/Kardelennkayaa/display_location/tree/master/res)
+Github Linki: (https://github.com/Kardelennkayaa/display_location/tree/master/res)
 
 <p align="center">
   <img src="https://github.com/Kardelennkayaa/display_location/blob/master/Ekran Görüntüleri/Screenshot_13.png"/>
