@@ -1423,7 +1423,7 @@ public class Age extends AppCompatActivity {
 </p>
 
 
-Transport isminde bir java dosyası açıyoruz.
+Transport isminde bir java dosyası açıyoruz. Bu kısımda * ile gösterilen kısımlara kendi server bilginizi girmeniz gerekmektedir.
 
 ```
 package com.example.dolmush;
@@ -1447,10 +1447,10 @@ import java.util.List;
 public class Transport extends AppCompatActivity {
 
     Integer port = 5432;
-    String host = "ec2-44-197-142-172.compute-1.amazonaws.com";
-    String database = "dc8e8es3dfs8tj";
-    String user = "wnoomsxmhltgdl";
-    String pass = "444c9828fb61d52829262ee9d02ac48501f5c1b84d7884d31b973660ae8e5025";
+    String host = "************";
+    String database = "********";
+    String user = "*******";
+    String pass = "********";
     String url = "jdbc:postgresql://%s:%d/%s";
 
     @Override
@@ -1772,7 +1772,7 @@ public class Journey extends AppCompatActivity implements AdapterView.OnItemSele
 }
 ```
 
-Son javadosyası olarak "MyService.java" dosyasını oluşturuyoruz.
+Son javadosyası olarak "MyService.java" dosyasını oluşturuyoruz. Bu kısımda * ile gösterilen kısımlara kendi server bilginizi girmeniz gerekmektedir.
 
 ```
 package com.example.dolmush;
@@ -1820,10 +1820,10 @@ public class MyService extends Service {
     Connection connection;
 
     Integer port = 5432;
-    String host = "ec2-44-197-142-172.compute-1.amazonaws.com";
-    String database = "dc8e8es3dfs8tj";
-    String user = "wnoomsxmhltgdl";
-    String pass = "444c9828fb61d52829262ee9d02ac48501f5c1b84d7884d31b973660ae8e5025";
+    String host = "******";
+    String database = "***********";
+    String user = "************";
+    String pass = "**********************";
     String url = "jdbc:postgresql://%s:%d/%s";
     String latitude, longitude;
 
