@@ -706,7 +706,7 @@ Sonraki adımda ise projemizin ismini belirliyoruz.
 
 - Minimum SDK: Bu kısımda uygulamamızın destekleyeceği en düsük android sürümünü belirliyoruz. (Biz API 23 kullanıyoruz.)
 
-- "Using legeacy android.support library" seçeneğini işaretliyerek, en son versiyon android servislerini kullanacağız.
+- "Using legeacy android.support library" seçeneğini işaretlemiyoruz.
 
 <p align="center">
   <img src="https://github.com/Kardelennkayaa/display_location/blob/master/Ekran Görüntüleri/Screenshot_2.png"/>
@@ -768,8 +768,6 @@ Bu aşamadan sonra Gradle Scripts --> build.gradle (Module: Dolmush.app) içine
     implementation 'org.postgresql:postgresql:42.2.5.jre7'
     implementation 'com.google.android.gms:play-services-location:18.0.0'
     implementation 'com.google.android.gms:play-services-auth:19.2.0'
-    implementation 'com.github.bumptech.glide:glide:4.12.0'
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
 ```
 
 Bu sayede gerekli kütüphaneleri uygulamamıza eklemiş olduk.
@@ -967,7 +965,6 @@ activity_main.xml dosyamızın tasarımını kod üzerinden yapacağız. Bunun i
         android:id="@+id/button3"
         android:layout_width="227dp"
         android:layout_height="65dp"
-        android:background="@drawable/lets_start_button"
         android:text="@string/lets_start"
         android:textAllCaps="false"
         android:textStyle="bold"
@@ -1248,7 +1245,6 @@ Dosyamızı oluşturduktan sonra dosya yapısının bu şekilde olması gerekiyo
         android:id="@+id/button"
         android:layout_width="170dp"
         android:layout_height="48dp"
-        android:background="@drawable/next_button"
         android:text="@string/next"
         android:textAllCaps="false"
         android:textStyle="bold"
@@ -1403,7 +1399,6 @@ public class Age extends AppCompatActivity {
         android:id="@+id/button4"
         android:layout_width="170dp"
         android:layout_height="48dp"
-        android:background="@drawable/next_button"
         android:text="@string/finish"
         android:textAllCaps="false"
         android:textStyle="bold"
