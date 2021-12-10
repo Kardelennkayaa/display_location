@@ -2002,6 +2002,29 @@ Apk oluşturma işlemi bittikten sonra ekranımızın sağ alt tarafında "Locat
 
 
 
+### Proje ile İlgili Verilebilecek Ödevler
+
+- Uygulamanın Iconunun Değiştirilmesi.
+- Buton Tasarımı Yapılması
+- Layout Tasarımı
+- Konum Verisinin Hassasiyeti
+- Veri Alma Aralığının Değiştirilmesi
+- Layoutlar Arası Geçiş Efekti Eklenmesi
+- Server Bağlantı Hızısının İyileştirilmesi
+- Kullanıcı Çıkışının Eklenmesi
+- Journey.Class da String Yapısının Oluşturulması
+- Server Bilgilerini Text Dosyasından Çekme
+
+
+### Android Studio ve Proje İçin Faydalı Linkler
+
+
+- (https://developer.android.com/docs)
+- (https://angrytools.com/)
+- (https://jdbc.postgresql.org/documentation/head/index.html)
+- (https://romannurik.github.io/AndroidAssetStudio/index.html)
+
+
 
 
 
