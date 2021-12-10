@@ -3,7 +3,7 @@
 ## Giriş
 
 Android Studio aracılığı ile PostgreSQL veritabanına kaydedilen konum verilerinin, Heroku App platformu yardımı ile görselleştirilmesi bu projenin amacıdır.
-Android Studio ile alınan konum verileri belirli öznitelikler ile birlikte PostgreSQL veritabanına kaydedilir. Bu öznitelikler; kaydeden kişinin yaşı ve cinsiyeti, gidilecek istikamet bilgisi, noktanın konumu, ve kayıt tarihidir.
+Android Studio ile alınan konum verileri belirli öznitelikler ile birlikte PostgreSQL veritabanına kaydedilir. Bu öznitelikler; kaydeden kişinin yaşı ve cinsiyeti, gidilecek istikamet bilgisi, kullanılan ulaşım aracı bilgisi, noktanın konumu, ve kayıt tarihidir.
 Konum geometrisi ilgili lokasyonun enlem ve boylam değeri alınarak veritabanına kaydedilir. Lokasyonu tanımlanacak nokta için EPSG4326 projeksiyonu ve WGS84 elipsoiti baz alınır.
 Heroku App platformu ise PostgreSQL veritabanında kaydedilen noktaların OSM(OpenStreetMap) üzerinde gösterimi için kullanılır. Burada Heroku App platformunun kullanım amacı, Postgres ve PostGIS yapılarını destekleyen bir uygulama olmasının yanı sıra JavaScript ile geliştirilen web tabanlı uygulamayı internete servis etme (deploy) işlemini gerçekleştiriyor olmasıdır.
 Yapılan bu projede geliştirilen uygulama git servisinde mevcut olup Heroku App ile entegre edilmiştir.
