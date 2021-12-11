@@ -1956,7 +1956,7 @@ public class MyService extends Service {
                 Class.forName("org.postgresql.Driver");
                 connection = DriverManager.getConnection(url, user, pass);
                 Statement stmt = connection.createStatement();
-                stmt.executeUpdate("INSERT INTO datas(recorder, gender, age, transit_type, destination, geom, date) VALUES" +
+                stmt.executeUpdate("INSERT INTO minibus_stations(recorder, gender, age, transit_type, destination, geom, date) VALUES" +
                         " ('" + PersonName + "', '" + sex + "' , '" + age + "', '" + transitType +
                         "', '" + destination + "' ,ST_SetSRID(ST_MakePoint("+ longitude +","+ latitude +"),4326), '" + date + "')");
                 stmt.close();
