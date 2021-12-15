@@ -2018,7 +2018,8 @@ Apk oluşturma işlemi bittikten sonra ekranımızın sağ alt tarafında "Locat
 
 ### Android Studio ve Proje İçin Faydalı Linkler
 
-
+- (https://openlayers.org/en/latest/examples/)
+- (http://dev.openlayers.org/examples/)
 - (https://developer.android.com/docs)
 - (https://angrytools.com/)
 - (https://jdbc.postgresql.org/documentation/head/index.html)
