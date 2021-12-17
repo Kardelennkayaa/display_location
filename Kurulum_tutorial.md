@@ -2020,6 +2020,7 @@ Apk oluşturma işlemi bittikten sonra ekranımızın sağ alt tarafında "Locat
 
 - (https://openlayers.org/en/latest/examples/)
 - (http://dev.openlayers.org/examples/)
+- (https://www.w3schools.com/w3css/default.asp)
 - (https://developer.android.com/docs)
 - (https://angrytools.com/)
 - (https://jdbc.postgresql.org/documentation/head/index.html)
