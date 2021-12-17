@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 body {
-      margin: 5px 5px;
+      margin: 10px 10px;
       font-family: Arial, Helvetica, sans-serif;
       background-color: #FDF5E6;
     }
@@ -62,6 +62,12 @@ body {
         <div class="form-popup" id="open_entry">
           <br><select id="recorder_options">
           </select><br>
+          <br><select id="age_options">
+          </select><br>
+          <br><select id="destination_options">
+          </select><br>
+          <br><select id="transit_options">
+          </select><br>
           <br><input class="SubmitButton" type="button" value="Submit" onclick="submit_recorder()" />
         </div>
          
@@ -91,6 +97,9 @@ body {
             vectorLayer = new OpenLayers.Layer.Vector("Overlay");
             //TODO - data haritaya ekleme işlemi
             var list_rec = [];
+            var list_age = [];
+            var list_dest = [];
+            var list_transit = [];
             for (point = 0; point < data.length; point++) {
                 
             var rec=data[point].recorder;
@@ -102,6 +111,9 @@ body {
             var lat=data[point].latitude;
             var dt=data[point].date;
             list_rec.push(rec);
+            list_age.push(ag);
+            list_dest.push(dest);
+            list_transit.push(tra);
 
             lonLat = new OpenLayers.LonLat(lon,lat ).transform(new OpenLayers.Projection("EPSG:4326"), // transform from WGS 1984
                                                                 map.getProjectionObject() // to Spherical Mercator Projection
@@ -116,7 +128,7 @@ body {
         } else if(tra=='Bus' || tra=='Otobüs'){ marker_colour='https://cdn-icons-png.flaticon.com/512/30/30979.png'}
         else if(tra=='Tren' || tra=='Train'){ marker_colour='https://cdn-icons-png.flaticon.com/512/335/335045.png'}
         else if(tra=='Tramvay' || tra=='Streetcar'){ marker_colour='https://cdn-icons-png.flaticon.com/512/82/82281.png'}
-        else{marker_colour = 'https://cdn-icons-png.flaticon.com/512/4974/4974395.png'}
+        else{marker_colour = 'https://cdn-icons-png.flaticon.com/128/3202/3202926.png'}
             markers.addMarker(new OpenLayers.Marker(lonLat))
                 
             map.setCenter(lonLat,zoom)
@@ -158,13 +170,41 @@ body {
             }
      
             var unique_rec = [];
+            var unique_age = [];
+            var unique_dest = [];
+            var unique_transit = [];
+            unique_rec.push("None");
+            unique_age.push("None");
+            unique_dest.push("None");
+            unique_transit.push("None");
             $.each(list_rec, function(i, el){
             if($.inArray(el, unique_rec) === -1) unique_rec.push(el);
             });
+            $.each(list_age, function(i, el){
+            if($.inArray(el, unique_age) === -1) unique_age.push(el);
+            });
+            $.each(list_dest, function(i, el){
+            if($.inArray(el, unique_dest) === -1) unique_dest.push(el);
+            });
+            $.each(list_transit, function(i, el){
+            if($.inArray(el, unique_transit) === -1) unique_transit.push(el);
+            });
             //alert(unique_rec);
             var select = document.getElementById("recorder_options");
+            var select_age = document.getElementById("age_options");
+            var select_dest = document.getElementById("destination_options");
+            var select_transit = document.getElementById("transit_options");
             for(index in unique_rec) {
                 select.options[select.options.length] = new Option(unique_rec[index], unique_rec[index]);
+            }
+            for(index in unique_age) {
+                select_age.options[select_age.options.length] = new Option(unique_age[index], unique_age[index]);
+            }
+            for(index in unique_dest) {
+                select_dest.options[select_dest.options.length] = new Option(unique_dest[index], unique_dest[index]);
+            }
+            for(index in unique_transit) {
+                select_transit.options[select_transit.options.length] = new Option(unique_transit[index], unique_transit[index]);
             }
             
 
@@ -180,6 +220,9 @@ body {
         
     
     var recorder_name = document.getElementById('recorder_options').value
+    var age_opt = document.getElementById('age_options').value
+    var dest_opt = document.getElementById('destination_options').value
+    var transit_opt = document.getElementById('transit_options').value
 
     $.getJSON('/api/data', function(data) {
     console.log(data[0].recorder);
@@ -207,8 +250,22 @@ body {
     var dt=data[point].date;
       
     
-    
-    if (recorder_name==rec){
+
+    if ((recorder_name==rec && age_opt==ag && dest_opt==dest && transit_opt==tra) ||
+     (recorder_name=="None" && age_opt==ag && dest_opt==dest && transit_opt==tra) || 
+     (recorder_name==rec && age_opt=="None" && dest_opt==dest && transit_opt==tra) ||
+     (recorder_name==rec && age_opt==ag && dest_opt=="None" && transit_opt==tra) ||
+     (recorder_name==rec && age_opt==ag && dest_opt==dest && transit_opt=="None") ||
+     (recorder_name==rec && age_opt=="None" && dest_opt=="None" && transit_opt==tra) ||
+     (recorder_name=="None" && age_opt=="None" && dest_opt==dest && transit_opt==tra) ||
+     (recorder_name=="None" && age_opt==ag && dest_opt=="None" && transit_opt==tra) ||
+     (recorder_name=="None" && age_opt==ag && dest_opt==dest && transit_opt=="None") ||
+     (recorder_name==rec && age_opt==ag && dest_opt=="None" && transit_opt=="None") ||
+     (recorder_name==rec && age_opt=="None" && dest_opt==dest && transit_opt=="None") ||
+     (recorder_name=="None" && age_opt=="None" && dest_opt=="None" && transit_opt==tra) ||
+     (recorder_name==rec && age_opt=="None" && dest_opt=="None" && transit_opt=="None") ||
+     (recorder_name=="None" && age_opt==ag && dest_opt=="None" && transit_opt=="None") ||
+     (recorder_name=="None" && age_opt=="None" && dest_opt==dest && transit_opt=="None")){
         lonLat = new OpenLayers.LonLat(lon,lat ).transform(new OpenLayers.Projection("EPSG:4326"), // transform from WGS 1984
                                                         map.getProjectionObject() // to Spherical Mercator Projection
                                                         )
@@ -222,7 +279,7 @@ body {
         } else if(tra=='Bus' || tra=='Otobüs'){ marker_colour='https://cdn-icons-png.flaticon.com/512/30/30979.png'}
         else if(tra=='Tren' || tra=='Train'){ marker_colour='https://cdn-icons-png.flaticon.com/512/335/335045.png'}
         else if(tra=='Tramvay' || tra=='Streetcar'){ marker_colour='https://cdn-icons-png.flaticon.com/512/82/82281.png'}
-        else{marker_colour = 'https://cdn-icons-png.flaticon.com/512/4974/4974395.png'}
+        else{marker_colour = 'https://cdn-icons-png.flaticon.com/128/3202/3202926.png'}
         markers.addMarker(new OpenLayers.Marker(lonLat))
         map.setCenter(lonLat,zoom)
         feature = new OpenLayers.Feature.Vector(
@@ -233,8 +290,12 @@ body {
         vectorLayer.addFeatures(feature);
         map.addLayer(vectorLayer);
         x=1;
-        } 
-        
+      } else if (recorder_name=="None" && age_opt=="None" && dest_opt=="None"&& transit_opt=="None") {
+          window.alert("Please select one of the options!");
+          window.location.reload();
+          x=1;
+          break
+      }  
         
     var controls = {
       selector: new OpenLayers.Control.SelectFeature(vectorLayer, { onSelect: createPopup, onUnselect: destroyPopup })
@@ -260,6 +321,7 @@ body {
     }
     if (x==0) {
         alert("Recorder not found!")
+        window.location.reload();
     }
     document.getElementById('rname').value=null;
     });
@@ -272,7 +334,6 @@ body {
  </script>
   </body>
   </html>
-
 
            
         
