@@ -2012,8 +2012,6 @@ Apk oluşturma işlemi bittikten sonra ekranımızın sağ alt tarafında "Locat
 - Layoutlar Arası Geçiş Efekti Eklenmesi
 - Server Bağlantı Hızısının İyileştirilmesi
 - Kullanıcı Çıkışının Eklenmesi
-- Journey.Class da String Yapısının Oluşturulması
-- Server Bilgilerini Text Dosyasından Çekme
 
 
 ### Android Studio ve Proje İçin Faydalı Linkler
