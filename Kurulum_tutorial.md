@@ -8,7 +8,7 @@ Konum geometrisi ilgili lokasyonun enlem ve boylam değeri alınarak veritabanı
 Heroku App platformu ise PostgreSQL veritabanında kaydedilen noktaların OSM(OpenStreetMap) üzerinde gösterimi için kullanılır. Burada Heroku App platformunun kullanım amacı, Postgres ve PostGIS yapılarını destekleyen bir uygulama olmasının yanı sıra JavaScript ile geliştirilen web tabanlı uygulamayı internete servis etme (deploy) işlemini gerçekleştiriyor olmasıdır.
 Yapılan bu projede geliştirilen uygulama git servisinde mevcut olup Heroku App ile entegre edilmiştir.
 
-## Kullanılacak Uygulamalar
+<details><summary><strong>Kullanılacak Uygulamalar:</strong></summary>
 
 ### PostgreSQL
 
@@ -43,7 +43,7 @@ Bir versiyon kontrol sistemi olan Git; geliştirilen bir proje üzerinde yapıla
 
 
 
-## WEB Arayüzü
+<details><summary><strong>WEB Arayüzü:</strong></summary>
 
 Web arayüzü oluşturmak için yapılması gereken adımlar sırası ile şu şekildedir:
 
@@ -676,7 +676,7 @@ Heroku ve Github arasındaki bağlantı sağlandıktan sonra **View** butonu ile
 </p>
 
 
-### **Android Studio**
+<details><summary><strong>Android Studio:</strong></summary>
 
 Android platformu için yazılım hazırlamayı en kolay hale getiren program olduğu için bu çalışmada android studio kullanacağız. Android studio içerisinde bulundurduğu AVD Manager ile kodu sanal telefon üzerinde test etmemizi kolaylaştırarak ek program kullanmamıza gerek kalmayan bir uygulamadır.
 
