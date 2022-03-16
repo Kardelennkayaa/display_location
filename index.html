@@ -77,14 +77,14 @@ body {
     <script>
 
         $.getJSON('/api/data', function(data) {
-            console.log(data[0].recorder);
-            console.log(data[0].gender);
-            console.log(data[0].age);
-            console.log(data[0].transit);
-            console.log(data[0].destination);
+            console.log(data[0].name);
+            console.log(data[0].surname);
+            console.log(data[0].start);
+            console.log(data[0].finish);
+            console.log(data[0].duration);
             console.log(data[0].longitude);
             console.log(data[0].latitude);
-            console.log(data[0].date);
+            console.log(data[0].type);
             
             var veri1=data[0].longitude;
             var veri2=data[0].latitude;
@@ -96,24 +96,25 @@ body {
             var length=data.length;
             vectorLayer = new OpenLayers.Layer.Vector("Overlay");
             //TODO - data haritaya ekleme işlemi
-            var list_rec = [];
-            var list_age = [];
-            var list_dest = [];
+            var list_name = [];
+            var list_start = [];
+            var list_duration = [];
             var list_transit = [];
             for (point = 0; point < data.length; point++) {
                 
-            var rec=data[point].recorder;
-            var gen=data[point].gender;
-            var ag=data[point].age;
-            var tra=data[point].transit;
-            var dest=data[point].destination;
+            var name=data[point].name;
+            var sname=data[point].surname;
+            var start=data[point].start;
+            var finish=data[point].finish;
+            var duration=data[point].duration;
             var lon=data[point].longitude;
             var lat=data[point].latitude;
-            var dt=data[point].date;
-            list_rec.push(rec);
-            list_age.push(ag);
-            list_dest.push(dest);
-            list_transit.push(tra);
+            var transit=data[point].type;
+
+            list_name.push(name);
+            list_start.push(start);
+            list_duration.push(duration);
+            list_transit.push(transit);
 
             lonLat = new OpenLayers.LonLat(lon,lat ).transform(new OpenLayers.Projection("EPSG:4326"), // transform from WGS 1984
                                                                 map.getProjectionObject() // to Spherical Mercator Projection
@@ -123,11 +124,11 @@ body {
             markers = new OpenLayers.Layer.Markers("Markers");
             marker_colour = new OpenLayers.Layer.Markers("Markers");
             
-        if (tra=='Dolmush' || tra == 'Dolmuş') {
+        if (transit=='Dolmush' || transit == 'Dolmuş') {
                 marker_colour = 'https://cdn-icons-png.flaticon.com/512/1165/1165961.png';
-        } else if(tra=='Bus' || tra=='Otobüs'){ marker_colour='https://cdn-icons-png.flaticon.com/512/30/30979.png'}
-        else if(tra=='Tren' || tra=='Train'){ marker_colour='https://cdn-icons-png.flaticon.com/512/733/733036.png'}
-        else if(tra=='Tramvay' || tra=='Streetcar'){ marker_colour='https://cdn-icons-png.flaticon.com/512/82/82281.png'}
+        } else if(transit=='Bus' || transit=='Otobüs'){ marker_colour='https://cdn-icons-png.flaticon.com/512/30/30979.png'}
+        else if(transit=='Tren' || transit=='Train'){ marker_colour='https://cdn-icons-png.flaticon.com/512/733/733036.png'}
+        else if(transit=='Tramvay' || transit=='Streetcar'){ marker_colour='https://cdn-icons-png.flaticon.com/512/82/82281.png'}
         else{marker_colour = 'https://cdn-icons-png.flaticon.com/128/3202/3202926.png'}
             markers.addMarker(new OpenLayers.Marker(lonLat))
                 
@@ -135,7 +136,7 @@ body {
                 
         feature = new OpenLayers.Feature.Vector(
         new OpenLayers.Geometry.Point( lon,lat ).transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject()),
-        {description:'Recorder: '+rec+'<br>Gender: '+gen+'<br>Transit Type: '+tra+'<br>Age: '+ag+'<br>Destination: '+dest+'<br>Date: '+dt+'<br>Latitude: '+lat+'<br>Longitude: '+lon},
+        {description:'Recorder: '+name+'&nbsp'+sname+'<br>Transit Type: '+transit+'<br>Duration: '+duration+'<br>Starting Time: '+start+'<br>Latitude: '+lat+'<br>Longitude: '+lon},
         {externalGraphic: marker_colour, graphicHeight: 25, graphicWidth: 25, graphicXOffset:-10, graphicYOffset:-10 }
         );
 
@@ -169,39 +170,39 @@ body {
 
             }
      
-            var unique_rec = [];
-            var unique_age = [];
-            var unique_dest = [];
+            var unique_name = [];
+            var unique_start = [];
+            var unique_duration= [];
             var unique_transit = [];
-            unique_rec.push("None");
-            unique_age.push("None");
-            unique_dest.push("None");
+            unique_name.push("None");
+            unique_start.push("None");
+            unique_duration.push("None");
             unique_transit.push("None");
-            $.each(list_rec, function(i, el){
-            if($.inArray(el, unique_rec) === -1) unique_rec.push(el);
+            $.each(list_name, function(i, el){
+            if($.inArray(el, unique_name) === -1)unique_name.push(el);
             });
-            $.each(list_age, function(i, el){
-            if($.inArray(el, unique_age) === -1) unique_age.push(el);
+            $.each(list_start, function(i, el){
+            if($.inArray(el, unique_start) === -1) unique_start.push(el);
             });
-            $.each(list_dest, function(i, el){
-            if($.inArray(el, unique_dest) === -1) unique_dest.push(el);
+            $.each(list_duration, function(i, el){
+            if($.inArray(el, unique_duration) === -1) unique_duration.push(el);
             });
             $.each(list_transit, function(i, el){
             if($.inArray(el, unique_transit) === -1) unique_transit.push(el);
             });
-            //alert(unique_rec);
+           
             var select = document.getElementById("recorder_options");
-            var select_age = document.getElementById("age_options");
-            var select_dest = document.getElementById("destination_options");
+            var select_start = document.getElementById("age_options");
+            var select_duration = document.getElementById("destination_options");
             var select_transit = document.getElementById("transit_options");
-            for(index in unique_rec) {
-                select.options[select.options.length] = new Option(unique_rec[index], unique_rec[index]);
+            for(index in unique_name) {
+                select.options[select.options.length] = new Option(unique_name[index], unique_name[index]);
             }
-            for(index in unique_age) {
-                select_age.options[select_age.options.length] = new Option(unique_age[index], unique_age[index]);
+            for(index in unique_start) {
+                select_start.options[select_start.options.length] = new Option(unique_start[index], unique_start[index]);
             }
-            for(index in unique_dest) {
-                select_dest.options[select_dest.options.length] = new Option(unique_dest[index], unique_dest[index]);
+            for(index in unique_duration) {
+                select_duration.options[select_duration.options.length] = new Option(unique_duration[index], unique_duration[index]);
             }
             for(index in unique_transit) {
                 select_transit.options[select_transit.options.length] = new Option(unique_transit[index], unique_transit[index]);
@@ -220,16 +221,19 @@ body {
         
     
     var recorder_name = document.getElementById('recorder_options').value
-    var age_opt = document.getElementById('age_options').value
-    var dest_opt = document.getElementById('destination_options').value
+    var start_opt = document.getElementById('age_options').value
+    var duration_opt = document.getElementById('destination_options').value
     var transit_opt = document.getElementById('transit_options').value
 
     $.getJSON('/api/data', function(data) {
-    console.log(data[0].recorder);
-    console.log(data[0].gender);
-    console.log(data[0].transit);
+    console.log(data[0].name);
+    console.log(data[0].surname);
+    console.log(data[0].start);
+    console.log(data[0].finish);
+    console.log(data[0].duration);
     console.log(data[0].longitude);
     console.log(data[0].latitude);
+    console.log(data[0].type);
     
     var veri1=data[0].longitude;
     var veri2=data[0].latitude;
@@ -240,32 +244,32 @@ body {
     x=0;   
     for (point = 0; point < data.length; point++) {
         
-    var rec=data[point].recorder;
-    var gen=data[point].gender;
-    var ag=data[point].age;
-    var tra=data[point].transit;
-    var dest=data[point].destination;
+    var name=data[point].name;
+    var sname=data[point].surname;
+    var start=data[point].start;
+    var finish=data[point].finish;
+    var duration=data[point].duration;
     var lon=data[point].longitude;
     var lat=data[point].latitude;
-    var dt=data[point].date;
+    var transit=data[point].type;
       
     
 
-    if ((recorder_name==rec && age_opt==ag && dest_opt==dest && transit_opt==tra) ||
-     (recorder_name=="None" && age_opt==ag && dest_opt==dest && transit_opt==tra) || 
-     (recorder_name==rec && age_opt=="None" && dest_opt==dest && transit_opt==tra) ||
-     (recorder_name==rec && age_opt==ag && dest_opt=="None" && transit_opt==tra) ||
-     (recorder_name==rec && age_opt==ag && dest_opt==dest && transit_opt=="None") ||
-     (recorder_name==rec && age_opt=="None" && dest_opt=="None" && transit_opt==tra) ||
-     (recorder_name=="None" && age_opt=="None" && dest_opt==dest && transit_opt==tra) ||
-     (recorder_name=="None" && age_opt==ag && dest_opt=="None" && transit_opt==tra) ||
-     (recorder_name=="None" && age_opt==ag && dest_opt==dest && transit_opt=="None") ||
-     (recorder_name==rec && age_opt==ag && dest_opt=="None" && transit_opt=="None") ||
-     (recorder_name==rec && age_opt=="None" && dest_opt==dest && transit_opt=="None") ||
-     (recorder_name=="None" && age_opt=="None" && dest_opt=="None" && transit_opt==tra) ||
-     (recorder_name==rec && age_opt=="None" && dest_opt=="None" && transit_opt=="None") ||
-     (recorder_name=="None" && age_opt==ag && dest_opt=="None" && transit_opt=="None") ||
-     (recorder_name=="None" && age_opt=="None" && dest_opt==dest && transit_opt=="None")){
+    if ((recorder_name==name && start_opt==start && duration_opt==duration && transit_opt==transit) ||
+     (recorder_name=="None" && start_opt==start && duration_opt==duration && transit_opt==transit) || 
+     (recorder_name==name && start_opt=="None" && duration_opt==duration && transit_opt==transit) ||
+     (recorder_name==name && start_opt==start && duration_opt=="None" && transit_opt==transit) ||
+     (recorder_name==name && start_opt==start && duration_opt==duration && transit_opt=="None") ||
+     (recorder_name==name && start_opt=="None" && duration_opt=="None" && transit_opt==transit) ||
+     (recorder_name=="None" && start_opt=="None" && duration_opt==duration && transit_opt==transit) ||
+     (recorder_name=="None" && start_opt==start && duration_opt=="None" && transit_opt==transit) ||
+     (recorder_name=="None" && start_opt==start && duration_opt==duration && transit_opt=="None") ||
+     (recorder_name==name && start_opt==start && duration_opt=="None" && transit_opt=="None") ||
+     (recorder_name==name && start_opt=="None" && duration_opt==duration && transit_opt=="None") ||
+     (recorder_name=="None" && start_opt=="None" && duration_opt=="None" && transit_opt==transit) ||
+     (recorder_name==name && start_opt=="None" && duration_opt=="None" && transit_opt=="None") ||
+     (recorder_name=="None" && start_opt==start && duration_opt=="None" && transit_opt=="None") ||
+     (recorder_name=="None" && start_opt=="None" && duration_opt==duration && transit_opt=="None")){
         lonLat = new OpenLayers.LonLat(lon,lat ).transform(new OpenLayers.Projection("EPSG:4326"), // transform from WGS 1984
                                                         map.getProjectionObject() // to Spherical Mercator Projection
                                                         )
@@ -274,23 +278,23 @@ body {
 
         markers = new OpenLayers.Layer.Markers("Markers");
         marker_colour = new OpenLayers.Layer.Markers("Markers");
-        if (tra=='Dolmush' || tra == 'Dolmuş') {
+        if (transit=='Dolmush' || transit == 'Dolmuş') {
                 marker_colour = 'https://cdn-icons-png.flaticon.com/512/1165/1165961.png';
-        } else if(tra=='Bus' || tra=='Otobüs'){ marker_colour='https://cdn-icons-png.flaticon.com/512/30/30979.png'}
-        else if(tra=='Tren' || tra=='Train'){ marker_colour='https://cdn-icons-png.flaticon.com/512/733/733036.png'}
-        else if(tra=='Tramvay' || tra=='Streetcar'){ marker_colour='https://cdn-icons-png.flaticon.com/512/82/82281.png'}
+        } else if(transit=='Bus' || transit=='Otobüs'){ marker_colour='https://cdn-icons-png.flaticon.com/512/30/30979.png'}
+        else if(transit=='Tren' || transit=='Train'){ marker_colour='https://cdn-icons-png.flaticon.com/512/733/733036.png'}
+        else if(transit=='Tramvay' || transit=='Streetcar'){ marker_colour='https://cdn-icons-png.flaticon.com/512/82/82281.png'}
         else{marker_colour = 'https://cdn-icons-png.flaticon.com/128/3202/3202926.png'}
         markers.addMarker(new OpenLayers.Marker(lonLat))
         map.setCenter(lonLat,zoom)
         feature = new OpenLayers.Feature.Vector(
         new OpenLayers.Geometry.Point( lon,lat ).transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject()),
-        {description:'Recorder: '+rec+'<br>Gender: '+gen+'<br>Transit Type: '+tra+'<br>Age: '+ag+'<br>Destination: '+dest+'<br>Date: '+dt+'<br>Latitude: '+lat+'<br>Longitude: '+lon},
+        {description:'Recorder: '+name+sname+'<br>Transit Type: '+transit+'<br>Duration: '+duration+'<br>Starting Time: '+start+'<br>Latitude: '+lat+'<br>Longitude: '+lon},
         {externalGraphic: marker_colour, graphicHeight: 25, graphicWidth: 25, graphicXOffset:-10, graphicYOffset:-10 }
         );
         vectorLayer.addFeatures(feature);
         map.addLayer(vectorLayer);
         x=1;
-      } else if (recorder_name=="None" && age_opt=="None" && dest_opt=="None"&& transit_opt=="None") {
+      } else if (recorder_name=="None" && start_opt=="None" && duration_opt=="None"&& transit_opt=="None") {
           window.alert("Please select one of the options!");
           window.location.reload();
           x=1;
@@ -337,4 +341,3 @@ body {
 
            
         
-
