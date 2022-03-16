@@ -5,19 +5,21 @@ var pgp = require('pg-promise')(options);
 var DATABASE_PGB = pgp(CONFIG.database.postgres);
 
 module.exports = {
-       getAllLocations: getAllLocations
+       getAllLocations: getAllLocations,
 };
 
 var options = {
     promiseLib: promise
 };
 
+
 function getAllLocations(cb) {
-      DATABASE_PGB.any('SELECT recorder, gender, age, transit_type as transit, destination, ST_X(geom) as longitude, ST_Y(geom) as latitude, date from datas')
+      DATABASE_PGB.any('SELECT name, surname, start, finish, duration, ST_X(geometry) as longitude, ST_Y(geometry) as latitude, type FROM period')
       .then(function (data) {
          cb(null, data);})
        .catch(function (err) {
           cb(err)});
 }
+
 
 
