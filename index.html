@@ -1,76 +1,61 @@
+<!doctype html>
 <html lang="en">
-<head>
+  <head>
+    <!-- Required meta tags -->
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-    <meta charset="utf-8"/>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-body {
-      margin: 10px 10px;
-      font-family: Arial, Helvetica, sans-serif;
-      background-color: #FDF5E6;
-    }
-    .map {
-        width: 100%;
-        height:100%;
-        position:fixed;
-      }
-   
-    .button1 {
-        background-color: #BA55D3;
-        color: white;
-        padding: 16px 20px;
-        border: 2px solid #FDF5E6;
-        cursor: pointer;
-    } 
-    .open-button {
-        background-color: #BA55D3;
-        color: white;
-        padding: 16px 20px;
-        border: 2px solid #FDF5E6 ;
-        cursor: pointer;
-        position:fixed
-        }
-    #container{
-        display:inline-block;
-        position:relative
-    }
-    .recorder_options {
-        background-color: #BA55D3;
-        color: white;
-        padding: 16px 20px;
-        border: none;
-        cursor: pointer;
-        }
-    .form-popup {
-        position: relative;
-        display: none;
-     }
-    
-    
-</style>
-<title>Display Location</title>
-</head>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <title>Visualize Location</title>
+  </head> 
+  <style>
+    body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif} 
+    </style>
 <body>
-        <div class="map" id="mapdiv"></div>
-        <div id="container">
-            <button id="home" class="button1" onClick="window.location.reload();">Home</button>
-            <button class="open-button" onclick="selectBy_recorder('recorder_options')">Select by Recorder</button><br>
-        </div><br>
-        <div class="form-popup" id="open_entry">
-          <br><select id="recorder_options">
-          </select><br>
-          <br><select id="age_options">
-          </select><br>
-          <br><select id="destination_options">
-          </select><br>
-          <br><select id="transit_options">
-          </select><br>
-          <br><input class="SubmitButton" type="button" value="Submit" onclick="submit_recorder()" />
+    <div class="map" id="mapdiv" 
+     style="width: 100%; height: 100%; position:fixed">
+    </div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="map" id="mapdiv"></div>
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Minibus App</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#" onClick="window.location.reload();">Home</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Filter
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <div class="form-popup" id="open_entry">
+                    <li><a class="dropdown-item" href="#">Recorder</a></li>
+                    <select id="recorder_options">
+                    </select><br>
+                    <br><li><a class="dropdown-item" href="#">Starting Time</a></li>
+                    <select id="age_options">
+                    </select><br>
+                    <br><li><a class="dropdown-item" href="#">Duration</a></li>
+                    <select id="destination_options">
+                    </select><br>
+                    <br><li><a class="dropdown-item" href="#">Transportation Type</a></li>
+                    <select id="transit_options">
+                    </select><br>
+                    <br><input class="btn btn-dark" type="submit" value="Submit" onclick="submit_recorder()">
+                  </div>
+                </ul>
+              </li>
+          </div>
         </div>
-         
+        </div>
+      </nav>
     <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=fetch,requestAnimationFrame,Element.prototype.classList,URL"></script>
     <script src="http://www.openlayers.org/api/OpenLayers.js"></script>
     <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
@@ -174,10 +159,10 @@ body {
             var unique_start = [];
             var unique_duration= [];
             var unique_transit = [];
-            unique_name.push("None");
-            unique_start.push("None");
-            unique_duration.push("None");
-            unique_transit.push("None");
+            unique_name.push("Select Recorder");
+            unique_start.push("Select Starting Time");
+            unique_duration.push("Select Standby Time");
+            unique_transit.push("Select Transportation Type");
             $.each(list_name, function(i, el){
             if($.inArray(el, unique_name) === -1)unique_name.push(el);
             });
@@ -256,20 +241,20 @@ body {
     
 
     if ((recorder_name==name && start_opt==start && duration_opt==duration && transit_opt==transit) ||
-     (recorder_name=="None" && start_opt==start && duration_opt==duration && transit_opt==transit) || 
-     (recorder_name==name && start_opt=="None" && duration_opt==duration && transit_opt==transit) ||
-     (recorder_name==name && start_opt==start && duration_opt=="None" && transit_opt==transit) ||
-     (recorder_name==name && start_opt==start && duration_opt==duration && transit_opt=="None") ||
-     (recorder_name==name && start_opt=="None" && duration_opt=="None" && transit_opt==transit) ||
-     (recorder_name=="None" && start_opt=="None" && duration_opt==duration && transit_opt==transit) ||
-     (recorder_name=="None" && start_opt==start && duration_opt=="None" && transit_opt==transit) ||
-     (recorder_name=="None" && start_opt==start && duration_opt==duration && transit_opt=="None") ||
-     (recorder_name==name && start_opt==start && duration_opt=="None" && transit_opt=="None") ||
-     (recorder_name==name && start_opt=="None" && duration_opt==duration && transit_opt=="None") ||
-     (recorder_name=="None" && start_opt=="None" && duration_opt=="None" && transit_opt==transit) ||
-     (recorder_name==name && start_opt=="None" && duration_opt=="None" && transit_opt=="None") ||
-     (recorder_name=="None" && start_opt==start && duration_opt=="None" && transit_opt=="None") ||
-     (recorder_name=="None" && start_opt=="None" && duration_opt==duration && transit_opt=="None")){
+     (recorder_name=="Select Recorder" && start_opt==start && duration_opt==duration && transit_opt==transit) || 
+     (recorder_name==name && start_opt=="Select Starting Time" && duration_opt==duration && transit_opt==transit) ||
+     (recorder_name==name && start_opt==start && duration_opt=="Select Standby Time" && transit_opt==transit) ||
+     (recorder_name==name && start_opt==start && duration_opt==duration && transit_opt=="Select Transportation Type") ||
+     (recorder_name==name && start_opt=="Select Starting Time" && duration_opt=="Select Standby Time" && transit_opt==transit) ||
+     (recorder_name=="Select Recorder" && start_opt=="Select Starting Time" && duration_opt==duration && transit_opt==transit) ||
+     (recorder_name=="Select Recorder" && start_opt==start && duration_opt=="Select Standby Time" && transit_opt==transit) ||
+     (recorder_name=="Select Recorder" && start_opt==start && duration_opt==duration && transit_opt=="Select Transportation Type") ||
+     (recorder_name==name && start_opt==start && duration_opt=="Select Standby Time" && transit_opt=="Select Transportation Type") ||
+     (recorder_name==name && start_opt=="Select Starting Time" && duration_opt==duration && transit_opt=="Select Transportation Type") ||
+     (recorder_name=="Select Recorder" && start_opt=="Select Starting Time" && duration_opt=="Select Standby Time" && transit_opt==transit) ||
+     (recorder_name==name && start_opt=="Select Starting Time" && duration_opt=="Select Standby Time" && transit_opt=="Select Transportation Type") ||
+     (recorder_name=="Select Recorder" && start_opt==start && duration_opt=="Select Standby Time" && transit_opt=="Select Transportation Type") ||
+     (recorder_name=="Select Recorder" && start_opt=="Select Starting Time" && duration_opt==duration && transit_opt=="Select Transportation Type")){
         lonLat = new OpenLayers.LonLat(lon,lat ).transform(new OpenLayers.Projection("EPSG:4326"), // transform from WGS 1984
                                                         map.getProjectionObject() // to Spherical Mercator Projection
                                                         )
@@ -294,7 +279,7 @@ body {
         vectorLayer.addFeatures(feature);
         map.addLayer(vectorLayer);
         x=1;
-      } else if (recorder_name=="None" && start_opt=="None" && duration_opt=="None"&& transit_opt=="None") {
+      } else if (recorder_name=="Select Recorder" && start_opt=="Select Starting Time" && duration_opt=="Select Standby Time"&& transit_opt=="Select Transportation Type") {
           window.alert("Please select one of the options!");
           window.location.reload();
           x=1;
@@ -336,6 +321,17 @@ body {
           document.getElementById("open_entry").style.display = "block";
         }
  </script>
+ <script>
+  // Open and close sidebar
+  function openNav() {
+    document.getElementById("mySidebar").style.width = "100%";
+    document.getElementById("mySidebar").style.display = "block";
+  }
+  
+  function closeNav() {
+    document.getElementById("mySidebar").style.display = "none";
+  }
+  </script>
   </body>
   </html>
 
