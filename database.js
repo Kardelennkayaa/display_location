@@ -14,8 +14,7 @@ var options = {
 
 
 function getAllLocations(cb) {
-      DATABASE_PGB.any('SELECT name, surname, start, finish, duration, ST_X(geometry) as longitude, ST_Y(geometry) as latitude, type FROM period 
-WHERE time > NOW() - interval'1 minutes'')
+      DATABASE_PGB.any('SELECT name, surname, start, finish, duration, ST_X(geometry) as longitude, ST_Y(geometry) as latitude, type FROM period')
       .then(function (data) {
          cb(null, data);})
        .catch(function (err) {
